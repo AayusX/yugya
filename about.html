@@ -3,85 +3,351 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Yugya</title>
-  <meta name="description" content="Learn Yugya's mission, principles, and execution approach for practical technology delivery.">
-  <meta property="og:title" content="About | Yugya">
-  <meta property="og:description" content="Yugya's mission and operating principles for practical technology solutions.">
+  <title>About Yugya — Purpose, Team & Principles</title>
+  <meta name="description" content="Why Yugya exists: practical technology delivery from computer engineering practitioners in Nepal. Meet the team and learn our operating principles.">
+  <link rel="canonical" href="https://yugya.com/about.html">
+
+  <meta property="og:title" content="About Yugya — Purpose, Team & Principles">
+  <meta property="og:description" content="Founded in Nepal to deliver dependable software, server infrastructure, and digital services without agency pretension.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yugya.com/about.html">
-  <link rel="canonical" href="https://yugya.com/about.html">
+  <meta property="og:image" content="https://yugya.com/yugya.png">
+
   <link rel="icon" type="image/png" href="yugya.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header Navigation -->
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html"><img src="yugya.png" alt="Yugya logo">Yugya</a>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg></button>
-      <nav class="nav" id="siteNav" aria-label="Main navigation">
-        <a href="index.html" data-page>Home</a>
-        <a href="services.html" data-page>Services</a>
-        <a href="work.html" data-page>Work</a>
-        <a href="about.html" data-page>About</a>
-        <a href="contact.html" data-page>Contact</a>
-        <a class="btn btn-primary" href="contact.html">Start a Project</a>
-      </nav>
+    <div class="container nav-container">
+      <a class="brand" href="index.html" aria-label="Yugya Home">
+        <img class="brand-logo" src="yugya.png" alt="Yugya mark" width="32" height="32">
+        <div class="brand-text">
+          <span class="brand-name">Yugya</span>
+          <span class="brand-sub">Technology & Services</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="nav-menu" id="primaryNav">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="services.html">Services</a></li>
+        <li><a class="nav-link" href="work.html">Work</a></li>
+        <li><a class="nav-link" href="about.html" aria-current="page">About</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="mobile-cta">
+          <a class="btn btn-primary" href="contact.html" style="width: 100%;">Discuss a Project</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="contact.html">
+          Discuss a Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
     </div>
   </header>
 
   <main id="main">
+    <!-- Page Hero -->
     <section class="page-hero">
-      <div class="container">
+      <div class="container container-narrow">
         <span class="kicker">About Yugya</span>
-        <h1>Technology implementation with business discipline.</h1>
-        <p class="lead">Yugya exists to help organizations turn digital intent into workable systems. We focus on practical decisions, clear delivery, and maintainable outcomes that teams can operate after launch.</p>
+        <h1>Honest engineering, built from first principles.</h1>
+        <p class="lead" style="margin-top: 1.25rem;">
+          Yugya was started in Nepal with a straightforward conviction: businesses, schools, and individuals deserve technology that works reliably, without agency bureaucracy or inflated marketing claims.
+        </p>
+        <p style="margin-top: 0.75rem;">
+          We build websites, custom tools, and hardened server setups with clean code, direct engineer access, and complete client ownership.
+        </p>
       </div>
     </section>
 
-    <section class="section section-muted">
-      <div class="container grid grid-2">
-        <article class="card reveal">
-          <h3>Mission</h3>
-          <p>Enable organizations to modernize operations and customer experiences through dependable digital systems.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Commitment</h3>
-          <p>Deliver scoped work transparently, communicate risks early, and avoid unnecessary technical complexity.</p>
-        </article>
-      </div>
-    </section>
-
+    <!-- Founding Story & Purpose -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <h2>Operating principles</h2>
-          <p>These principles guide how Yugya plans and delivers projects.</p>
-        </div>
-        <div class="grid grid-3">
-          <article class="card reveal"><h3>Clarity first</h3><p>We define scope, responsibilities, and expected outputs before implementation.</p></article>
-          <article class="card reveal"><h3>Useful technology</h3><p>We prioritize tools and architecture choices that teams can maintain over time.</p></article>
-          <article class="card reveal"><h3>Measured execution</h3><p>Delivery is broken into reviewable phases to reduce project risk and rework.</p></article>
-          <article class="card reveal"><h3>Accessible outcomes</h3><p>Usability, readability, and accessibility are treated as core quality requirements.</p></article>
-          <article class="card reveal"><h3>Operational readiness</h3><p>Projects include handover context so teams can run what gets built.</p></article>
-          <article class="card reveal"><h3>Long-term partnership</h3><p>Post-launch support and iterative improvement are built into engagement options.</p></article>
+        <div class="grid-2" style="gap: 3rem; align-items: start;">
+          <div>
+            <span class="kicker">Why Yugya Exists</span>
+            <h2>Solving practical problems rather than selling buzzwords.</h2>
+            <p style="margin-top: 1rem;">
+              Across Nepal and emerging digital markets, organizations looking to build a digital presence are often caught between two bad options:
+            </p>
+            <p style="margin-top: 0.75rem;">
+              On one hand, low-cost marketplace templates that look flashy in a demo but break on mobile devices, take 10 seconds to load, and leave servers vulnerable to automated attacks.
+            </p>
+            <p style="margin-top: 0.75rem;">
+              On the other hand, large commercial agencies that charge enterprise retainers for simple websites, hide behind layers of account managers, and lock clients into proprietary hosting systems.
+            </p>
+            <p style="margin-top: 0.75rem;">
+              <strong>Yugya was created to provide a disciplined middle path:</strong> high engineering quality, transparent scoping, direct communication with the developers writing your code, and total client ownership of every asset created.
+            </p>
+          </div>
+
+          <div class="hero-card-panel fade-in">
+            <span class="panel-title">What We Stand For</span>
+            <ul class="panel-list">
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Clean Semantic Code:</strong> We use lean HTML, CSS, and modern JavaScript where appropriate. We don't bloat websites with unnecessary dependencies.</span>
+              </li>
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>No Artificial Lock-in:</strong> You own the Git repository, domain accounts, and server credentials outright. We build so you can leave at any time.</span>
+              </li>
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Accessible & Mobile First:</strong> Tested for fast loading across cellular 3G and 4G networks common throughout Nepal.</span>
+              </li>
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Honest Scoping:</strong> If an off-the-shelf free tool solves your problem better than custom development, we will tell you directly.</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- The Founding Team -->
+    <section class="section section-muted" id="team">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">The Founding Team</span>
+          <h2>The people who actually build the systems.</h2>
+          <p class="section-desc">
+            We are students and practitioners of Computer Engineering in Nepal. We don't hide behind fake corporate executive titles or stock photos. Here is who you will be working with.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Team Member 1 -->
+          <article class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="Aayush-Bhandari.jpg" alt="Aayush Bhandari" width="400" height="400" loading="lazy">
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">Aayush Bhandari</h3>
+              <span class="team-role">Co-Founder & Developer</span>
+              <p class="team-bio">
+                Computer Engineering student and developer based in Nepal. Leads web development, automation tooling, and client project scoping. Focuses on full-stack web builds, Python scripting, and local-first software that solves real operational needs.
+              </p>
+            </div>
+          </article>
+
+          <!-- Team Member 2 -->
+          <article class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="aayush-bk.jpg" alt="Aayush B.K" width="400" height="400" loading="lazy">
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">Aayush B.K</h3>
+              <span class="team-role">Co-Founder & Systems Support</span>
+              <p class="team-bio">
+                Technical co-founder specializing in Linux server configuration, cloud VPS hardening, reverse proxies, and domain routing. Ensures deployed systems run stably with proper firewalls, backups, and security practices.
+              </p>
+            </div>
+          </article>
+
+          <!-- Team Member 3 -->
+          <article class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="sagar-bhusal.jpg" alt="Sagar Bhusal" width="400" height="400" loading="lazy">
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">Sagar Bhusal</h3>
+              <span class="team-role">Co-Founder & Interface Designer</span>
+              <p class="team-bio">
+                Front-end developer and designer focused on clear visual hierarchy, typography, responsive mobile layouts, and bilingual user experiences. Translates complex project requirements into clean, accessible web interfaces.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operating Principles -->
+    <section class="section" id="principles">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">Our Philosophy</span>
+          <h2>Six operating principles that guide our work.</h2>
+          <p class="section-desc">
+            These guidelines determine how we evaluate project requests, write code, manage servers, and support clients after launch.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card fade-in">
+            <span class="card-num">01</span>
+            <h3 class="card-title">Clarity before code</h3>
+            <p class="card-desc">
+              We never begin writing code until business goals, target audience, technical constraints, and handover criteria are thoroughly understood and documented.
+            </p>
+          </article>
+
+          <article class="card fade-in">
+            <span class="card-num">02</span>
+            <h3 class="card-title">Simplicity over novelty</h3>
+            <p class="card-desc">
+              We select tools that have proven longevity. We resist adding trendy JavaScript frameworks when semantic HTML, clean CSS, and standard APIs do the job faster.
+            </p>
+          </article>
+
+          <article class="card fade-in">
+            <span class="card-num">03</span>
+            <h3 class="card-title">Full client ownership</h3>
+            <p class="card-desc">
+              You own 100% of the repository, design assets, domain records, and server credentials. We build systems that any competent engineer can maintain after us.
+            </p>
+          </article>
+
+          <article class="card fade-in">
+            <span class="card-num">04</span>
+            <h3 class="card-title">Accessibility as a baseline</h3>
+            <p class="card-desc">
+              High contrast, visible keyboard focus indicators, screen reader landmarks, and responsive mobile layouts are non-negotiable standards on every build.
+            </p>
+          </article>
+
+          <article class="card fade-in">
+            <span class="card-num">05</span>
+            <h3 class="card-title">No manufactured claims</h3>
+            <p class="card-desc">
+              We do not invent statistics, fake client numbers, or bogus 99.999% uptime guarantees. We tell you exactly what is tested, verified, and operational.
+            </p>
+          </article>
+
+          <article class="card fade-in">
+            <span class="card-num">06</span>
+            <h3 class="card-title">Long-term reliability</h3>
+            <p class="card-desc">
+              We configure automated backups, SSL auto-renewal, and firewall protections so your applications keep working smoothly long after the project ships.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Working Method -->
+    <section class="section section-muted">
+      <div class="container container-narrow">
+        <div class="card" style="padding: 2.5rem;">
+          <span class="kicker">Location & Collaboration</span>
+          <h3 style="margin-bottom: 0.75rem;">Where we operate & how we collaborate.</h3>
+          <p style="margin-bottom: 1rem;">
+            Yugya is based in Kapilvastu / Rupandehi, Nepal (UTC +5:45). We work with local organizations across Nepal as well as international clients through remote collaboration.
+          </p>
+          <p style="margin-bottom: 1rem;">
+            We operate asynchronously and efficiently: regular Git commits, clear milestone reviews, video walkthroughs, and direct chat or email access. No middle managers or lost messages.
+          </p>
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 1.25rem; margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center;">
+            <div>
+              <span class="meta-label">Primary Contact Email</span><br>
+              <a href="mailto:hello@yugya.com" style="font-family: var(--font-mono); font-size: 1.05rem; font-weight: 600;">hello@yugya.com</a>
+            </div>
+            <a class="btn btn-primary" href="contact.html">Send an Enquiry &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
     <section class="section">
-      <div class="container cta reveal">
-        <h2>Looking for a grounded delivery partner?</h2>
-        <p>We can review your current stack and recommend a practical first step.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="contact.html">Talk with Yugya</a></div>
+      <div class="container container-narrow" style="text-align: center;">
+        <span class="kicker" style="justify-content: center;">Work With Us</span>
+        <h2>Looking for a grounded engineering partner?</h2>
+        <p class="lead" style="margin-top: 1rem; margin-inline: auto;">
+          We would be glad to review your current website, server setup, or project concept and provide an honest assessment of how we can help.
+        </p>
+        <div class="hero-actions" style="justify-content: center; margin-top: 2rem;">
+          <a class="btn btn-primary" href="contact.html">
+            Discuss Your Requirements
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a class="btn btn-secondary" href="work.html">View Verified Projects</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container"><p class="footer-note">© <span id="year"></span> Yugya</p></div></footer>
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.85rem;">
+            <img src="yugya.png" alt="Yugya mark" width="28" height="28" style="border-radius: 4px;">
+            <span style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: #ffffff;">Yugya</span>
+          </div>
+          <p style="color: #9aa5b5; font-size: 0.9rem; line-height: 1.6;">
+            Practical technology and digital services company. Delivering websites, software tools, and server infrastructure that organizations can rely on.
+          </p>
+          <div style="margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.8rem; color: #7d8799;">
+            Kapilvastu / Rupandehi, Nepal
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#web-development">Web & App Development</a></li>
+            <li><a href="services.html#server-infrastructure">Linux VPS & Deployment</a></li>
+            <li><a href="services.html#domain-dns">Domain & DNS Guidance</a></li>
+            <li><a href="services.html#automation">Business Automation</a></li>
+            <li><a href="services.html#maintenance">Ongoing Maintenance</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Yugya</a></li>
+            <li><a href="about.html#team">Founding Team</a></li>
+            <li><a href="about.html#principles">Operating Principles</a></li>
+            <li><a href="work.html">Verified Work</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Inquiries</h4>
+          <ul>
+            <li><a href="mailto:hello@yugya.com">hello@yugya.com</a></li>
+            <li><a href="contact.html">Project Enquiry Form</a></li>
+            <li><span style="color: #7d8799; font-size: 0.85rem;">Response time: 1–2 business days</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="year">2026</span> Yugya. All rights reserved. Built with semantic HTML, CSS & JavaScript.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="services.html">Services Scope</a>
+          <a href="work.html">Project Case Studies</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

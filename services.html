@@ -3,116 +3,478 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | Yugya</title>
-  <meta name="description" content="Detailed Yugya services: website development, custom software, business automation, digital transformation, and digital growth support.">
-  <meta property="og:title" content="Services | Yugya">
-  <meta property="og:description" content="Delivery-focused technology services with clear scope and practical outcomes.">
+  <title>Services & Deliverables — Yugya</title>
+  <meta name="description" content="Detailed service scopes from Yugya: web development, Linux VPS server hardening, Nepal .np domain guidance, automation scripting, and ongoing maintenance.">
+  <link rel="canonical" href="https://yugya.com/services.html">
+
+  <meta property="og:title" content="Services & Deliverables — Yugya">
+  <meta property="og:description" content="Itemized technology services with defined deliverables, honest constraints, and clear handover terms.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yugya.com/services.html">
-  <link rel="canonical" href="https://yugya.com/services.html">
+  <meta property="og:image" content="https://yugya.com/yugya.png">
+
   <link rel="icon" type="image/png" href="yugya.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header Navigation -->
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html"><img src="yugya.png" alt="Yugya logo">Yugya</a>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg></button>
-      <nav class="nav" id="siteNav" aria-label="Main navigation">
-        <a href="index.html" data-page>Home</a>
-        <a href="services.html" data-page>Services</a>
-        <a href="work.html" data-page>Work</a>
-        <a href="about.html" data-page>About</a>
-        <a href="contact.html" data-page>Contact</a>
-        <a class="btn btn-primary" href="contact.html">Start a Project</a>
-      </nav>
+    <div class="container nav-container">
+      <a class="brand" href="index.html" aria-label="Yugya Home">
+        <img class="brand-logo" src="yugya.png" alt="Yugya mark" width="32" height="32">
+        <div class="brand-text">
+          <span class="brand-name">Yugya</span>
+          <span class="brand-sub">Technology & Services</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="nav-menu" id="primaryNav">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="services.html" aria-current="page">Services</a></li>
+        <li><a class="nav-link" href="work.html">Work</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="mobile-cta">
+          <a class="btn btn-primary" href="contact.html" style="width: 100%;">Discuss a Project</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="contact.html">
+          Discuss a Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
     </div>
   </header>
 
   <main id="main">
+    <!-- Page Hero -->
     <section class="page-hero">
-      <div class="container">
-        <span class="kicker">Service Scope</span>
-        <h1>Services designed around delivery accountability.</h1>
-        <p class="lead">Each engagement is scoped around outcomes, constraints, and operational ownership so projects can move from intent to execution.</p>
+      <div class="container container-narrow">
+        <span class="kicker">Service Offerings & Scopes</span>
+        <h1>Defined capabilities, itemized deliverables.</h1>
+        <p class="lead" style="margin-top: 1.25rem;">
+          We do not sell vague retainers or buzzword packages. Every Yugya engagement is structured around an explicit operational problem, a concrete deliverable, and documented handover.
+        </p>
+        <p style="margin-top: 0.75rem;">
+          Below is a transparent breakdown of what we build, who needs it, what the project deliverable includes, and what happens once the project is shipped.
+        </p>
       </div>
     </section>
 
-    <section class="section section-muted">
-      <div class="container grid grid-2">
-        <article class="card reveal">
-          <h3>Website Development</h3>
-          <p>For organizations that need a clear digital front door and reliable lead or customer journeys.</p>
-          <ul>
-            <li>Information architecture and page strategy</li>
-            <li>Responsive frontend implementation</li>
-            <li>Performance and accessibility baseline</li>
-            <li>Technical handover and support options</li>
-          </ul>
-        </article>
-        <article class="card reveal">
-          <h3>Custom Software Development</h3>
-          <p>For teams where off-the-shelf tools create friction or force operational compromises.</p>
-          <ul>
-            <li>Requirements mapping and process modeling</li>
-            <li>Internal dashboards and operational tools</li>
-            <li>Business logic implementation</li>
-            <li>Iterative release and change management</li>
-          </ul>
-        </article>
-        <article class="card reveal">
-          <h3>Business Automation</h3>
-          <p>For repetitive tasks, fragmented updates, and manual dependencies that slow teams down.</p>
-          <ul>
-            <li>Workflow and approval automation</li>
-            <li>Cross-tool data synchronization</li>
-            <li>Notification and follow-up systems</li>
-            <li>Exception handling and fallback design</li>
-          </ul>
-        </article>
-        <article class="card reveal">
-          <h3>Digital Transformation</h3>
-          <p>For organizations migrating from ad-hoc systems to coordinated digital operations.</p>
-          <ul>
-            <li>Current-state and gap analysis</li>
-            <li>Prioritized modernization roadmap</li>
-            <li>Phased implementation planning</li>
-            <li>Operational adoption support</li>
-          </ul>
-        </article>
-        <article class="card reveal">
-          <h3>Digital Presence and Growth</h3>
-          <p>For teams needing stronger positioning, cleaner messaging, and measurable web performance.</p>
-          <ul>
-            <li>Site content structure and clarity improvements</li>
-            <li>Conversion path and enquiry flow refinement</li>
-            <li>Analytics setup and interpretation support</li>
-            <li>Continuous iteration planning</li>
-          </ul>
-        </article>
-        <article class="card reveal">
-          <h3>How scope is finalized</h3>
-          <p>We define expected outputs, timeline boundaries, review cadence, and ownership before implementation starts.</p>
-        </article>
-      </div>
-    </section>
-
+    <!-- Detailed Services -->
     <section class="section">
-      <div class="container cta reveal">
-        <h2>Need help choosing the right service mix?</h2>
-        <p>Share your current setup and target outcomes. We can map a practical first phase.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="contact.html">Discuss your requirements</a></div>
+      <div class="container">
+        
+        <!-- Service 1: Web Development -->
+        <article class="card fade-in" id="web-development" style="margin-bottom: 2.5rem; padding: 2.5rem;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+            <div>
+              <span class="card-num">SERVICE 01</span>
+              <h2>Website & Web Application Development</h2>
+            </div>
+            <span class="badge badge-verified">Directly Available</span>
+          </div>
+
+          <div class="grid-2" style="gap: 2rem;">
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What it is & Who needs it</h4>
+              <p style="margin-bottom: 1rem;">
+                Custom web development for businesses, schools, and organizations that need a high-performance digital front door or interactive web tool. Ideal for organizations whose current website is slow, broken on mobile devices, or trapped inside rigid, expensive website builders.
+              </p>
+
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">The Problem it solves</h4>
+              <p>
+                Most business websites fail because they bury crucial actions behind excessive animations, stock photos, and slow-loading frameworks. We build clean, lightweight sites that load instantly even on 3G cellular connections and make contacting or transacting straightforward.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What the deliverable includes</h4>
+              <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
+                <li>Semantic HTML5, CSS3, and JavaScript codebase without heavy third-party baggage</li>
+                <li>Fully responsive layouts tested across small mobile (375px), modern mobile (390px), tablet, and desktop</li>
+                <li>Bilingual architecture support (e.g. English + Nepali toggles) where required</li>
+                <li>Accessible navigation, forms, and keyboard focus states (WCAG AA compliant)</li>
+                <li>Technical SEO foundations: canonical URLs, OpenGraph social cards, Schema.org JSON-LD</li>
+                <li>Complete Git repository ownership transferred to your team</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-bottom: 0; margin-top: 2rem;">
+            <h4>What happens after delivery?</h4>
+            <p>
+              We deploy the site to your production server or static hosting platform, provide a simple walkthrough of how to edit content, and include 30 calendar days of bug fixing support at zero extra charge.
+            </p>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+            <a class="btn btn-primary" href="contact.html?service=web">
+              Enquire About Web Development &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- Service 2: Server Infrastructure -->
+        <article class="card fade-in" id="server-infrastructure" style="margin-bottom: 2.5rem; padding: 2.5rem;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+            <div>
+              <span class="card-num">SERVICE 02</span>
+              <h2>Linux Server Setup, VPS & Deployment Pipelines</h2>
+            </div>
+            <span class="badge badge-verified">Directly Available</span>
+          </div>
+
+          <div class="grid-2" style="gap: 2rem;">
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What it is & Who needs it</h4>
+              <p style="margin-bottom: 1rem;">
+                Configuring and locking down virtual private servers (VPS) on cloud providers like DigitalOcean, Linode, Hetzner, or AWS. Perfect for teams outgrowing restrictive shared hosting who need dedicated resources, stability, and control.
+              </p>
+
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">The Problem it solves</h4>
+              <p>
+                Shared hosting has arbitrary file limits and slow execution speeds, while default Linux servers leave root password logins enabled and firewalls disabled. We build a clean, secure, production-grade Linux environment that protects your applications and automates deployments.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What the deliverable includes</h4>
+              <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
+                <li>OS provisioning (Ubuntu LTS or Debian) with non-root sudo users and SSH key-only access</li>
+                <li>UFW firewall configuration and Fail2ban intrusion prevention</li>
+                <li>High-performance reverse proxy (Nginx or Caddy) with automated Let's Encrypt SSL/TLS certificates</li>
+                <li>Automated deployment pipeline using Git hooks or GitHub Actions CI/CD</li>
+                <li>Systemd service configuration for automated process management and crash recovery</li>
+                <li>Documented server runbook and backup routine instructions</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-bottom: 0; margin-top: 2rem;">
+            <h4>What happens after delivery?</h4>
+            <p>
+              All SSH keys, server root passwords, and cloud dashboard accesses are retained solely by you. We provide a concise Markdown runbook explaining how to start, restart, and inspect service logs.
+            </p>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+            <a class="btn btn-primary" href="contact.html?service=vps">
+              Enquire About Server Infrastructure &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- Service 3: Domain & DNS -->
+        <article class="card fade-in" id="domain-dns" style="margin-bottom: 2.5rem; padding: 2.5rem;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+            <div>
+              <span class="card-num">SERVICE 03</span>
+              <h2>Domain Guidance & DNS Architecture</h2>
+            </div>
+            <span class="badge badge-verified">Directly Available</span>
+          </div>
+
+          <div class="grid-2" style="gap: 2rem;">
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What it is & Who needs it</h4>
+              <p style="margin-bottom: 1rem;">
+                Assistance with registering national ccTLDs (specifically Nepal's official <code>.np</code> domains), purchasing global commercial domains (<code>.com</code>, <code>.org</code>), and establishing resilient DNS routing.
+              </p>
+
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">The Problem it solves</h4>
+              <p>
+                In Nepal, registering a <code>.com.np</code> domain requires strict documentation (company registration, official cover letters, tax verification) that often gets rejected. Additionally, poorly configured DNS leads to broken emails, missing SPF/DKIM records, and spoofing vulnerabilities.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What the deliverable includes</h4>
+              <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
+                <li>Official Nepal <code>.np</code> application paperwork audit and cover letter preparation</li>
+                <li>DNS routing setup on Cloudflare or provider of choice with DNSSEC activation</li>
+                <li>Email authentication records: MX, SPF, DKIM, and DMARC for Google Workspace, Zoho, or custom mail</li>
+                <li>Subdomain mapping for web applications, APIs, and staging environments</li>
+                <li>Zero downtime DNS cutover planning and validation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-bottom: 0; margin-top: 2rem;">
+            <h4>What happens after delivery?</h4>
+            <p>
+              Your domain account remains in your direct legal ownership. We deliver an export of all active DNS records and configuration steps so any engineer can maintain it in the future.
+            </p>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+            <a class="btn btn-primary" href="contact.html?service=dns">
+              Enquire About Domain & DNS &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- Service 4: Business Automation -->
+        <article class="card fade-in" id="automation" style="margin-bottom: 2.5rem; padding: 2.5rem;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+            <div>
+              <span class="card-num">SERVICE 04</span>
+              <h2>Business Automation & Custom Tooling</h2>
+            </div>
+            <span class="badge badge-accent">Scoped Engagement</span>
+          </div>
+
+          <div class="grid-2" style="gap: 2rem;">
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What it is & Who needs it</h4>
+              <p style="margin-bottom: 1rem;">
+                Custom lightweight scripts, automated data sync pipelines, and local utility tools written in Python or Node.js. For business teams spending hours manually copying data between spreadsheets, forms, or messaging channels.
+              </p>
+
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">The Problem it solves</h4>
+              <p>
+                Repetitive manual entry introduces data corruption, delays customer responses, and consumes productive engineering or administrative hours. We automate these workflows with transparent, maintainable scripts.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What the deliverable includes</h4>
+              <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
+                <li>Process discovery: documenting input sources, transformation rules, and output destinations</li>
+                <li>Standalone Python/Node.js script or automated webhook handler with clear error logging</li>
+                <li>Local SQLite or CSV/JSON storage pipeline with automated backups</li>
+                <li>Automated alert mechanism (Telegram, email, or Slack webhook) on failure or completion</li>
+                <li>Step-by-step operating guide and cron schedule configuration</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-bottom: 0; margin-top: 2rem;">
+            <h4>What happens after delivery?</h4>
+            <p>
+              We run test batches together with your team, demonstrate edge-case failure handling, and provide instructions on how to adjust parameters as your business rules evolve.
+            </p>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+            <a class="btn btn-primary" href="contact.html?service=automation">
+              Enquire About Custom Automation &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- Service 5: Maintenance -->
+        <article class="card fade-in" id="maintenance" style="margin-bottom: 2.5rem; padding: 2.5rem;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+            <div>
+              <span class="card-num">SERVICE 05</span>
+              <h2>Ongoing Maintenance & Technical Care</h2>
+            </div>
+            <span class="badge badge-verified">Directly Available</span>
+          </div>
+
+          <div class="grid-2" style="gap: 2rem;">
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What it is & Who needs it</h4>
+              <p style="margin-bottom: 1rem;">
+                Monthly operational checkups and proactive maintenance for deployed websites and servers. For businesses without full-time internal engineering teams that need someone reliable to keep things working.
+              </p>
+
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">The Problem it solves</h4>
+              <p>
+                Web applications rot when neglected. Unrenewed SSL certificates cause browser warnings, unpatched server packages introduce security holes, and unmonitored disk space causes unexpected outages.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What the deliverable includes</h4>
+              <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
+                <li>Monthly server OS security patching and software package upgrades</li>
+                <li>SSL certificate health checks and DNS renewal monitoring</li>
+                <li>Automated offsite database and asset backup verification</li>
+                <li>Minor content updates and broken link repair</li>
+                <li>Direct engineer contact via email or dedicated chat for technical emergencies</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-bottom: 0; margin-top: 2rem;">
+            <h4>What happens after delivery?</h4>
+            <p>
+              At the end of every month, you receive a concise summary report detailing all updates performed, backup integrity checks, and recommendations for improvements.
+            </p>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+            <a class="btn btn-primary" href="contact.html?service=maintenance">
+              Enquire About Monthly Maintenance &rarr;
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Transparent Service Scope & Feasibility Matrix -->
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">Service Integrity Matrix</span>
+          <h2>Clear boundaries: what we do and what we don't.</h2>
+          <p class="section-desc">
+            We believe trust starts with clarity. Below is an honest distinction between services we actively deliver, custom engagements that require scoping, and services that are outside our scope.
+          </p>
+        </div>
+
+        <div class="table-wrap fade-in">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 28%;">Service Offering</th>
+                <th style="width: 22%;">Status</th>
+                <th>Scope & Delivery Commitment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Custom Website Development</strong></td>
+                <td><span class="badge badge-verified">Available Now</span></td>
+                <td>Semantic HTML/CSS/JS, bilingual support, responsive architecture, performance optimization.</td>
+              </tr>
+              <tr>
+                <td><strong>Linux Server Hardening & VPS Setup</strong></td>
+                <td><span class="badge badge-verified">Available Now</span></td>
+                <td>Ubuntu/Debian VPS, UFW firewall, SSH key auth, Nginx/Caddy proxy, Let's Encrypt SSL, CI/CD deploys.</td>
+              </tr>
+              <tr>
+                <td><strong>Nepal .np & Commercial DNS Setup</strong></td>
+                <td><span class="badge badge-verified">Available Now</span></td>
+                <td>Paperwork dossier prep, Cloudflare routing, SPF/DKIM/DMARC mail records, DNSSEC activation.</td>
+              </tr>
+              <tr>
+                <td><strong>Scheduled Technical Maintenance</strong></td>
+                <td><span class="badge badge-verified">Available Now</span></td>
+                <td>Monthly security patches, backup verification, link checks, minor content changes, uptime monitoring.</td>
+              </tr>
+              <tr>
+                <td><strong>Custom Automation & Scripts</strong></td>
+                <td><span class="badge badge-accent">Scoped Engagement</span></td>
+                <td>Requires discovery review to assess input APIs, data structures, and edge-case error scenarios.</td>
+              </tr>
+              <tr>
+                <td><strong>Shared Hosting Reselling</strong></td>
+                <td><span class="badge badge-neutral">Out of Scope</span></td>
+                <td>We do not resell low-quality shared cPanel hosting. We configure dedicated cloud VPS instances that you own.</td>
+              </tr>
+              <tr>
+                <td><strong>24/7 Telephone Call Centers</strong></td>
+                <td><span class="badge badge-neutral">Out of Scope</span></td>
+                <td>We provide responsive engineer-level email and messaging support during business hours, not a generic call center.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+      <div class="container container-narrow" style="text-align: center;">
+        <span class="kicker" style="justify-content: center;">Next Steps</span>
+        <h2>Need help choosing the right service scope?</h2>
+        <p class="lead" style="margin-top: 1rem; margin-inline: auto;">
+          Tell us what you are working on, what technology is currently in place, and what outcome you are aiming for. We will recommend a realistic plan.
+        </p>
+        <div class="hero-actions" style="justify-content: center; margin-top: 2rem;">
+          <a class="btn btn-primary" href="contact.html">
+            Start a Project Enquiry
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a class="btn btn-secondary" href="work.html">Review Verified Case Studies</a>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Site Footer -->
   <footer class="site-footer">
-    <div class="container"><p class="footer-note">© <span id="year"></span> Yugya</p></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.85rem;">
+            <img src="yugya.png" alt="Yugya mark" width="28" height="28" style="border-radius: 4px;">
+            <span style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: #ffffff;">Yugya</span>
+          </div>
+          <p style="color: #9aa5b5; font-size: 0.9rem; line-height: 1.6;">
+            Practical technology and digital services company. Delivering websites, software tools, and server infrastructure that organizations can rely on.
+          </p>
+          <div style="margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.8rem; color: #7d8799;">
+            Kapilvastu / Rupandehi, Nepal
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#web-development">Web & App Development</a></li>
+            <li><a href="services.html#server-infrastructure">Linux VPS & Deployment</a></li>
+            <li><a href="services.html#domain-dns">Domain & DNS Guidance</a></li>
+            <li><a href="services.html#automation">Business Automation</a></li>
+            <li><a href="services.html#maintenance">Ongoing Maintenance</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Yugya</a></li>
+            <li><a href="about.html#team">Founding Team</a></li>
+            <li><a href="about.html#principles">Operating Principles</a></li>
+            <li><a href="work.html">Verified Work</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Inquiries</h4>
+          <ul>
+            <li><a href="mailto:hello@yugya.com">hello@yugya.com</a></li>
+            <li><a href="contact.html">Project Enquiry Form</a></li>
+            <li><span style="color: #7d8799; font-size: 0.85rem;">Response time: 1–2 business days</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="year">2026</span> Yugya. All rights reserved. Built with semantic HTML, CSS & JavaScript.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="services.html">Services Scope</a>
+          <a href="work.html">Project Case Studies</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

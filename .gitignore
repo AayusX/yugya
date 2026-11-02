@@ -1,0 +1,14 @@
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Verification & Test Artifacts
+verification_screenshots/
+audit_*.py
+test_*.js
+test_*.py
+run_*.js
