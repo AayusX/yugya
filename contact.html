@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Yugya</title>
+  <meta name="description" content="Contact Yugya for website development, custom software, automation, and digital transformation enquiries.">
+  <meta property="og:title" content="Contact | Yugya">
+  <meta property="og:description" content="Send your project enquiry to Yugya.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yugya.com/contact.html">
+  <link rel="canonical" href="https://yugya.com/contact.html">
+  <link rel="icon" type="image/png" href="yugya.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html"><img src="yugya.png" alt="Yugya logo">Yugya</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg></button>
+      <nav class="nav" id="siteNav" aria-label="Main navigation">
+        <a href="index.html" data-page>Home</a>
+        <a href="services.html" data-page>Services</a>
+        <a href="work.html" data-page>Work</a>
+        <a href="about.html" data-page>About</a>
+        <a href="contact.html" data-page>Contact</a>
+        <a class="btn btn-primary" href="contact.html">Start a Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Project Enquiry</span>
+        <h1>Let’s discuss your project requirements.</h1>
+        <p class="lead">Share your goals and constraints. We will respond with a practical next-step recommendation.</p>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container contact-layout">
+        <aside class="card reveal">
+          <h2>Before you submit</h2>
+          <p>Please include business context, intended users, and the timeline or operational deadline you are working with.</p>
+          <ul class="contact-list">
+            <li>Email: <a href="mailto:hello@yugya.com">hello@yugya.com</a></li>
+            <li>Primary region: Nepal</li>
+            <li>Services: Web, software, automation, digital transformation</li>
+          </ul>
+        </aside>
+
+        <form class="form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="fullName">Name</label>
+            <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="organization">Organization</label>
+            <input id="organization" name="organization" type="text" autocomplete="organization-title">
+          </div>
+          <div class="field">
+            <label for="service">Required service</label>
+            <select id="service" name="service" required>
+              <option value="" selected disabled>Select one</option>
+              <option>Website development</option>
+              <option>Custom software development</option>
+              <option>Business automation</option>
+              <option>Digital transformation</option>
+              <option>Digital presence and growth</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="projectDescription">Project description</label>
+            <textarea id="projectDescription" name="projectDescription" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Prepare enquiry email</button>
+          <p id="formStatus" class="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p class="footer-note">© <span id="year"></span> Yugya</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work | Yugya</title>
+  <meta name="description" content="Verifiable work snapshots from Yugya projects and delivery systems.">
+  <meta property="og:title" content="Work | Yugya">
+  <meta property="og:description" content="A transparent view of currently published Yugya work.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yugya.com/work.html">
+  <link rel="canonical" href="https://yugya.com/work.html">
+  <link rel="icon" type="image/png" href="yugya.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html"><img src="yugya.png" alt="Yugya logo">Yugya</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg></button>
+      <nav class="nav" id="siteNav" aria-label="Main navigation">
+        <a href="index.html" data-page>Home</a>
+        <a href="services.html" data-page>Services</a>
+        <a href="work.html" data-page>Work</a>
+        <a href="about.html" data-page>About</a>
+        <a href="contact.html" data-page>Contact</a>
+        <a class="btn btn-primary" href="contact.html">Start a Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Published Work</span>
+        <h1>Verifiable project snapshots.</h1>
+        <p class="lead">This section includes only work we can directly verify from published assets and repository implementation. No fabricated clients, metrics, or testimonials are shown.</p>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container grid grid-2">
+        <article class="card reveal">
+          <span class="tag">Website Delivery</span>
+          <h3>Yugya Corporate Website</h3>
+          <p>Current implementation includes a clear multi-page structure for services, work, about, and contact journeys, plus responsive and accessible navigation behavior.</p>
+          <ul>
+            <li>Service-first information hierarchy</li>
+            <li>Professional enquiry flow</li>
+            <li>Accessibility and semantic structure updates</li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Operational Foundation</span>
+          <h3>Static Site Deployment Workflow</h3>
+          <p>Repository includes a GitHub Pages deployment pipeline with controlled workflow execution on main branch pushes.</p>
+          <ul>
+            <li>Workflow file: <code>.github/workflows/static.yml</code></li>
+            <li>Configured Pages deploy action pipeline</li>
+            <li>Supports manual workflow dispatch</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container notice reveal">
+        <h2>Portfolio transparency</h2>
+        <p>Yugya is actively expanding publicly publishable case studies. Where client confidentiality or unpublished engagements apply, we provide scoped capability discussions during direct project conversations.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="contact.html">Request a capability discussion</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p class="footer-note">© <span id="year"></span> Yugya</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

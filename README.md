@@ -1,50 +1,27 @@
-# Yugya
+# Yugya Website
 
-> Landing site for **Yugya** — a Nepal-focused digital infrastructure company
-> offering domains, hosting, VPS, web development, security hardening, and
-> Minecraft server hosting.
+Public website for **Yugya** (https://yugya.com), positioned as a technology and digital services company.
 
-A polished, animated one-page marketing site with theme switching, pricing
-tiers, an FAQ, and a founder section.
+## Stack
 
-## Features
+- Static HTML
+- Custom CSS
+- Vanilla JavaScript
+- GitHub Pages deployment workflow in `.github/workflows/static.yml`
 
-- 🌓 **Dark / light theme** with localStorage persistence
-- 🧭 **Responsive nav** with mobile hamburger menu
-- 🎬 **Animated hero** — floating cards, stats counter, typing effects
-- 🧩 **8 service cards** — domains, hosting, VPS, development, security, & more
-- 💰 **Hosting pricing tiers** (NPR 999–7,999/mo) and domain pricing
-- 🎮 **Minecraft server hosting** showcase
-- 👥 **Founder profiles**
-- ❓ **FAQ accordion** with smooth transitions
-- 📬 **Contact form** with validation
-- ✨ **Scroll-reveal animations** and active-nav tracking
+## Pages
 
-## Getting Started
+- `index.html` — homepage and positioning
+- `services.html` — detailed service scopes
+- `work.html` — verifiable project snapshots
+- `about.html` — mission and operating principles
+- `contact.html` — project enquiry form
+
+## Local preview
 
 ```bash
-cd yugya
+cd /home/runner/work/yugya/yugya
 python3 -m http.server 8000
-# open http://localhost:8000
 ```
 
-Or open `index.html` directly — everything is static.
-
-## Tech Stack
-
-- **HTML5**, **CSS3** (custom properties, themes), **Vanilla JavaScript**
-- CSS animations: IntersectionObserver reveals, counters, typing effects
-
-## Project Structure
-
-```
-├── index.html             # main page
-├── style.css              # theming + styling
-├── script.js              # interactivity
-├── yugya.png              # logo
-└── *.jpg                  # founder photos
-```
-
-## License
-
-See the LICENSE file in this repository.
+Open `http://localhost:8000`.
