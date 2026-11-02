@@ -3,94 +3,306 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Yugya</title>
-  <meta name="description" content="Contact Yugya for website development, custom software, automation, and digital transformation enquiries.">
-  <meta property="og:title" content="Contact | Yugya">
-  <meta property="og:description" content="Send your project enquiry to Yugya.">
+  <title>Contact & Project Enquiry — Yugya</title>
+  <meta name="description" content="Contact Yugya to discuss website development, Linux server setups, domain configuration, or technical maintenance. Direct engineer communication and practical scoping.">
+  <link rel="canonical" href="https://yugya.com/contact.html">
+
+  <meta property="og:title" content="Contact & Project Enquiry — Yugya">
+  <meta property="og:description" content="Send your project requirements to Yugya. Transparent scoping and direct engineer communication.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yugya.com/contact.html">
-  <link rel="canonical" href="https://yugya.com/contact.html">
+  <meta property="og:image" content="https://yugya.com/yugya.png">
+
   <link rel="icon" type="image/png" href="yugya.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header Navigation -->
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html"><img src="yugya.png" alt="Yugya logo">Yugya</a>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg></button>
-      <nav class="nav" id="siteNav" aria-label="Main navigation">
-        <a href="index.html" data-page>Home</a>
-        <a href="services.html" data-page>Services</a>
-        <a href="work.html" data-page>Work</a>
-        <a href="about.html" data-page>About</a>
-        <a href="contact.html" data-page>Contact</a>
-        <a class="btn btn-primary" href="contact.html">Start a Project</a>
-      </nav>
+    <div class="container nav-container">
+      <a class="brand" href="index.html" aria-label="Yugya Home">
+        <img class="brand-logo" src="yugya.png" alt="Yugya mark" width="32" height="32">
+        <div class="brand-text">
+          <span class="brand-name">Yugya</span>
+          <span class="brand-sub">Technology & Services</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="nav-menu" id="primaryNav">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="services.html">Services</a></li>
+        <li><a class="nav-link" href="work.html">Work</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="contact.html" aria-current="page">Contact</a></li>
+        <li class="mobile-cta">
+          <a class="btn btn-primary" href="contact.html" style="width: 100%;">Discuss a Project</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="contact.html">
+          Discuss a Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
     </div>
   </header>
 
   <main id="main">
+    <!-- Page Hero -->
     <section class="page-hero">
-      <div class="container">
-        <span class="kicker">Project Enquiry</span>
-        <h1>Let’s discuss your project requirements.</h1>
-        <p class="lead">Share your goals and constraints. We will respond with a practical next-step recommendation.</p>
+      <div class="container container-narrow">
+        <span class="kicker">Direct Contact</span>
+        <h1>Let’s discuss your technical requirements.</h1>
+        <p class="lead" style="margin-top: 1.25rem;">
+          Whether you need a website built, a Linux server configured, or domain and DNS guidance, share your project details below.
+        </p>
+        <p style="margin-top: 0.75rem;">
+          We review project requirements and provide a practical assessment of scope, timeline, and architecture.
+        </p>
       </div>
     </section>
 
+    <!-- Contact & Form Layout -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- Left Column: Information & Preparation Checklist -->
+          <div class="contact-guide">
+            <div class="direct-box fade-in">
+              <span class="panel-title">Direct Email</span>
+              <p style="margin-top: 0.5rem; font-size: 0.92rem;">
+                Prefer to write directly from your email client? Send your brief to:
+              </p>
+              <a class="direct-email" href="mailto:hello@yugya.com">
+                hello@yugya.com &rarr;
+              </a>
+              <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle); font-size: 0.85rem; color: var(--ink-secondary); line-height: 1.5;">
+                <strong>Response timeline:</strong> We aim to review incoming messages and reply within 1 to 2 business days.
+              </div>
+            </div>
+
+            <div class="card fade-in" style="padding: 1.75rem;">
+              <span class="kicker">Preparation Guide</span>
+              <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">Information to include in your enquiry</h3>
+              <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+                To help us provide a relevant initial response, please include:
+              </p>
+              <ul class="card-list" style="margin: 0; padding: 0; border: none;">
+                <li><strong>Project Overview:</strong> What does your organization do, and what problem are you solving?</li>
+                <li><strong>Current Setup:</strong> Do you already have a domain, server, or existing website in place?</li>
+                <li><strong>Target Timeline:</strong> Are you working toward a specific date or exploring options?</li>
+                <li><strong>Engagement Scope:</strong> Are you looking for initial development, server setup, or ongoing maintenance?</li>
+              </ul>
+            </div>
+
+            <div class="direct-box fade-in">
+              <span class="panel-title">Operating Location</span>
+              <p style="margin-top: 0.5rem; font-size: 0.92rem;">
+                Kapilvastu / Rupandehi, Nepal (UTC +5:45).<br>
+                Working with organizations locally in Nepal and remotely worldwide.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Form -->
+          <div class="form-card fade-in">
+            <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Project Enquiry Form</h2>
+            <p style="font-size: 0.92rem; color: var(--ink-secondary); margin-bottom: 1.25rem;">
+              Fill in your details below. This form prepares your enquiry and opens your email application, or copies the text to your clipboard.
+            </p>
+
+            <div class="callout" style="margin-top: 0; margin-bottom: 1.5rem; padding: 1rem; font-size: 0.86rem; background-color: var(--bg-subtle);">
+              <strong>How this form works:</strong> This form does not transmit data to an external server. Clicking "Open in Email Client" formats your enquiry into an email draft addressed to <code>hello@yugya.com</code>. You must click Send in your email application. You can also copy the formatted enquiry directly to your clipboard.
+            </div>
+
+            <form id="enquiryForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="clientName">Full Name <span style="color: var(--accent);">*</span></label>
+                  <input type="text" id="clientName" name="name" autocomplete="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label for="clientEmail">Email Address <span style="color: var(--accent);">*</span></label>
+                  <input type="email" id="clientEmail" name="email" autocomplete="email" placeholder="you@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="clientOrg">Organization / School <span class="hint">(Optional)</span></label>
+                  <input type="text" id="clientOrg" name="organization" autocomplete="organization" placeholder="e.g. Organization or School Name">
+                </div>
+                <div class="form-group">
+                  <label for="timelineGoal">Timeline Target <span class="hint">(Optional)</span></label>
+                  <select id="timelineGoal" name="timeline">
+                    <option value="Flexible / Exploring">Flexible / Exploring</option>
+                    <option value="Within 1 month">Within 1 month</option>
+                    <option value="1 to 3 months">1 to 3 months</option>
+                    <option value="Ongoing Maintenance">Ongoing monthly maintenance</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="serviceCategory">Service Interested In <span style="color: var(--accent);">*</span></label>
+                <select id="serviceCategory" name="service" required>
+                  <option value="" disabled selected>Select a service scope...</option>
+                  <option value="Website & Web App Development">Website & Web App Development</option>
+                  <option value="Linux Server Setup & VPS Hardening">Linux Server Setup & VPS Hardening</option>
+                  <option value="Domain Registration & DNS Guidance">Domain Registration & DNS Guidance</option>
+                  <option value="Business Automation & Scripting">Business Automation & Scripting</option>
+                  <option value="Ongoing Technical Maintenance">Ongoing Technical Maintenance</option>
+                  <option value="General Technical Consultation">General Technical Consultation</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="projectDetails">Project Requirements & Description <span style="color: var(--accent);">*</span></label>
+                <textarea id="projectDetails" name="details" placeholder="Describe what you want to build, any existing systems in place, and your target requirements..." required></textarea>
+                <div class="char-counter">
+                  <span id="charCount">0 / 30 characters (recommended min: 30)</span>
+                  <span>Specific descriptions help us review scope faster</span>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="submitFormBtn">
+                  Open in Email Client
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+                <button type="button" class="btn btn-secondary" id="copyEnquiryBtn">
+                  Copy Formatted Enquiry
+                </button>
+              </div>
+
+              <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
     <section class="section section-muted">
-      <div class="container contact-layout">
-        <aside class="card reveal">
-          <h2>Before you submit</h2>
-          <p>Please include business context, intended users, and the timeline or operational deadline you are working with.</p>
-          <ul class="contact-list">
-            <li>Email: <a href="mailto:hello@yugya.com">hello@yugya.com</a></li>
-            <li>Primary region: Nepal</li>
-            <li>Services: Web, software, automation, digital transformation</li>
-          </ul>
-        </aside>
+      <div class="container container-narrow">
+        <div class="section-header" style="text-align: center;">
+          <span class="kicker" style="justify-content: center;">Frequently Asked Questions</span>
+          <h2>Common questions regarding engagements.</h2>
+        </div>
 
-        <form class="form reveal" id="contactForm" novalidate>
-          <div class="field">
-            <label for="fullName">Name</label>
-            <input id="fullName" name="fullName" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="field">
-            <label for="organization">Organization</label>
-            <input id="organization" name="organization" type="text" autocomplete="organization-title">
-          </div>
-          <div class="field">
-            <label for="service">Required service</label>
-            <select id="service" name="service" required>
-              <option value="" selected disabled>Select one</option>
-              <option>Website development</option>
-              <option>Custom software development</option>
-              <option>Business automation</option>
-              <option>Digital transformation</option>
-              <option>Digital presence and growth</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="projectDescription">Project description</label>
-            <textarea id="projectDescription" name="projectDescription" required></textarea>
+        <div class="grid-2" style="gap: 1.5rem;">
+          <div class="card" style="padding: 1.75rem;">
+            <h4 style="margin-bottom: 0.5rem; color: var(--brand);">How is work billed?</h4>
+            <p style="font-size: 0.92rem;">
+              Engagements are typically billed in milestones: an initial deposit upon project kick-off, a progress milestone after architecture and design approval, and the balance upon deployment and system handover.
+            </p>
           </div>
 
-          <button type="submit" class="btn btn-primary">Prepare enquiry email</button>
-          <p id="formStatus" class="status" aria-live="polite"></p>
-        </form>
+          <div class="card" style="padding: 1.75rem;">
+            <h4 style="margin-bottom: 0.5rem; color: var(--brand);">Where are websites hosted?</h4>
+            <p style="font-size: 0.92rem;">
+              We configure hosting under accounts owned directly by you (such as Cloudflare Pages, DigitalOcean, or Linode). You maintain direct control over your infrastructure provider and billing.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.75rem;">
+            <h4 style="margin-bottom: 0.5rem; color: var(--brand);">What post-launch support is included?</h4>
+            <p style="font-size: 0.92rem;">
+              Projects include 30 calendar days of bug fixing support following deployment. For continuous feature additions or regular server patching, we offer scheduled monthly maintenance.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.75rem;">
+            <h4 style="margin-bottom: 0.5rem; color: var(--brand);">Do you assist with .com.np domain registration?</h4>
+            <p style="font-size: 0.92rem;">
+              Yes. In Nepal, official <code>.np</code> domains are administered by Mercantile Communication. We help prepare the required cover letters and registration documentation.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container"><p class="footer-note">© <span id="year"></span> Yugya</p></div></footer>
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.85rem;">
+            <img src="yugya.png" alt="Yugya mark" width="28" height="28" style="border-radius: 4px;">
+            <span style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: #ffffff;">Yugya</span>
+          </div>
+          <p style="color: #9aa5b5; font-size: 0.9rem; line-height: 1.6;">
+            Technology and digital services company. Delivering websites, software tools, and server configurations that organizations can rely on.
+          </p>
+          <div style="margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.8rem; color: #7d8799;">
+            Kapilvastu / Rupandehi, Nepal
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#web-development">Web & App Development</a></li>
+            <li><a href="services.html#server-infrastructure">Linux VPS & Deployment</a></li>
+            <li><a href="services.html#domain-dns">Domain & DNS Guidance</a></li>
+            <li><a href="services.html#automation">Business Automation</a></li>
+            <li><a href="services.html#maintenance">Ongoing Maintenance</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Yugya</a></li>
+            <li><a href="about.html#approach">Company Purpose</a></li>
+            <li><a href="about.html#principles">Core Principles</a></li>
+            <li><a href="work.html">Projects & Builds</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Inquiries</h4>
+          <ul>
+            <li><a href="mailto:hello@yugya.com">hello@yugya.com</a></li>
+            <li><a href="contact.html">Project Enquiry Form</a></li>
+            <li><span style="color: #7d8799; font-size: 0.85rem;">Aim to reply within 1–2 business days</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="year">2026</span> Yugya. All rights reserved. Built with semantic HTML, CSS & JavaScript.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="services.html">Services Scope</a>
+          <a href="work.html">Project Case Studies</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
