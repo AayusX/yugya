@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work & Technical Case Studies — Yugya</title>
-  <meta name="description" content="Verifiable work snapshots and engineering decisions from Yugya: Aama Pathshala bilingual preschool platform, Linux VPS server hardening, and local software tools.">
+  <title>Projects & Technical Implementations — Yugya</title>
+  <meta name="description" content="Projects and technical reference implementations by Yugya: Aama Pathshala bilingual preschool website, Linux server deployment blueprint, and local developer tools.">
   <link rel="canonical" href="https://yugya.com/work.html">
 
-  <meta property="og:title" content="Work & Technical Case Studies — Yugya">
-  <meta property="og:description" content="Real projects, authentic problems, and verified engineering decisions. No fabricated metrics or invented clients.">
+  <meta property="og:title" content="Projects & Technical Implementations — Yugya">
+  <meta property="og:description" content="Transparent view of completed builds, reference architectures, and software prototypes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yugya.com/work.html">
   <meta property="og:image" content="https://yugya.com/yugya.png">
@@ -67,87 +67,87 @@
     <!-- Page Hero -->
     <section class="page-hero">
       <div class="container container-narrow">
-        <span class="kicker">Case Studies & Implementations</span>
-        <h1>Verifiable work, honest decisions.</h1>
+        <span class="kicker">Projects & Reference Implementations</span>
+        <h1>Demonstrated builds and technical implementations.</h1>
         <p class="lead" style="margin-top: 1.25rem;">
-          We do not publish fabricated Fortune 500 client lists, invented conversion percentages, or stock photo success stories. Below are real projects, production infrastructure standards, and open prototypes built by our team.
+          Below is an honest view of our work. Each entry clearly identifies whether it is a completed website build, an internal infrastructure blueprint, or an experimental prototype.
         </p>
         <p style="margin-top: 0.75rem;">
-          Each case study describes the concrete operational problem, the technology stack chosen, and the implementation decisions that made it work.
+          We describe the practical requirements, technologies used, and engineering decisions behind each project without exaggerating outcomes or publishing unverified statistics.
         </p>
       </div>
     </section>
 
-    <!-- Case Studies List -->
+    <!-- Project Entries -->
     <section class="section">
       <div class="container">
 
-        <!-- Case Study 1: Aama Pathshala -->
+        <!-- Entry 1: Aama Pathshala -->
         <article class="project-card fade-in" id="aama-pathshala" style="margin-bottom: 3.5rem;">
           <div class="project-visual">
-            <img src="aama-pathshala.jpg" alt="Aama Pathshala bilingual preschool website interface" width="1160" height="652" loading="eager">
+            <img src="aama-pathshala.jpg" alt="Aama Pathshala preschool website interface showing facilities and contact points" width="1160" height="652">
           </div>
           <div class="project-body">
             <div class="project-tags">
-              <span class="badge badge-verified">Production Client Website</span>
-              <span class="badge badge-neutral">Education / Preschool</span>
+              <span class="badge badge-verified">Completed Web Build</span>
+              <span class="badge badge-neutral">Preschool Website</span>
               <span class="badge badge-accent">Bilingual UI (EN / NP)</span>
             </div>
 
-            <h2>Aama Pathshala — Bilingual Educational Platform</h2>
+            <h2>Aama Pathshala — Bilingual Preschool Website</h2>
             <p class="lead" style="font-size: 1.15rem; color: var(--ink);">
-              A bilingual website for a preschool in Nepal, designed specifically to convert parental inquiries into enrollments rather than just act as a static digital brochure.
+              A responsive website built for Aama Pathshala, a preschool in Nepal, providing parents with clear information on facilities, classroom amenities, and admissions contact.
             </p>
 
             <div class="grid-2" style="margin-top: 1rem; gap: 2rem;">
               <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">The Original Problem</h4>
+                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Project Requirements</h4>
                 <p style="margin-bottom: 1rem;">
-                  A preschool website has one crucial job: give parents immediate peace of mind regarding child safety, transport reliability, and educational care, and make submitting an admission enquiry effortless. Most local school websites fail because they bury crucial facility facts under dense, English-only walls of text that load slowly on mobile data.
+                  Parents looking for early childhood schooling need direct, practical information: classroom environment details, air conditioning, CCTV safety, transportation bus routes, and straightforward contact numbers. The site needed to serve families comfortably in both Nepali and English, with layouts tailored for mobile smartphone screens.
                 </p>
 
                 <h4 style="color: var(--brand); margin-bottom: 0.5rem;">What Was Built</h4>
                 <p>
-                  A responsive, mobile-first website where admission forms and contact points sit prominently in the first screen. Rather than vague adjectives, amenities are stated as concrete numbers (class sizes, air-conditioned rooms, school bus routes, safety CCTV). The entire interface switches seamlessly between English and Nepali.
+                  A lightweight static website featuring a prominent amenities grid, an admission enquiry section, direct telephone and WhatsApp links, and an in-page toggle allowing users to switch between English and Nepali text without page reloads.
                 </p>
               </div>
 
               <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Key Implementation Decisions</h4>
+                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Technical Implementation Decisions</h4>
                 <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
-                  <li><strong>Zero Framework Overhead:</strong> Built using vanilla semantic HTML5, modern CSS3, and vanilla JavaScript. Eliminating heavy client-side libraries kept the bundle size tiny and ensured sub-second loading on local 3G mobile devices.</li>
-                  <li><strong>Lightweight Bilingual Toggle:</strong> Implemented a clean DOM data-attribute language switcher that remembers the user's preferred language across visits without triggering full page reloads.</li>
-                  <li><strong>Direct Communication Links:</strong> Integrated WhatsApp, telephone, and location directions directly into sticky mobile action buttons for frictionless parent access.</li>
+                  <li><strong>Static Implementation:</strong> Built with semantic HTML5, modern CSS, and plain JavaScript. Avoiding heavy JavaScript application frameworks kept total page weight small for mobile visitors.</li>
+                  <li><strong>Client-Side Language Toggle:</strong> Implemented a clean DOM data-attribute switcher that toggles text between English and Nepali and saves the preference in browser storage.</li>
+                  <li><strong>Touch-Friendly Actions:</strong> Configured telephone, WhatsApp, and location map links as clear touch targets for mobile visitors.</li>
                 </ul>
               </div>
             </div>
 
             <div class="meta-strip" style="margin-block: 1.5rem 0;">
               <div class="meta-item">
-                <span class="meta-label">Client Domain</span>
-                <span class="meta-val">Early Childhood Education</span>
+                <span class="meta-label">Project Type</span>
+                <span class="meta-val">Educational Website Build</span>
               </div>
               <div class="meta-item">
-                <span class="meta-label">Technologies</span>
-                <span class="meta-val">HTML5, CSS3 Custom Properties, Vanilla JS</span>
+                <span class="meta-label">Stack</span>
+                <span class="meta-val">HTML5, CSS3, Vanilla JavaScript</span>
               </div>
               <div class="meta-item">
-                <span class="meta-label">Deliverable Scope</span>
-                <span class="meta-val">Design, Bilingual Frontend, Form Handling</span>
+                <span class="meta-label">Key Features</span>
+                <span class="meta-val">Bilingual Toggle, Mobile Layout</span>
               </div>
               <div class="meta-item">
-                <span class="meta-label">Verification Status</span>
-                <span class="meta-val" style="color: var(--status-verified); font-weight: 600;">Shipped & Verified</span>
+                <span class="meta-label">Status</span>
+                <span class="meta-val" style="color: var(--status-verified); font-weight: 600;">Completed Build</span>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- Case Study 2: Linux Server Hardening -->
+        <!-- Entry 2: Linux Server Baseline -->
         <article class="project-card fade-in" id="server-infrastructure" style="margin-bottom: 3.5rem;">
           <div class="project-visual" style="background-color: #12161c; padding: 2.5rem; color: #f8f6f0; display: flex; flex-direction: column; justify-content: center;">
             <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #a34e1f; margin-bottom: 0.5rem;">
-              root@production-edge:~# cat /etc/caddy/Caddyfile
+              root@edge-node:~# cat /etc/caddy/Caddyfile
             </div>
             <pre style="font-family: var(--font-mono); font-size: 0.82rem; color: #b8c0cc; line-height: 1.55; overflow-x: auto;">
 yugya.com, www.yugya.com {
@@ -160,142 +160,138 @@ yugya.com, www.yugya.com {
         X-Frame-Options "DENY"
         Referrer-Policy "strict-origin-when-cross-origin"
     }
-    log {
-        output file /var/log/caddy/access.log
-    }
 }
             </pre>
             <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #28a745; margin-top: 0.75rem; border-top: 1px solid #262c36; padding-top: 0.65rem;">
-              ✓ Automated TLS 1.3 · Let's Encrypt Zero-Maintenance Renewal · Security Headers Verified
+              ✓ Automated Let's Encrypt TLS · Security Headers · Documented Baseline
             </div>
           </div>
 
           <div class="project-body">
             <div class="project-tags">
-              <span class="badge badge-verified">Production Infrastructure</span>
-              <span class="badge badge-neutral">Systems & Deployment</span>
-              <span class="badge badge-accent">Linux / Ubuntu / Caddy</span>
+              <span class="badge badge-verified">Infrastructure Blueprint</span>
+              <span class="badge badge-neutral">Linux / Ubuntu</span>
+              <span class="badge badge-accent">Deployment Pipeline</span>
             </div>
 
-            <h2>Production Server Hardening & Automated Deployment Pipeline</h2>
+            <h2>Linux Server Baseline & Automated Deployment Pipeline</h2>
             <p class="lead" style="font-size: 1.15rem; color: var(--ink);">
-              Standardized cloud VPS architecture that replaces insecure default configurations and manual FTP transfers with automated, zero-downtime deployment pipelines.
+              A standardized reference configuration for deploying web applications on Ubuntu Linux virtual private servers, featuring firewall rules, reverse proxying, and automated Git-based deployment.
             </p>
 
             <div class="grid-2" style="margin-top: 1rem; gap: 2rem;">
               <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">The Original Problem</h4>
+                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">The Operational Goal</h4>
                 <p style="margin-bottom: 1rem;">
-                  Businesses relying on shared hosting face frequent resource throttling, unpredictable downtime, and outdated PHP runtimes. When moving to dedicated cloud VPS instances (e.g. DigitalOcean, Linode, Hetzner), servers are frequently left in default configurations with root password authentication exposed to SSH brute-force bots and unencrypted traffic.
+                  When deploying web projects to cloud VPS providers (such as DigitalOcean or Linode), default server setups often leave root password authentication enabled and firewall rules unconfigured. Manual file uploads via FTP also create risk of incomplete transfers. This blueprint establishes a clean, repeatable deployment baseline.
                 </p>
 
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">What Was Built</h4>
+                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">What Was Configured</h4>
                 <p>
-                  A repeatable production infrastructure blueprint deployed on Ubuntu LTS Linux:
-                  - Enforced Ed25519 SSH key authentication with password logins disabled.
-                  - Uncomplicated Firewall (UFW) restricting incoming traffic to only HTTP, HTTPS, and non-default SSH.
-                  - Reverse proxy with modern HTTP/3 and automated Let's Encrypt certificate renewal.
-                  - GitHub Actions automated deployment workflow triggering on main branch merges.
+                  A documented server setup on Ubuntu LTS:
+                  - Enforced SSH public-key authentication with root password login disabled.
+                  - Uncomplicated Firewall (UFW) allowing only HTTP (80), HTTPS (443), and designated SSH traffic.
+                  - Caddy reverse proxy providing automated TLS certificate issuance and renewal via Let's Encrypt.
+                  - Automated GitHub Actions deployment pipeline that syncs repository updates cleanly on merge.
                 </p>
               </div>
 
               <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Key Implementation Decisions</h4>
+                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Technical Implementation Decisions</h4>
                 <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
-                  <li><strong>Caddy over Traditional Nginx:</strong> We selected Caddy for production edge routing because of its out-of-the-box automatic TLS certificate management, eliminating expired certificate panics.</li>
-                  <li><strong>Security Headers by Default:</strong> Every site served includes HSTS, nosniff, and frame restriction headers to guard against clickjacking and MIME attacks.</li>
-                  <li><strong>Atomic GitHub Actions Deployments:</strong> Replaced manual FTP file uploads with Git-based deployment actions to guarantee that files are never deployed partially or corrupted mid-transfer.</li>
+                  <li><strong>Caddy Reverse Proxy:</strong> Selected Caddy for its reliable automated Let's Encrypt certificate lifecycle management and clean, concise configuration format.</li>
+                  <li><strong>Standard Security Headers:</strong> Configured HSTS, nosniff, and frame restrictions in the proxy configuration to defend against MIME-type sniffing and framing.</li>
+                  <li><strong>Git-Based Publishing:</strong> Configured automated deployment via GitHub Actions, replacing manual file transfers with atomic, repeatable updates.</li>
                 </ul>
               </div>
             </div>
 
             <div class="meta-strip" style="margin-block: 1.5rem 0;">
               <div class="meta-item">
-                <span class="meta-label">Environment</span>
-                <span class="meta-val">Ubuntu Linux LTS, Cloud VPS</span>
+                <span class="meta-label">System Type</span>
+                <span class="meta-val">Server Baseline & Blueprint</span>
               </div>
               <div class="meta-item">
-                <span class="meta-label">Routing & TLS</span>
-                <span class="meta-val">Caddy / Nginx, Let's Encrypt, HTTP/3</span>
+                <span class="meta-label">Operating System</span>
+                <span class="meta-val">Ubuntu Linux LTS</span>
               </div>
               <div class="meta-item">
-                <span class="meta-label">CI/CD Pipeline</span>
-                <span class="meta-val">GitHub Actions, Automated Dispatch</span>
+                <span class="meta-label">Proxy & TLS</span>
+                <span class="meta-val">Caddy / Nginx, Let's Encrypt</span>
               </div>
               <div class="meta-item">
-                <span class="meta-label">Verification Status</span>
-                <span class="meta-val" style="color: var(--status-verified); font-weight: 600;">Active Production Standard</span>
+                <span class="meta-label">Status</span>
+                <span class="meta-val" style="color: var(--status-verified); font-weight: 600;">Active Reference Setup</span>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- Case Study 3: AayushAI Core -->
+        <!-- Entry 3: AayushAI Core -->
         <article class="project-card fade-in" id="aayushai-core" style="margin-bottom: 2rem;">
           <div class="project-visual" style="background-color: #1a1e24; padding: 2rem; color: #eaf5ee; display: flex; flex-direction: column; justify-content: center;">
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #a34e1f; margin-bottom: 0.5rem;">$ aayushai --session resume</div>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #a34e1f; margin-bottom: 0.5rem;">$ aayushai --status</div>
             <div style="font-family: var(--font-mono); font-size: 0.82rem; color: #8bb89c; line-height: 1.5;">
-              [SQLite] Loaded 148 persistent memory records from local storage.<br>
-              [Context] Active project: Yugya infrastructure refactor.<br>
-              [Voice Engine] Ready for hands-free audio commands.<br>
-              &gt; "Show pending tasks for tomorrow's deployment"
+              [SQLite] Database: ~/.aayushai/memory.db (connected)<br>
+              [Records] 148 structured notes and task reminders loaded.<br>
+              [Execution] Local CLI process running on host machine.
             </div>
             <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #9aa5b5; margin-top: 1rem; border-top: 1px solid #2d3440; padding-top: 0.5rem;">
-              Local-first memory architecture · SQLite persistence · Terminal UI
+              Local Relational Storage Exploration · Python 3 · SQLite
             </div>
           </div>
 
           <div class="project-body">
             <div class="project-tags">
-              <span class="badge badge-accent">Internal Prototype</span>
-              <span class="badge badge-neutral">Software Tooling</span>
+              <span class="badge badge-accent">Personal Prototype</span>
+              <span class="badge badge-neutral">Developer Tool</span>
               <span class="badge badge-neutral">Python / SQLite</span>
             </div>
 
-            <h2>AayushAI Core — Offline-First Terminal Assistant with Persistent Memory</h2>
+            <h2>AayushAI Core — Terminal Assistant with SQLite Memory</h2>
             <p class="lead" style="font-size: 1.15rem; color: var(--ink);">
-              A developer terminal assistant that runs entirely locally, solving session context amnesia by backing long-term memories with a structured SQLite database.
+              A personal research prototype exploring persistent, structured memory for command-line developer utilities using a local SQLite database.
             </p>
 
             <div class="grid-2" style="margin-top: 1rem; gap: 2rem;">
               <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">The Original Problem</h4>
+                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">The Exploration</h4>
                 <p style="margin-bottom: 1rem;">
-                  Cloud-based chat assistants suffer from amnesia: close the browser tab or terminal session, and the context of your ongoing projects disappears, forcing you to re-explain background details repeatedly. Furthermore, syncing sensitive local developer notes to third-party cloud platforms poses privacy concerns.
+                  Most interactive command-line helpers and chat interfaces lose context as soon as the terminal window is closed. This experiment investigated whether using standard relational database tables on local disk can provide a clean, queryable persistence layer for notes, reminders, and ongoing project tasks without cloud dependencies.
                 </p>
 
                 <h4 style="color: var(--brand); margin-bottom: 0.5rem;">What Was Built</h4>
                 <p>
-                  A Python-based command-line tool designed for local execution. Long-term memory is implemented as a relational SQLite database rather than an ephemeral context window. Reminders, developer notes, and project journal entries are first-class structured tables that carry across terminal reboots and remain instantly searchable.
+                  A standalone Python CLI application backed by a structured SQLite database file. Users can add reminders, save developer journal notes, and search past context directly from the terminal.
                 </p>
               </div>
 
               <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Key Implementation Decisions</h4>
+                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Technical Implementation Decisions</h4>
                 <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
-                  <li><strong>Relational Memory vs Prompt Stuffing:</strong> By treating memory as database rows, queries can selectively fetch relevant context rather than saturating token windows.</li>
-                  <li><strong>Local Data Sovereignty:</strong> All data resides on the user's local disk in standard SQLite format, inspectable and exportable at any time.</li>
-                  <li><strong>Text-to-Speech Output:</strong> Integrated local speech synthesis allows hands-free query responses while working in editor environments.</li>
+                  <li><strong>Local Database Schema:</strong> Structured data tables in SQLite allow indexing and standard SQL queries across sessions rather than relying on unindexed flat text files.</li>
+                  <li><strong>Zero Cloud Requirement:</strong> The database file lives locally on the user's computer, keeping notes private and fully inspectable.</li>
+                  <li><strong>Standard Library Focus:</strong> Built using Python standard libraries (sqlite3, argparse) to ensure ease of execution on Linux and macOS environments.</li>
                 </ul>
               </div>
             </div>
 
             <div class="meta-strip" style="margin-block: 1.5rem 0;">
               <div class="meta-item">
-                <span class="meta-label">Architecture</span>
-                <span class="meta-val">Local-First CLI Tool</span>
+                <span class="meta-label">Category</span>
+                <span class="meta-val">Personal Prototype / Tool</span>
               </div>
               <div class="meta-item">
-                <span class="meta-label">Language & Storage</span>
-                <span class="meta-val">Python 3, SQLite 3, Local Audio</span>
+                <span class="meta-label">Languages</span>
+                <span class="meta-val">Python 3, SQL</span>
               </div>
               <div class="meta-item">
-                <span class="meta-label">Project Type</span>
-                <span class="meta-val">Internal Tooling Prototype</span>
+                <span class="meta-label">Storage</span>
+                <span class="meta-val">Local SQLite3 Database</span>
               </div>
               <div class="meta-item">
-                <span class="meta-label">Verification Status</span>
-                <span class="meta-val" style="color: var(--accent); font-weight: 600;">Functional Internal Build</span>
+                <span class="meta-label">Status</span>
+                <span class="meta-val" style="color: var(--accent); font-weight: 600;">Functional Experiment</span>
               </div>
             </div>
           </div>
@@ -304,20 +300,20 @@ yugya.com, www.yugya.com {
       </div>
     </section>
 
-    <!-- Integrity & Transparency Statement -->
+    <!-- Portfolio Transparency Statement -->
     <section class="section section-muted">
       <div class="container container-narrow">
-        <div class="callout" style="border-left-color: var(--accent); background: var(--bg-card); padding: 2.25rem;">
-          <span class="kicker">Commitment to Truth in Advertising</span>
-          <h3 style="margin-bottom: 0.75rem;">Why you don't see 50 client logos on this page.</h3>
+        <div class="card" style="padding: 2.25rem;">
+          <span class="kicker">Portfolio Transparency</span>
+          <h3 style="margin-bottom: 0.75rem;">Clear representation of our work.</h3>
           <p style="margin-bottom: 1rem;">
-            Many technology agency websites create instant artificial credibility by buying templates pre-populated with logos of global banks, airlines, and tech conglomerates they never worked with.
+            This page presents projects, infrastructure reference setups, and personal prototypes that have been built and verified by our team.
           </p>
           <p style="margin-bottom: 1rem;">
-            Yugya is an emerging technology and digital services company. We publish only verified work where we have explicit client permission and demonstrable technical code. Where client confidentiality agreements apply, we discuss technical architecture directly during project discovery calls.
+            We do not publish unverified client logos, unconfirmed partnerships, or invented outcome metrics. Where work involves private client systems or confidential requirements, we discuss technical architecture and approaches directly during scoping conversations.
           </p>
           <p style="font-weight: 500; color: var(--ink);">
-            If you would like to inspect code samples, live demonstrations, or discuss technical references relevant to your project, we will gladly arrange a direct walkthrough.
+            If you would like to review code repositories, technical configurations, or discuss relevance to your project, we welcome a direct conversation.
           </p>
         </div>
       </div>
@@ -327,9 +323,9 @@ yugya.com, www.yugya.com {
     <section class="section">
       <div class="container container-narrow" style="text-align: center;">
         <span class="kicker" style="justify-content: center;">Start an Engagement</span>
-        <h2>Ready to build something solid together?</h2>
+        <h2>Have a project requirement to discuss?</h2>
         <p class="lead" style="margin-top: 1rem; margin-inline: auto;">
-          Contact our team with your goals. We will review your project constraints and propose a clean, maintainable technical architecture.
+          Tell us about your website, server setup, or technical requirement. We will review your goals and provide an honest assessment of scope and architecture.
         </p>
         <div class="hero-actions" style="justify-content: center; margin-top: 2rem;">
           <a class="btn btn-primary" href="contact.html">
@@ -352,7 +348,7 @@ yugya.com, www.yugya.com {
             <span style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: #ffffff;">Yugya</span>
           </div>
           <p style="color: #9aa5b5; font-size: 0.9rem; line-height: 1.6;">
-            Practical technology and digital services company. Delivering websites, software tools, and server infrastructure that organizations can rely on.
+            Technology and digital services company. Delivering websites, software tools, and server configurations that organizations can rely on.
           </p>
           <div style="margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.8rem; color: #7d8799;">
             Kapilvastu / Rupandehi, Nepal
@@ -374,9 +370,9 @@ yugya.com, www.yugya.com {
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Yugya</a></li>
-            <li><a href="about.html#team">Founding Team</a></li>
-            <li><a href="about.html#principles">Operating Principles</a></li>
-            <li><a href="work.html">Verified Work</a></li>
+            <li><a href="about.html#approach">Company Purpose</a></li>
+            <li><a href="about.html#principles">Core Principles</a></li>
+            <li><a href="work.html">Projects & Builds</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
@@ -386,7 +382,7 @@ yugya.com, www.yugya.com {
           <ul>
             <li><a href="mailto:hello@yugya.com">hello@yugya.com</a></li>
             <li><a href="contact.html">Project Enquiry Form</a></li>
-            <li><span style="color: #7d8799; font-size: 0.85rem;">Response time: 1–2 business days</span></li>
+            <li><span style="color: #7d8799; font-size: 0.85rem;">Aim to reply within 1–2 business days</span></li>
           </ul>
         </div>
       </div>

@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close menu when a link is clicked
+    // Close menu when a navigation link is clicked
     navMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         toggleNav(false);
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 3. Active Nav Link Detection ---
+  // --- 3. Active Navigation Link Detection ---
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach((link) => {
     const linkPath = link.getAttribute('href');
@@ -58,14 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- 4. Intersection Observer for Fade-in Animations ---
+  // --- 4. Intersection Observer for Subtle Fade-in Animations ---
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fadeElements = document.querySelectorAll('.fade-in');
 
   if (!prefersReducedMotion && 'IntersectionObserver' in window && fadeElements.length > 0) {
     const appearOptions = {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
     };
 
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Real-time character counter
+  // Real-time character counter for project description
   if (projectDesc && charCount) {
     projectDesc.addEventListener('input', () => {
       const len = projectDesc.value.trim().length;
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `Service:      ${data.service}`,
       `Timeline:     ${data.timeline || 'Flexible'}`,
       '------------------------------------------',
-      'PROJECT DESCRIPTION & CONSTRAINTS:',
+      'PROJECT REQUIREMENTS & DESCRIPTION:',
       data.details,
       '=========================================='
     ].join('\n');
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   };
 
-  // Submit Handler: Triggers mailto with pre-filled content
+  // Submit Handler: Opens mailto client with pre-filled content
   if (contactForm && formStatus) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (data.details.length < 25) {
         formStatus.className = 'form-status error show';
-        formStatus.textContent = 'Please provide a few more sentences about your goals or requirements so an engineer can review your scope accurately.';
+        formStatus.textContent = 'Please provide a few more sentences describing your requirements so we can understand your project scope.';
         projectDesc?.focus();
         return;
       }
@@ -171,8 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       formStatus.className = 'form-status info show';
       formStatus.innerHTML = `
-        <strong>Enquiry formatted.</strong> Launching your email client to send to <code>hello@yugya.com</code>.<br>
-        If your email client didn't open automatically, you can click <a href="${mailtoUrl}">here to open your email client</a> or use the <strong>Copy Formatted Enquiry</strong> button below.
+        <strong>Email draft opened.</strong> This form does not submit to a remote server. Your email application has opened with your details prepared.<br>
+        <strong>Please review and click Send in your email application to deliver it to <code>hello@yugya.com</code>.</strong><br>
+        If your email application did not open automatically, click <a href="${mailtoUrl}">this direct email link</a> or use the <strong>Copy Formatted Enquiry</strong> button below to paste your message into webmail.
       `;
 
       // Trigger email client
@@ -186,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = getFormData();
       if (!data || !data.name || !data.email || !data.details) {
         formStatus.className = 'form-status error show';
-        formStatus.textContent = 'Please fill out your Name, Email, and Project Description before copying.';
+        formStatus.textContent = 'Please complete the Name, Email, and Project Description fields before copying.';
         return;
       }
 
@@ -194,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         await navigator.clipboard.writeText(formatted);
         formStatus.className = 'form-status success show';
-        formStatus.innerHTML = '<strong>Enquiry copied to clipboard!</strong> You can now paste this directly into Gmail, Outlook, or your preferred messaging tool to send to <code>hello@yugya.com</code>.';
+        formStatus.innerHTML = '<strong>Enquiry copied to clipboard.</strong> You can now paste this directly into your email application (such as Gmail or Outlook) and send it to <code>hello@yugya.com</code>.';
       } catch (err) {
         // Fallback for older browsers
         const textarea = document.createElement('textarea');
@@ -206,10 +207,10 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
           document.execCommand('copy');
           formStatus.className = 'form-status success show';
-          formStatus.innerHTML = '<strong>Enquiry copied to clipboard!</strong> Paste into your email to send to <code>hello@yugya.com</code>.';
+          formStatus.innerHTML = '<strong>Enquiry copied to clipboard.</strong> Paste this directly into your email program and send to <code>hello@yugya.com</code>.';
         } catch (e) {
           formStatus.className = 'form-status error show';
-          formStatus.textContent = 'Unable to copy automatically. Please send your details directly to hello@yugya.com.';
+          formStatus.textContent = 'Unable to copy automatically. Please write directly to hello@yugya.com.';
         }
         document.body.removeChild(textarea);
       }
