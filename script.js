@@ -1,126 +1,132 @@
 /**
- * Yugya — Core Website JavaScript
- * Zero external dependencies. Accessible, lightweight, and resilient.
+ * Yugya — site behaviour
+ * No external dependencies. Progressive enhancement only.
  */
-
 document.addEventListener('DOMContentLoaded', () => {
-  // --- 1. Dynamic Footer Year ---
+  // --- Footer year -------------------------------------------------------
   const yearEl = document.getElementById('year');
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  // --- 2. Mobile Navigation Toggle ---
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
+  // --- Sticky header state ----------------------------------------------
+  const header = document.querySelector('.site-header');
+  if (header) {
+    const syncHeader = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    };
+    syncHeader();
+    window.addEventListener('scroll', syncHeader, { passive: true });
+  }
 
-  if (navToggle && navMenu) {
-    const toggleNav = (open) => {
-      const isOpen = typeof open === 'boolean' ? open : !navMenu.classList.contains('open');
-      navMenu.classList.toggle('open', isOpen);
-      navToggle.setAttribute('aria-expanded', String(isOpen));
-      navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  // --- Mobile navigation -------------------------------------------------
+  const navToggle = document.querySelector('.nav-toggle');
+  const primaryNav = document.querySelector('.primary-nav');
+
+  if (navToggle && primaryNav) {
+    const setNav = (open) => {
+      primaryNav.classList.toggle('is-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      document.body.classList.toggle('nav-open', open);
     };
 
-    navToggle.addEventListener('click', () => toggleNav());
+    const isOpen = () => primaryNav.classList.contains('is-open');
 
-    // Close when clicking outside
-    document.addEventListener('click', (e) => {
-      if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-        toggleNav(false);
+    navToggle.addEventListener('click', () => setNav(!isOpen()));
+
+    document.addEventListener('click', (event) => {
+      if (
+        isOpen() &&
+        !primaryNav.contains(event.target) &&
+        !navToggle.contains(event.target)
+      ) {
+        setNav(false);
       }
     });
 
-    // Close on Escape key
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-        toggleNav(false);
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && isOpen()) {
+        setNav(false);
         navToggle.focus();
       }
     });
 
-    // Close menu when a navigation link is clicked
-    navMenu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        toggleNav(false);
-      });
+    primaryNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setNav(false));
+    });
+
+    const wideViewport = window.matchMedia('(min-width: 901px)');
+    wideViewport.addEventListener('change', (event) => {
+      if (event.matches) setNav(false);
     });
   }
 
-  // --- 3. Active Navigation Link Detection ---
+  // --- Current page in navigation ---------------------------------------
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach((link) => {
-    const linkPath = link.getAttribute('href');
-    if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
+    const href = link.getAttribute('href');
+    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
       link.setAttribute('aria-current', 'page');
     } else {
       link.removeAttribute('aria-current');
     }
   });
 
-  // --- 4. Intersection Observer for Subtle Fade-in Animations ---
+  // --- Reveal on scroll --------------------------------------------------
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const fadeElements = document.querySelectorAll('.fade-in');
+  const revealElements = document.querySelectorAll('.reveal');
 
-  if (!prefersReducedMotion && 'IntersectionObserver' in window && fadeElements.length > 0) {
-    const appearOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -30px 0px'
-    };
+  if (!prefersReducedMotion && 'IntersectionObserver' in window && revealElements.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries, instance) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            instance.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
 
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
-
-    fadeElements.forEach((el) => appearOnScroll.observe(el));
+    revealElements.forEach((element) => observer.observe(element));
   } else {
-    // If reduced motion is requested or observer is unsupported, show immediately
-    fadeElements.forEach((el) => el.classList.add('visible'));
+    revealElements.forEach((element) => element.classList.add('is-visible'));
   }
 
-  // --- 5. Contact Form Handling ---
+  // --- Contact form ------------------------------------------------------
   const contactForm = document.getElementById('enquiryForm');
   const formStatus = document.getElementById('formStatus');
   const projectDesc = document.getElementById('projectDetails');
   const charCount = document.getElementById('charCount');
   const copyBtn = document.getElementById('copyEnquiryBtn');
 
-  // URL query parameter for service pre-selection
   if (contactForm) {
     const urlParams = new URLSearchParams(window.location.search);
     const serviceParam = urlParams.get('service');
     const serviceSelect = document.getElementById('serviceCategory');
+
     if (serviceParam && serviceSelect) {
-      for (let i = 0; i < serviceSelect.options.length; i++) {
-        if (serviceSelect.options[i].value.toLowerCase().includes(serviceParam.toLowerCase())) {
-          serviceSelect.selectedIndex = i;
-          break;
-        }
+      const match = Array.from(serviceSelect.options).find((option) =>
+        option.value.toLowerCase().includes(serviceParam.toLowerCase())
+      );
+      if (match) {
+        serviceSelect.value = match.value;
       }
     }
   }
 
-  // Real-time character counter for project description
   if (projectDesc && charCount) {
     projectDesc.addEventListener('input', () => {
-      const len = projectDesc.value.trim().length;
-      charCount.textContent = `${len} / 30 characters (recommended min: 30)`;
-      if (len >= 30) {
-        charCount.style.color = 'var(--status-verified)';
-      } else {
-        charCount.style.color = 'var(--ink-tertiary)';
-      }
+      const length = projectDesc.value.trim().length;
+      charCount.textContent = `${length} / 30 characters (recommended min: 30)`;
+      charCount.style.color = length >= 30 ? 'var(--color-accent)' : 'var(--color-muted)';
     });
   }
 
-  // Formatter helper for email body
-  const formatEnquiryText = (data) => {
-    return [
+  const formatEnquiryText = (data) =>
+    [
       '==========================================',
       'PROJECT ENQUIRY FOR YUGYA (hello@yugya.com)',
       '==========================================',
@@ -132,9 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
       '------------------------------------------',
       'PROJECT REQUIREMENTS & DESCRIPTION:',
       data.details,
-      '=========================================='
+      '==========================================',
     ].join('\n');
-  };
 
   const getFormData = () => {
     if (!contactForm) return null;
@@ -144,14 +149,13 @@ document.addEventListener('DOMContentLoaded', () => {
       org: (document.getElementById('clientOrg')?.value || '').trim(),
       service: document.getElementById('serviceCategory')?.value || 'Not selected',
       timeline: document.getElementById('timelineGoal')?.value || 'Not specified',
-      details: (document.getElementById('projectDetails')?.value || '').trim()
+      details: (document.getElementById('projectDetails')?.value || '').trim(),
     };
   };
 
-  // Submit Handler: Opens mailto client with pre-filled content
   if (contactForm && formStatus) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
 
       if (!contactForm.reportValidity()) return;
 
@@ -160,7 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (data.details.length < 25) {
         formStatus.className = 'form-status error show';
-        formStatus.textContent = 'Please provide a few more sentences describing your requirements so we can understand your project scope.';
+        formStatus.textContent =
+          'Please provide a few more sentences describing your requirements so we can understand your project scope.';
         projectDesc?.focus();
         return;
       }
@@ -169,49 +174,53 @@ document.addEventListener('DOMContentLoaded', () => {
       const body = encodeURIComponent(formatEnquiryText(data));
       const mailtoUrl = `mailto:hello@yugya.com?subject=${subject}&body=${body}`;
 
-      formStatus.className = 'form-status info show';
+      formStatus.className = 'form-status success show';
       formStatus.innerHTML = `
         <strong>Email draft opened.</strong> This form does not submit to a remote server. Your email application has opened with your details prepared.<br>
         <strong>Please review and click Send in your email application to deliver it to <code>hello@yugya.com</code>.</strong><br>
-        If your email application did not open automatically, click <a href="${mailtoUrl}">this direct email link</a> or use the <strong>Copy Formatted Enquiry</strong> button below to paste your message into webmail.
+        If your email application did not open automatically, click <a href="${mailtoUrl}">this direct email link</a> or use the <strong>Copy formatted enquiry</strong> button to paste your message into webmail.
       `;
 
-      // Trigger email client
       window.location.href = mailtoUrl;
     });
   }
 
-  // Copy to Clipboard Button
   if (copyBtn && contactForm && formStatus) {
     copyBtn.addEventListener('click', async () => {
       const data = getFormData();
       if (!data || !data.name || !data.email || !data.details) {
         formStatus.className = 'form-status error show';
-        formStatus.textContent = 'Please complete the Name, Email, and Project Description fields before copying.';
+        formStatus.textContent =
+          'Please complete the name, email, and project description fields before copying.';
         return;
       }
 
       const formatted = formatEnquiryText(data);
+
       try {
         await navigator.clipboard.writeText(formatted);
         formStatus.className = 'form-status success show';
-        formStatus.innerHTML = '<strong>Enquiry copied to clipboard.</strong> You can now paste this directly into your email application (such as Gmail or Outlook) and send it to <code>hello@yugya.com</code>.';
-      } catch (err) {
-        // Fallback for older browsers
+        formStatus.innerHTML =
+          '<strong>Enquiry copied to clipboard.</strong> Paste it directly into your email application and send it to <code>hello@yugya.com</code>.';
+      } catch (error) {
         const textarea = document.createElement('textarea');
         textarea.value = formatted;
         textarea.style.position = 'fixed';
         textarea.style.opacity = '0';
         document.body.appendChild(textarea);
         textarea.select();
+
         try {
           document.execCommand('copy');
           formStatus.className = 'form-status success show';
-          formStatus.innerHTML = '<strong>Enquiry copied to clipboard.</strong> Paste this directly into your email program and send to <code>hello@yugya.com</code>.';
-        } catch (e) {
+          formStatus.innerHTML =
+            '<strong>Enquiry copied to clipboard.</strong> Paste it directly into your email program and send to <code>hello@yugya.com</code>.';
+        } catch (fallbackError) {
           formStatus.className = 'form-status error show';
-          formStatus.textContent = 'Unable to copy automatically. Please write directly to hello@yugya.com.';
+          formStatus.textContent =
+            'Unable to copy automatically. Please write directly to hello@yugya.com.';
         }
+
         document.body.removeChild(textarea);
       }
     });

@@ -1,0 +1,29 @@
+{
+  "name": "yugya-next",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Yugya official website, rebuilt with Next.js App Router and static export.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "node scripts/serve.mjs",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.4.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^10.14.0",
+    "eslint-config-next": "16.4.5",
+    "typescript": "^5"
+  },
+  "overrides": {
+    "minimatch": "^11.0.4"
+  }
+}

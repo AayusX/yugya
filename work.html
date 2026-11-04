@@ -3,154 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects & Technical Implementations — Yugya</title>
-  <meta name="description" content="Projects and technical reference implementations by Yugya: Aama Pathshala bilingual preschool website, Linux server deployment blueprint, and local developer tools.">
+  <title>Projects &amp; Technical Implementations — Yugya</title>
+  <meta name="description" content="Projects and technical reference implementations by Yugya: Aama Pathshala bilingual preschool website, Linux server deployment blueprint, and a local developer tool prototype.">
   <link rel="canonical" href="https://yugya.com/work.html">
+  <meta name="theme-color" content="#F7F4EF">
 
-  <meta property="og:title" content="Projects & Technical Implementations — Yugya">
+  <meta property="og:title" content="Projects &amp; Technical Implementations — Yugya">
   <meta property="og:description" content="Transparent view of completed builds, reference architectures, and software prototypes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yugya.com/work.html">
-  <meta property="og:image" content="https://yugya.com/yugya.png">
+  <meta property="og:image" content="https://yugya.com/assets/brand/yugya-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://yugya.com/assets/brand/yugya-og.png">
 
-  <link rel="icon" type="image/png" href="yugya.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon.png">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header Navigation -->
   <header class="site-header">
-    <div class="container nav-container">
-      <a class="brand" href="index.html" aria-label="Yugya Home">
-        <img class="brand-logo" src="yugya.png" alt="Yugya mark" width="32" height="32">
-        <div class="brand-text">
-          <span class="brand-name">Yugya</span>
-          <span class="brand-sub">Technology & Services</span>
-        </div>
+    <div class="shell nav-shell">
+      <a class="brand" href="index.html" aria-label="Yugya home">
+        <picture><source type="image/webp" srcset="assets/brand/yugya-nav.webp"><img src="assets/brand/yugya-nav.png" alt="Yugya" width="82" height="58"></picture>
       </a>
 
-      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-
-      <ul class="nav-menu" id="primaryNav">
-        <li><a class="nav-link" href="index.html">Home</a></li>
-        <li><a class="nav-link" href="services.html">Services</a></li>
-        <li><a class="nav-link" href="work.html" aria-current="page">Work</a></li>
-        <li><a class="nav-link" href="about.html">About</a></li>
-        <li><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="mobile-cta">
-          <a class="btn btn-primary" href="contact.html" style="width: 100%;">Discuss a Project</a>
-        </li>
-      </ul>
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="work.html" aria-current="page">Work</a></li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="mobile-only mobile-contact">
+            <p>Prefer email? Write directly to the studio.</p>
+            <a href="mailto:hello@yugya.com">hello@yugya.com</a>
+            <p class="location">Kapilvastu / Rupandehi, Nepal · UTC +5:45</p>
+          </li>
+        </ul>
+      </nav>
 
       <div class="nav-actions">
-        <a class="btn btn-primary" href="contact.html">
-          Discuss a Project
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
+        <a class="btn btn-primary btn-small" href="contact.html">Start a project <span class="arrow" aria-hidden="true">↗</span></a>
+        <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
+          <span aria-hidden="true"></span>
+        </button>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <!-- Page Hero -->
     <section class="page-hero">
-      <div class="container container-narrow">
-        <span class="kicker">Projects & Reference Implementations</span>
-        <h1>Demonstrated builds and technical implementations.</h1>
-        <p class="lead" style="margin-top: 1.25rem;">
-          Below is an honest view of our work. Each entry clearly identifies whether it is a completed website build, an internal infrastructure blueprint, or an experimental prototype.
-        </p>
-        <p style="margin-top: 0.75rem;">
-          We describe the practical requirements, technologies used, and engineering decisions behind each project without exaggerating outcomes or publishing unverified statistics.
-        </p>
+      <div class="shell">
+        <div class="page-hero-grid">
+          <div>
+            <span class="hero-kicker">Projects &amp; reference implementations</span>
+            <h1>Demonstrated builds and technical implementations.</h1>
+            <p class="lead">
+              Below is an honest view of our work. Each entry clearly identifies whether it is a completed website build, an internal infrastructure blueprint, or an experimental prototype.
+            </p>
+            <p class="page-note">
+              We describe the practical requirements, technologies used, and engineering decisions behind each project without exaggerating outcomes or publishing unverified statistics.
+            </p>
+          </div>
+
+          <div class="page-aside">
+            <h2>Entries</h2>
+            <ul>
+              <li><span class="num">01</span><a href="#aama-pathshala">Aama Pathshala — completed web build</a></li>
+              <li><span class="num">02</span><a href="#server-infrastructure">Linux server baseline — blueprint</a></li>
+              <li><span class="num">03</span><a href="#aayushai-core">AayushAI Core — prototype</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Project Entries -->
     <section class="section">
-      <div class="container">
+      <div class="shell">
+        <article class="project-entry reveal" id="aama-pathshala">
+          <div class="project-entry-head">
+            <span class="num" aria-hidden="true">01</span>
+            <h2>Aama Pathshala — bilingual preschool website</h2>
+            <span class="project-kind">Completed web build<br>Education / EN + NP</span>
+          </div>
 
-        <!-- Entry 1: Aama Pathshala -->
-        <article class="project-card fade-in" id="aama-pathshala" style="margin-bottom: 3.5rem;">
-          <div class="project-visual">
+          <div class="project-hero-image">
             <img src="aama-pathshala.jpg" alt="Aama Pathshala preschool website interface showing facilities and contact points" width="1160" height="652">
           </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="badge badge-verified">Completed Web Build</span>
-              <span class="badge badge-neutral">Preschool Website</span>
-              <span class="badge badge-accent">Bilingual UI (EN / NP)</span>
+
+          <p class="lead">
+            A responsive website built for Aama Pathshala, a preschool in Nepal, providing parents with clear information on facilities, classroom amenities, and admissions contact.
+          </p>
+
+          <div class="project-detail-grid" style="margin-top: 1.75rem;">
+            <div>
+              <h3>Project requirements</h3>
+              <p>
+                Parents looking for early childhood schooling need direct, practical information: classroom environment details, air conditioning, CCTV safety, transportation bus routes, and straightforward contact numbers. The site needed to serve families comfortably in both Nepali and English, with layouts tailored for mobile smartphone screens.
+              </p>
+              <h3 style="margin-top: 1.25rem;">What was built</h3>
+              <p>
+                A lightweight static website featuring a prominent amenities grid, an admission enquiry section, direct telephone and WhatsApp links, and an in-page toggle allowing users to switch between English and Nepali text without page reloads.
+              </p>
             </div>
-
-            <h2>Aama Pathshala — Bilingual Preschool Website</h2>
-            <p class="lead" style="font-size: 1.15rem; color: var(--ink);">
-              A responsive website built for Aama Pathshala, a preschool in Nepal, providing parents with clear information on facilities, classroom amenities, and admissions contact.
-            </p>
-
-            <div class="grid-2" style="margin-top: 1rem; gap: 2rem;">
-              <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Project Requirements</h4>
-                <p style="margin-bottom: 1rem;">
-                  Parents looking for early childhood schooling need direct, practical information: classroom environment details, air conditioning, CCTV safety, transportation bus routes, and straightforward contact numbers. The site needed to serve families comfortably in both Nepali and English, with layouts tailored for mobile smartphone screens.
-                </p>
-
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">What Was Built</h4>
-                <p>
-                  A lightweight static website featuring a prominent amenities grid, an admission enquiry section, direct telephone and WhatsApp links, and an in-page toggle allowing users to switch between English and Nepali text without page reloads.
-                </p>
-              </div>
-
-              <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Technical Implementation Decisions</h4>
-                <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
-                  <li><strong>Static Implementation:</strong> Built with semantic HTML5, modern CSS, and plain JavaScript. Avoiding heavy JavaScript application frameworks kept total page weight small for mobile visitors.</li>
-                  <li><strong>Client-Side Language Toggle:</strong> Implemented a clean DOM data-attribute switcher that toggles text between English and Nepali and saves the preference in browser storage.</li>
-                  <li><strong>Touch-Friendly Actions:</strong> Configured telephone, WhatsApp, and location map links as clear touch targets for mobile visitors.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="meta-strip" style="margin-block: 1.5rem 0;">
-              <div class="meta-item">
-                <span class="meta-label">Project Type</span>
-                <span class="meta-val">Educational Website Build</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Stack</span>
-                <span class="meta-val">HTML5, CSS3, Vanilla JavaScript</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Key Features</span>
-                <span class="meta-val">Bilingual Toggle, Mobile Layout</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Status</span>
-                <span class="meta-val" style="color: var(--status-verified); font-weight: 600;">Completed Build</span>
-              </div>
+            <div>
+              <h3>Technical implementation decisions</h3>
+              <ul>
+                <li><strong>Static implementation:</strong> Built with semantic HTML5, modern CSS, and plain JavaScript. Avoiding heavy JavaScript application frameworks kept total page weight small for mobile visitors.</li>
+                <li><strong>Client-side language toggle:</strong> Implemented a clean DOM data-attribute switcher that toggles text between English and Nepali and saves the preference in browser storage.</li>
+                <li><strong>Touch-friendly actions:</strong> Configured telephone, WhatsApp, and location map links as clear touch targets for mobile visitors.</li>
+              </ul>
             </div>
           </div>
+
+          <dl class="ledger">
+            <div><dt>Project type</dt><dd>Educational website build</dd></div>
+            <div><dt>Stack</dt><dd>HTML5, CSS3, vanilla JavaScript</dd></div>
+            <div><dt>Key features</dt><dd>Bilingual toggle, mobile layout</dd></div>
+            <div><dt>Status</dt><dd>Completed build</dd></div>
+          </dl>
         </article>
 
-        <!-- Entry 2: Linux Server Baseline -->
-        <article class="project-card fade-in" id="server-infrastructure" style="margin-bottom: 3.5rem;">
-          <div class="project-visual" style="background-color: #12161c; padding: 2.5rem; color: #f8f6f0; display: flex; flex-direction: column; justify-content: center;">
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #a34e1f; margin-bottom: 0.5rem;">
-              root@edge-node:~# cat /etc/caddy/Caddyfile
+        <article class="project-entry reveal" id="server-infrastructure">
+          <div class="project-entry-head">
+            <span class="num" aria-hidden="true">02</span>
+            <h2>Linux server baseline &amp; automated deployment pipeline</h2>
+            <span class="project-kind">Infrastructure blueprint<br>Linux / Ubuntu</span>
+          </div>
+
+          <div class="terminal" role="region" aria-label="Reference Caddy configuration excerpt" tabindex="0">
+            <div class="terminal-label">
+              <span>Reference Caddyfile</span>
+              <span>Blueprint / not a live status report</span>
             </div>
-            <pre style="font-family: var(--font-mono); font-size: 0.82rem; color: #b8c0cc; line-height: 1.55; overflow-x: auto;">
-yugya.com, www.yugya.com {
+            <pre><code>yugya.com, www.yugya.com {
     root * /var/www/yugya
     file_server
     encode zstd gzip
@@ -160,240 +154,205 @@ yugya.com, www.yugya.com {
         X-Frame-Options "DENY"
         Referrer-Policy "strict-origin-when-cross-origin"
     }
-}
-            </pre>
-            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #28a745; margin-top: 0.75rem; border-top: 1px solid #262c36; padding-top: 0.65rem;">
-              ✓ Automated Let's Encrypt TLS · Security Headers · Documented Baseline
+}</code></pre>
+          </div>
+
+          <p class="lead" style="margin-top: 2rem;">
+            A standardized reference configuration for deploying web applications on Ubuntu Linux virtual private servers, featuring firewall rules, reverse proxying, and automated Git-based deployment.
+          </p>
+
+          <div class="project-detail-grid" style="margin-top: 1.75rem;">
+            <div>
+              <h3>The operational goal</h3>
+              <p>
+                When deploying web projects to cloud VPS providers (such as DigitalOcean or Linode), default server setups often leave root password authentication enabled and firewall rules unconfigured. Manual file uploads via FTP also create risk of incomplete transfers. This blueprint establishes a clean, repeatable deployment baseline.
+              </p>
+            </div>
+            <div>
+              <h3>What was configured</h3>
+              <ul>
+                <li>Documented server setup on Ubuntu LTS.</li>
+                <li>Enforced SSH public-key authentication with root password login disabled.</li>
+                <li>Uncomplicated Firewall (UFW) allowing only HTTP (80), HTTPS (443), and designated SSH traffic.</li>
+                <li>Caddy reverse proxy providing automated TLS certificate issuance and renewal via Let's Encrypt.</li>
+                <li>Automated GitHub Actions deployment pipeline that syncs repository updates cleanly on merge.</li>
+              </ul>
             </div>
           </div>
 
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="badge badge-verified">Infrastructure Blueprint</span>
-              <span class="badge badge-neutral">Linux / Ubuntu</span>
-              <span class="badge badge-accent">Deployment Pipeline</span>
+          <div class="project-detail-grid" style="margin-top: 1.75rem;">
+            <div>
+              <h3>Technical implementation decisions</h3>
+              <ul>
+                <li><strong>Caddy reverse proxy:</strong> Selected Caddy for its reliable automated Let's Encrypt certificate lifecycle management and clean, concise configuration format.</li>
+                <li><strong>Standard security headers:</strong> Configured HSTS, nosniff, and frame restrictions in the proxy configuration to defend against MIME-type sniffing and framing.</li>
+                <li><strong>Git-based publishing:</strong> Configured automated deployment via GitHub Actions, replacing manual file transfers with atomic, repeatable updates.</li>
+              </ul>
             </div>
-
-            <h2>Linux Server Baseline & Automated Deployment Pipeline</h2>
-            <p class="lead" style="font-size: 1.15rem; color: var(--ink);">
-              A standardized reference configuration for deploying web applications on Ubuntu Linux virtual private servers, featuring firewall rules, reverse proxying, and automated Git-based deployment.
-            </p>
-
-            <div class="grid-2" style="margin-top: 1rem; gap: 2rem;">
-              <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">The Operational Goal</h4>
-                <p style="margin-bottom: 1rem;">
-                  When deploying web projects to cloud VPS providers (such as DigitalOcean or Linode), default server setups often leave root password authentication enabled and firewall rules unconfigured. Manual file uploads via FTP also create risk of incomplete transfers. This blueprint establishes a clean, repeatable deployment baseline.
-                </p>
-
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">What Was Configured</h4>
-                <p>
-                  A documented server setup on Ubuntu LTS:
-                  - Enforced SSH public-key authentication with root password login disabled.
-                  - Uncomplicated Firewall (UFW) allowing only HTTP (80), HTTPS (443), and designated SSH traffic.
-                  - Caddy reverse proxy providing automated TLS certificate issuance and renewal via Let's Encrypt.
-                  - Automated GitHub Actions deployment pipeline that syncs repository updates cleanly on merge.
-                </p>
-              </div>
-
-              <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Technical Implementation Decisions</h4>
-                <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
-                  <li><strong>Caddy Reverse Proxy:</strong> Selected Caddy for its reliable automated Let's Encrypt certificate lifecycle management and clean, concise configuration format.</li>
-                  <li><strong>Standard Security Headers:</strong> Configured HSTS, nosniff, and frame restrictions in the proxy configuration to defend against MIME-type sniffing and framing.</li>
-                  <li><strong>Git-Based Publishing:</strong> Configured automated deployment via GitHub Actions, replacing manual file transfers with atomic, repeatable updates.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="meta-strip" style="margin-block: 1.5rem 0;">
-              <div class="meta-item">
-                <span class="meta-label">System Type</span>
-                <span class="meta-val">Server Baseline & Blueprint</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Operating System</span>
-                <span class="meta-val">Ubuntu Linux LTS</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Proxy & TLS</span>
-                <span class="meta-val">Caddy / Nginx, Let's Encrypt</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Status</span>
-                <span class="meta-val" style="color: var(--status-verified); font-weight: 600;">Active Reference Setup</span>
-              </div>
+            <div>
+              <h3>Scope note</h3>
+              <p>
+                This is a reference baseline, not a claim of guaranteed uptime or a managed hosting product. Server accounts, billing, and access remain under the client's ownership.
+              </p>
             </div>
           </div>
+
+          <dl class="ledger">
+            <div><dt>System type</dt><dd>Server baseline &amp; blueprint</dd></div>
+            <div><dt>Operating system</dt><dd>Ubuntu Linux LTS</dd></div>
+            <div><dt>Proxy &amp; TLS</dt><dd>Caddy / Nginx, Let's Encrypt</dd></div>
+            <div><dt>Status</dt><dd>Active reference setup</dd></div>
+          </dl>
         </article>
 
-        <!-- Entry 3: AayushAI Core -->
-        <article class="project-card fade-in" id="aayushai-core" style="margin-bottom: 2rem;">
-          <div class="project-visual" style="background-color: #1a1e24; padding: 2rem; color: #eaf5ee; display: flex; flex-direction: column; justify-content: center;">
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #a34e1f; margin-bottom: 0.5rem;">$ aayushai --status</div>
-            <div style="font-family: var(--font-mono); font-size: 0.82rem; color: #8bb89c; line-height: 1.5;">
-              [SQLite] Database: ~/.aayushai/memory.db (connected)<br>
-              [Records] 148 structured notes and task reminders loaded.<br>
-              [Execution] Local CLI process running on host machine.
+        <article class="project-entry reveal" id="aayushai-core">
+          <div class="project-entry-head">
+            <span class="num" aria-hidden="true">03</span>
+            <h2>AayushAI Core — terminal assistant with SQLite memory</h2>
+            <span class="project-kind">Personal prototype<br>Python / SQLite</span>
+          </div>
+
+          <div class="terminal" role="region" aria-label="Prototype command-line status excerpt" tabindex="0">
+            <div class="terminal-label">
+              <span>Prototype output</span>
+              <span>Local CLI / illustrative excerpt</span>
             </div>
-            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #9aa5b5; margin-top: 1rem; border-top: 1px solid #2d3440; padding-top: 0.5rem;">
-              Local Relational Storage Exploration · Python 3 · SQLite
+            <pre><code>$ aayushai --status
+[SQLite]  Database: ~/.aayushai/memory.db (connected)
+[Records] Structured notes and task reminders loaded.
+[Execution] Local CLI process running on host machine.</code></pre>
+          </div>
+
+          <p class="lead" style="margin-top: 2rem;">
+            A personal research prototype exploring persistent, structured memory for command-line developer utilities using a local SQLite database.
+          </p>
+
+          <div class="project-detail-grid" style="margin-top: 1.75rem;">
+            <div>
+              <h3>The exploration</h3>
+              <p>
+                Most interactive command-line helpers and chat interfaces lose context as soon as the terminal window is closed. This experiment investigated whether using standard relational database tables on local disk can provide a clean, queryable persistence layer for notes, reminders, and ongoing project tasks without cloud dependencies.
+              </p>
+              <h3 style="margin-top: 1.25rem;">What was built</h3>
+              <p>
+                A standalone Python CLI application backed by a structured SQLite database file. Users can add reminders, save developer journal notes, and search past context directly from the terminal.
+              </p>
+            </div>
+            <div>
+              <h3>Technical implementation decisions</h3>
+              <ul>
+                <li><strong>Local database schema:</strong> Structured data tables in SQLite allow indexing and standard SQL queries across sessions rather than relying on unindexed flat text files.</li>
+                <li><strong>Zero cloud requirement:</strong> The database file lives locally on the user's computer, keeping notes private and fully inspectable.</li>
+                <li><strong>Standard library focus:</strong> Built using Python standard libraries (sqlite3, argparse) to ensure ease of execution on Linux and macOS environments.</li>
+              </ul>
             </div>
           </div>
 
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="badge badge-accent">Personal Prototype</span>
-              <span class="badge badge-neutral">Developer Tool</span>
-              <span class="badge badge-neutral">Python / SQLite</span>
-            </div>
-
-            <h2>AayushAI Core — Terminal Assistant with SQLite Memory</h2>
-            <p class="lead" style="font-size: 1.15rem; color: var(--ink);">
-              A personal research prototype exploring persistent, structured memory for command-line developer utilities using a local SQLite database.
-            </p>
-
-            <div class="grid-2" style="margin-top: 1rem; gap: 2rem;">
-              <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">The Exploration</h4>
-                <p style="margin-bottom: 1rem;">
-                  Most interactive command-line helpers and chat interfaces lose context as soon as the terminal window is closed. This experiment investigated whether using standard relational database tables on local disk can provide a clean, queryable persistence layer for notes, reminders, and ongoing project tasks without cloud dependencies.
-                </p>
-
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">What Was Built</h4>
-                <p>
-                  A standalone Python CLI application backed by a structured SQLite database file. Users can add reminders, save developer journal notes, and search past context directly from the terminal.
-                </p>
-              </div>
-
-              <div>
-                <h4 style="color: var(--brand); margin-bottom: 0.5rem;">Technical Implementation Decisions</h4>
-                <ul class="card-list" style="margin-top: 0; padding-top: 0; border-top: none;">
-                  <li><strong>Local Database Schema:</strong> Structured data tables in SQLite allow indexing and standard SQL queries across sessions rather than relying on unindexed flat text files.</li>
-                  <li><strong>Zero Cloud Requirement:</strong> The database file lives locally on the user's computer, keeping notes private and fully inspectable.</li>
-                  <li><strong>Standard Library Focus:</strong> Built using Python standard libraries (sqlite3, argparse) to ensure ease of execution on Linux and macOS environments.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="meta-strip" style="margin-block: 1.5rem 0;">
-              <div class="meta-item">
-                <span class="meta-label">Category</span>
-                <span class="meta-val">Personal Prototype / Tool</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Languages</span>
-                <span class="meta-val">Python 3, SQL</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Storage</span>
-                <span class="meta-val">Local SQLite3 Database</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Status</span>
-                <span class="meta-val" style="color: var(--accent); font-weight: 600;">Functional Experiment</span>
-              </div>
-            </div>
-          </div>
+          <dl class="ledger">
+            <div><dt>Category</dt><dd>Personal prototype / tool</dd></div>
+            <div><dt>Languages</dt><dd>Python 3, SQL</dd></div>
+            <div><dt>Storage</dt><dd>Local SQLite3 database</dd></div>
+            <div><dt>Status</dt><dd>Functional experiment</dd></div>
+          </dl>
         </article>
-
       </div>
     </section>
 
-    <!-- Portfolio Transparency Statement -->
-    <section class="section section-muted">
-      <div class="container container-narrow">
-        <div class="card" style="padding: 2.25rem;">
-          <span class="kicker">Portfolio Transparency</span>
-          <h3 style="margin-bottom: 0.75rem;">Clear representation of our work.</h3>
-          <p style="margin-bottom: 1rem;">
-            This page presents projects, infrastructure reference setups, and personal prototypes that have been built and verified by our team.
-          </p>
-          <p style="margin-bottom: 1rem;">
-            We do not publish unverified client logos, unconfirmed partnerships, or invented outcome metrics. Where work involves private client systems or confidential requirements, we discuss technical architecture and approaches directly during scoping conversations.
-          </p>
-          <p style="font-weight: 500; color: var(--ink);">
-            If you would like to review code repositories, technical configurations, or discuss relevance to your project, we welcome a direct conversation.
-          </p>
+    <section class="section section-soft" aria-labelledby="transparency-title">
+      <div class="shell">
+        <div class="about-grid">
+          <div>
+            <span class="hero-kicker">Portfolio transparency</span>
+            <h2 id="transparency-title" class="about-statement">Clear representation of our work.</h2>
+          </div>
+          <div>
+            <p>
+              This page presents projects, infrastructure reference setups, and personal prototypes that have been built and verified by our team.
+            </p>
+            <p>
+              We do not publish unverified client logos, unconfirmed partnerships, or invented outcome metrics. Where work involves private client systems or confidential requirements, we discuss technical architecture and approaches directly during scoping conversations.
+            </p>
+            <p>
+              <strong>If you would like to review code repositories, technical configurations, or discuss relevance to your project, we welcome a direct conversation.</strong>
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-secondary" href="contact.html">Discuss a project <span class="arrow" aria-hidden="true">↗</span></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section">
-      <div class="container container-narrow" style="text-align: center;">
-        <span class="kicker" style="justify-content: center;">Start an Engagement</span>
-        <h2>Have a project requirement to discuss?</h2>
-        <p class="lead" style="margin-top: 1rem; margin-inline: auto;">
-          Tell us about your website, server setup, or technical requirement. We will review your goals and provide an honest assessment of scope and architecture.
-        </p>
-        <div class="hero-actions" style="justify-content: center; margin-top: 2rem;">
-          <a class="btn btn-primary" href="contact.html">
-            Discuss Your Project
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-          <a class="btn btn-secondary" href="services.html">Review Service Deliverables</a>
+    <section class="section cta" aria-labelledby="work-cta-title">
+      <div class="shell">
+        <div class="cta-grid">
+          <div>
+            <h2 id="work-cta-title">Have a project requirement to discuss?</h2>
+            <p>Tell us about your website, server setup, or technical requirement. We will review your goals and provide an honest assessment of scope and architecture.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="contact.html">Discuss your project <span class="arrow" aria-hidden="true">↗</span></a>
+              <a class="btn btn-secondary" href="services.html">Review service deliverables</a>
+            </div>
+          </div>
+          <dl class="cta-aside">
+            <dt>Direct email</dt>
+            <dd><a href="mailto:hello@yugya.com">hello@yugya.com</a></dd>
+            <dt>Response aim</dt>
+            <dd>1–2 business days</dd>
+            <dt>Location</dt>
+            <dd>Nepal · UTC +5:45</dd>
+          </dl>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Site Footer -->
   <footer class="site-footer">
-    <div class="container">
+    <div class="shell">
       <div class="footer-grid">
-        <div class="footer-col">
-          <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.85rem;">
-            <img src="yugya.png" alt="Yugya mark" width="28" height="28" style="border-radius: 4px;">
-            <span style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: #ffffff;">Yugya</span>
-          </div>
-          <p style="color: #9aa5b5; font-size: 0.9rem; line-height: 1.6;">
-            Technology and digital services company. Delivering websites, software tools, and server configurations that organizations can rely on.
-          </p>
-          <div style="margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.8rem; color: #7d8799;">
-            Kapilvastu / Rupandehi, Nepal
-          </div>
+        <div class="footer-brand">
+          <picture><source type="image/webp" srcset="assets/brand/yugya-logo.webp"><img src="assets/brand/yugya-logo.png" alt="Yugya" width="150" height="120"></picture>
+          <p>Independent technology studio delivering websites, software tools, and server configurations that organizations can rely on.</p>
+          <p class="footer-location">Kapilvastu / Rupandehi, Nepal · UTC +5:45</p>
         </div>
 
         <div class="footer-col">
-          <h4>Services</h4>
+          <h3>Services</h3>
           <ul>
-            <li><a href="services.html#web-development">Web & App Development</a></li>
-            <li><a href="services.html#server-infrastructure">Linux VPS & Deployment</a></li>
-            <li><a href="services.html#domain-dns">Domain & DNS Guidance</a></li>
-            <li><a href="services.html#automation">Business Automation</a></li>
-            <li><a href="services.html#maintenance">Ongoing Maintenance</a></li>
+            <li><a href="services.html#web-development">Web &amp; app development</a></li>
+            <li><a href="services.html#server-infrastructure">Linux VPS &amp; deployment</a></li>
+            <li><a href="services.html#domain-dns">Domain &amp; DNS guidance</a></li>
+            <li><a href="services.html#automation">Business automation</a></li>
+            <li><a href="services.html#maintenance">Ongoing maintenance</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Company</h4>
+          <h3>Studio</h3>
           <ul>
             <li><a href="about.html">About Yugya</a></li>
-            <li><a href="about.html#approach">Company Purpose</a></li>
-            <li><a href="about.html#principles">Core Principles</a></li>
-            <li><a href="work.html">Projects & Builds</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="about.html#approach">Company purpose</a></li>
+            <li><a href="about.html#principles">Core principles</a></li>
+            <li><a href="work.html">Projects &amp; builds</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Direct Inquiries</h4>
+          <h3>Direct inquiries</h3>
           <ul>
             <li><a href="mailto:hello@yugya.com">hello@yugya.com</a></li>
-            <li><a href="contact.html">Project Enquiry Form</a></li>
-            <li><span style="color: #7d8799; font-size: 0.85rem;">Aim to reply within 1–2 business days</span></li>
+            <li><a href="contact.html">Project enquiry form</a></li>
+            <li><span>Aim to reply within 1–2 business days</span></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>
-          &copy; <span id="year">2026</span> Yugya. All rights reserved. Built with semantic HTML, CSS & JavaScript.
-        </div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="services.html">Services Scope</a>
-          <a href="work.html">Project Case Studies</a>
+        <p>&copy; <span id="year">2026</span> Yugya. All rights reserved. Built with semantic HTML, CSS &amp; JavaScript.</p>
+        <div class="footer-bottom-links">
+          <a href="services.html">Services scope</a>
+          <a href="work.html">Project case studies</a>
           <a href="contact.html">Contact</a>
         </div>
       </div>
