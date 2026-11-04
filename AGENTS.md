@@ -4,11 +4,11 @@
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-module-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
 
-# AGENTS.md — yugya-next
+# AGENTS.md — Yugya website
 
 Project guide for AI agents and new contributors. Read this before changing anything.
 
@@ -16,17 +16,20 @@ Project guide for AI agents and new contributors. Read this before changing anyt
 
 ## 1. What this project is
 
-`yugya-next/` is the Yugya website (`https://yugya.com`) rebuilt on Next.js. It is **a port, not a
-redesign**.
+The Yugya website (`https://yugya.com`) built on Next.js at the repository root. It is a
+**faithful port of the previous hand-written site**, not a redesign.
 
-The authoritative reference for every page is the legacy hand-written site at the repository root
-(`index.html`, `services.html`, `work.html`, `about.html`, `contact.html`, `style.css`,
-`script.js`). Those files stay in place and still work. They are the specification.
+The legacy HTML pages (`index.html`, `services.html`, `work.html`, `about.html`, `contact.html`,
+`style.css`, `script.js`) were removed when the Next.js app moved from `yugya-next/` to the root.
+They remain in git history — `4a82432` is the last commit that contains them in full, and
+`2ed72df` holds an older design variant. Use those commits as the specification when you need to
+confirm what a page or interaction originally did.
 
-**The contract:** same words, same markup structure, same visual design, same interactions — running
-on Next.js with a clean dependency audit.
+**The contract:** same words, same markup structure, same visual design, same interactions — with a
+clean dependency audit.
 
-If you are unsure whether a change is allowed, ask: *does the legacy page do this?* If not, don't.
+If you are unsure whether a change is allowed, ask: *does the historical page do this?* If not,
+don't.
 
 ---
 
@@ -35,9 +38,9 @@ If you are unsure whether a change is allowed, ask: *does the legacy page do thi
 | Rule | Why |
 | --- | --- |
 | Do not redesign, restyle, or "improve" the design | The design is owner-approved and final |
-| Do not rewrite copy | Text parity with the legacy pages is verified word-for-word |
-| Never invent metrics, client logos, testimonials, uptime figures, or performance claims | The site's positioning is explicitly "truth in technical descriptions" |
-| Keep `app/globals.css` selector-for-selector identical to the legacy `style.css` | It *is* that file; only the three font-stack lines differ |
+| Do not rewrite copy | Text parity with the previous pages is verified word-for-word |
+| Never invent metrics, client logos, testimonials, uptime figures, or performance claims | The positioning is explicitly "truth in technical descriptions" |
+| Treat `app/globals.css` as the design system | It is the official brand-identity stylesheet; only the font-stack lines differ from the original |
 | Do not add runtime dependencies without a stated reason | `npm audit` must stay at **0 vulnerabilities** |
 | Do not add a backend | The site is a static export; there is no server, database, or API |
 | Prefer server components | Only three components are client-side, each for a concrete reason |
@@ -51,7 +54,7 @@ If you are unsure whether a change is allowed, ask: *does the legacy page do thi
 | Framework | Next.js **16.4.5** — App Router, Turbopack build |
 | UI runtime | React **19.3.0** |
 | Language | TypeScript 5 (`strict: true`) |
-| Styling | Plain CSS — the legacy `style.css`, as `app/globals.css` |
+| Styling | Plain CSS in `app/globals.css` |
 | Fonts | `next/font/google`: Newsreader, Figtree, JetBrains Mono |
 | Output | `output: "export"` → static `out/` |
 | Lint | ESLint **10** + `eslint-config-next` (core-web-vitals + typescript) |
@@ -86,7 +89,7 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 ## 5. Project layout
 
 ```
-yugya-next/
+.
 ├─ app/
 │  ├─ layout.tsx            Root layout: fonts, root metadata, viewport, JSON-LD,
 │  │                        SiteHeader / SiteFooter / RevealOnScroll, pre-paint `js` script
@@ -96,11 +99,11 @@ yugya-next/
 │  ├─ about/page.tsx        /about/      purpose, principles, location
 │  ├─ contact/page.tsx      /contact/    enquiry form + FAQ
 │  ├─ not-found.tsx         404.html     on-brand 404
-│  ├─ globals.css           The design system (legacy style.css)
+│  ├─ globals.css           The design system (official brand-identity stylesheet)
 │  ├─ sitemap.ts            /sitemap.xml
 │  ├─ robots.ts             /robots.txt
-│  ├─ icon.png              favicon (byte-identical to assets/brand/favicon.png)
-│  └─ apple-icon.png        iOS touch icon (assets/brand/apple-touch-icon.png)
+│  ├─ icon.png              favicon (byte-identical to public/assets/brand/favicon.png)
+│  └─ apple-icon.png        iOS touch icon (public/assets/brand/apple-touch-icon.png)
 ├─ components/
 │  ├─ SiteHeader.tsx        "use client" — sticky header, mobile drawer, active link
 │  ├─ SiteFooter.tsx        server — footer + inline year-refresh script
@@ -114,6 +117,7 @@ yugya-next/
 │  ├─ aama-pathshala.jpg    featured project screenshot
 │  └─ assets/brand/         logo lockups, mark, animation, OG image, palette
 ├─ scripts/serve.mjs        static preview server for `npm start`
+├─ .github/workflows/static.yml   builds and deploys `out/` to GitHub Pages
 ├─ next.config.ts           static export config
 ├─ eslint.config.mjs        flat config
 └─ AGENTS.md                this file
@@ -126,15 +130,13 @@ yugya-next/
 `next.config.ts` sets `output: "export"`, `trailingSlash: true`, `images.unoptimized: true`,
 `poweredByHeader: false`.
 
-Legacy → Next mapping:
-
-| Legacy file | Route | Exported file |
-| --- | --- | --- |
-| `index.html` | `/` | `out/index.html` |
-| `services.html` | `/services/` | `out/services/index.html` |
-| `work.html` | `/work/` | `out/work/index.html` |
-| `about.html` | `/about/` | `out/about/index.html` |
-| `contact.html` | `/contact/` | `out/contact/index.html` |
+| Route | Exported file |
+| --- | --- |
+| `/` | `out/index.html` |
+| `/services/` | `out/services/index.html` |
+| `/work/` | `out/work/index.html` |
+| `/about/` | `out/about/index.html` |
+| `/contact/` | `out/contact/index.html` |
 
 **Link rules**
 
@@ -173,8 +175,8 @@ refreshed by an inline script, so there is no second render pass and no hydratio
 
 ## 8. Design system
 
-`app/globals.css` is the legacy stylesheet verbatim. The **only** permitted deviation is the three
-font-stack declarations, which now reference `next/font` variables:
+`app/globals.css` is the official Yugya brand-identity stylesheet. The **only** permitted deviation
+from the original is the three font-stack declarations, which reference `next/font` variables:
 
 ```css
 --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
@@ -215,7 +217,7 @@ crop, or regenerate them.
 
 ### `RevealOnScroll`
 - Observes every `.reveal`, adds `.is-visible`, unobserves.
-- `threshold: 0.12`, `rootMargin: "0px 0px -40px 0px"` — identical to the legacy script.
+- `threshold: 0.12`, `rootMargin: "0px 0px -40px 0px"` — identical to the original script.
 - `prefers-reduced-motion` or no `IntersectionObserver` → reveal everything immediately.
 - Depends on `.js` being on `<html>`; without it, `.js .reveal` never applies and content is visible.
 
@@ -291,12 +293,13 @@ Then confirm the export:
 - Every internal `href`/`src` resolves to a file in `out/`.
 - Every fragment link (`/services/#automation`, `/work/#aama-pathshala`, …) matches an element id
   on the target page.
+- The exported CSS contains the brand tokens and **no** conflict markers.
 
-**Parity check.** To prove the port still matches the legacy site, compare the exported page
-against the original HTML: strip tags and scripts, decode entities, and compare the normalised
-visible text word-for-word; then compare the multiset of `class` names. Both should be identical.
-The only legitimate structural difference is one extra inert `<div hidden>` that React emits as a
-streaming placeholder.
+**Parity check.** To prove the port still matches the previous site, compare an exported page
+against the same page at commit `4a82432`: strip tags and scripts, decode entities, and compare the
+normalised visible text word-for-word; then compare the multiset of `class` names. Both should be
+identical. The only legitimate structural difference is one extra inert `<div hidden>` that React
+emits as a streaming placeholder.
 
 **Manual smoke test** (`npm start`): mobile drawer opens/closes; header gains `.is-scrolled` on
 scroll; reveals fire; character counter updates; form validation path shows the error; a bad URL
@@ -308,22 +311,10 @@ renders the on-brand 404.
 
 The deployable artifact is `out/`. Nothing else is needed at runtime.
 
-**GitHub Pages** — the repo workflow `.github/workflows/static.yml` currently uploads the repository
-root, which deploys the *legacy* site. To ship this rewrite it must build first and upload
-`yugya-next/out`:
-
-```yaml
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: npm, cache-dependency-path: yugya-next/package-lock.json }
-      - run: npm ci && npm run build
-        working-directory: yugya-next
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with: { path: yugya-next/out }
-      - uses: actions/deploy-pages@v4
-        id: deployment
-```
+**GitHub Pages** — `.github/workflows/static.yml` checks out the repo, installs with `npm ci`,
+runs `npm run build`, and uploads `out/` as the Pages artifact. Node 22 is used with npm caching
+keyed on `package-lock.json`. Do not point `upload-pages-artifact` at the repository root; that
+would publish source files instead of the built site.
 
 **Caddy / Nginx** — set the site root to `out/`. Because `trailingSlash: true` makes every route a
 real `index.html`, no rewrite rules are needed.

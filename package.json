@@ -1,5 +1,5 @@
 {
-  "name": "yugya-next",
+  "name": "yugya",
   "version": "1.0.0",
   "private": true,
   "description": "Yugya official website, rebuilt with Next.js App Router and static export.",

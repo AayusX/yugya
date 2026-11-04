@@ -28,6 +28,27 @@ const jetbrainsMono = JetBrains_Mono({
 const siteDescription =
   "Yugya is an independent technology studio in Nepal building websites, software tools, Linux server configurations, and dependable digital systems.";
 
+// Runs before first paint: resolves the saved/system theme onto <html> so the
+// page never flashes the wrong palette, then marks JS as available for reveals.
+const themeScript = `
+(function () {
+  try {
+    var stored = localStorage.getItem("yugya-theme");
+    var theme = stored === "light" || stored === "dark"
+      ? stored
+      : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var root = document.documentElement;
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+      meta.setAttribute("content", theme === "dark" ? "#0F1512" : "#F7F4EF");
+    }
+  } catch (error) {}
+  document.documentElement.classList.add("js");
+})();
+`.trim();
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Yugya — Technology built for the work that matters",
@@ -70,12 +91,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        {/* Runs before first paint so the reveal animation only hides content when JS is available. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('js')",
-          }}
-        />
+        {/* Runs before first paint so the theme and the reveal animation are
+            resolved without a flash. Must stay synchronous and inline. */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
         <a className="skip-link" href="#main">

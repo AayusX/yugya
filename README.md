@@ -25,21 +25,7 @@ No CSS framework, no component library, no client state library. Runtime depende
 - Node.js 20.9+ (Node.js 22 LTS recommended)
 - npm 10+
 
-<<<<<<< Updated upstream
-- `index.html` — Homepage, core positioning, verified services overview, architectural workflow diagram, featured case studies, and four-stage delivery process.
-- `services.html` — Itemized scopes for Web Development, Linux VPS & Deployment, Domain & DNS Guidance, Business Automation, and Ongoing Maintenance, plus a service scope and boundaries table.
-- `work.html` — Transparent case studies for Aama Pathshala bilingual preschool website, Linux Production Server Hardening baseline, and AayushAI Core local memory prototype.
-- `about.html` — Company purpose, technical focus, operating principles, and remote collaboration standards.
-- `contact.html` — Direct email channel, preparation guide, interactive enquiry form with clipboard copying helper, and engagement FAQ.
-- `style.css` — Design system, editorial typography, responsive grid, focus styles, and component styling.
-- `script.js` — Client interactions, form formatting, and accessibility enhancements.
-
-## Local Preview
-
-To preview the website locally:
-=======
 ## Commands
->>>>>>> Stashed changes
 
 ```bash
 npm install        # install dependencies
@@ -56,7 +42,7 @@ build needs no extra packages. Set `PORT` or `HOST` to change the bind address.
 ## Project layout
 
 ```
-yugya-next/
+.
 ├─ app/
 │  ├─ layout.tsx            root layout: fonts, metadata, header/footer, JSON-LD
 │  ├─ page.tsx              /            (home)
@@ -125,8 +111,8 @@ npm run build
 ### GitHub Pages
 
 Build with the same commands, then publish `out/` with `actions/upload-pages-artifact` and
-`actions/deploy-pages`. Keep `out/.nojekyll` in place (Next writes it) so the `_next` folder is
-served.
+`actions/deploy-pages`. Keep `out/.nojekyll` in place (shipped from `public/.nojekyll`) so the
+`_next` folder is served.
 
 ### Caddy / Nginx
 

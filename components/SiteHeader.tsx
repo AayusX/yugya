@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 import { NAV_ITEMS, SITE_EMAIL, SITE_LOCATION } from "@/lib/site";
 
 function normalizePath(path: string): string {
@@ -109,6 +110,7 @@ export default function SiteHeader() {
         </nav>
 
         <div className="nav-actions">
+          <ThemeToggle />
           <Link
             className="btn btn-primary btn-small"
             href="/contact/"
