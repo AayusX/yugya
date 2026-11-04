@@ -3,431 +3,616 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yugya — Technology built for the work that matters</title>
-  <meta name="description" content="Yugya is an independent technology studio in Nepal building websites, software tools, Linux server configurations, and dependable digital systems.">
+  <title>Yugya — Practical Technology & Digital Services</title>
+  <meta name="description" content="Yugya designs, builds, and maintains websites, custom software tools, and Linux server configurations. Based in Nepal, focused on reliable technical delivery.">
   <link rel="canonical" href="https://yugya.com/">
-  <meta name="theme-color" content="#F7F4EF">
 
-  <meta property="og:title" content="Yugya — Technology built for the work that matters">
-  <meta property="og:description" content="Websites, software tools, Linux server configuration, and technical maintenance from an independent studio in Nepal.">
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Yugya — Practical Technology & Digital Services">
+  <meta property="og:description" content="Web development, Linux VPS deployment, domain & DNS configuration, and technical maintenance.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yugya.com/">
-  <meta property="og:image" content="https://yugya.com/assets/brand/yugya-og.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Yugya — Technology built for the work that matters">
-  <meta name="twitter:description" content="Websites, software tools, Linux server configuration, and technical maintenance from an independent studio in Nepal.">
-  <meta name="twitter:image" content="https://yugya.com/assets/brand/yugya-og.png">
+  <meta property="og:image" content="https://yugya.com/yugya.png">
 
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon.png">
-  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Yugya — Practical Technology & Digital Services">
+  <meta name="twitter:description" content="Web development, Linux VPS deployment, domain & DNS configuration, and technical maintenance.">
+  <meta name="twitter:image" content="https://yugya.com/yugya.png">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="yugya.png">
+
+  <!-- Google Fonts: Newsreader & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 
-  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="style.css">
 
+  <!-- Structured Data (Schema.org) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Yugya",
     "url": "https://yugya.com",
-    "logo": "https://yugya.com/assets/brand/yugya-logo.png",
+    "logo": "https://yugya.com/yugya.png",
     "email": "hello@yugya.com",
-    "description": "Independent technology studio delivering websites, software tools, Linux server configurations, and technical maintenance.",
+    "description": "Technology and digital services company delivering websites, software tools, and server configurations.",
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Kapilvastu / Rupandehi",
       "addressCountry": "NP"
     }
   }
   </script>
 </head>
 <body>
+  <!-- Accessible Skip Link -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
+  <!-- Header Navigation -->
   <header class="site-header">
-    <div class="shell nav-shell">
-      <a class="brand" href="index.html" aria-label="Yugya home">
-        <picture><source type="image/webp" srcset="assets/brand/yugya-nav.webp"><img src="assets/brand/yugya-nav.png" alt="Yugya" width="82" height="58"></picture>
+    <div class="container nav-container">
+      <a class="brand" href="index.html" aria-label="Yugya Home">
+        <img class="brand-logo" src="yugya.png" alt="Yugya mark" width="32" height="32">
+        <div class="brand-text">
+          <span class="brand-name">Yugya</span>
+          <span class="brand-sub">Technology & Services</span>
+        </div>
       </a>
 
-      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
-        <ul class="nav-list">
-          <li><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
-          <li><a class="nav-link" href="services.html">Services</a></li>
-          <li><a class="nav-link" href="work.html">Work</a></li>
-          <li><a class="nav-link" href="about.html">About</a></li>
-          <li><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="mobile-only mobile-contact">
-            <p>Prefer email? Write directly to the studio.</p>
-            <a href="mailto:hello@yugya.com">hello@yugya.com</a>
-            <p class="location">Kapilvastu / Rupandehi, Nepal · UTC +5:45</p>
-          </li>
-        </ul>
-      </nav>
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="nav-menu" id="primaryNav">
+        <li><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
+        <li><a class="nav-link" href="services.html">Services</a></li>
+        <li><a class="nav-link" href="work.html">Work</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="mobile-cta">
+          <a class="btn btn-primary" href="contact.html" style="width: 100%;">Discuss a Project</a>
+        </li>
+      </ul>
 
       <div class="nav-actions">
-        <a class="btn btn-primary btn-small" href="contact.html">Start a project <span class="arrow" aria-hidden="true">↗</span></a>
-        <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
-          <span aria-hidden="true"></span>
-        </button>
+        <a class="btn btn-primary" href="contact.html">
+          Discuss a Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="home-hero">
-      <div class="shell">
-        <div class="hero-grid">
-          <div class="hero-copy reveal">
-            <span class="hero-kicker">Independent technology studio — Nepal</span>
-            <h1>Technology built for the <em>work that matters.</em></h1>
-            <p class="lead hero-lead">
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="home-hero-grid">
+          <div>
+            <span class="kicker">Technology & Digital Services</span>
+            <h1>Technology built for the work that matters.</h1>
+            <p class="lead" style="margin-top: 1.25rem;">
               Yugya builds websites, software tools, and dependable digital systems for businesses and individuals who need technology to work properly.
             </p>
-            <p class="hero-note">
+            <p style="margin-top: 0.75rem;">
               We prioritize simplicity, clean implementation, and direct technical handover. Every project is scoped around concrete operational requirements.
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="services.html">Explore services <span class="arrow" aria-hidden="true">↗</span></a>
-              <a class="btn btn-secondary" href="work.html">View project case studies</a>
+              <a class="btn btn-primary" href="services.html">
+                Explore Services
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a class="btn btn-secondary" href="work.html">View Project Case Studies</a>
             </div>
           </div>
 
-          <figure class="brand-sign reveal">
-            <div class="brand-sign-screen">
-              <picture>
-                <source media="(prefers-reduced-motion: reduce)" srcset="assets/brand/yugya-poster.png">
-                <source type="image/webp" srcset="assets/brand/yugya-logo-anim.webp">
-                <img src="assets/brand/yugya-logo.gif" alt="Yugya animated wordmark" width="480" height="270">
-              </picture>
+          <aside class="hero-card-panel fade-in">
+            <div class="panel-header">
+              <span class="panel-title">Operational Focus</span>
+              <span class="badge badge-verified">Direct Delivery</span>
             </div>
-            <figcaption>
-              <span>Official brand animation</span>
-              <span>Yugya / studio mark</span>
-            </figcaption>
-          </figure>
-        </div>
-
-        <dl class="hero-meta">
-          <div>
-            <dt>Core approach</dt>
-            <dd>Simplicity &amp; maintainability</dd>
-          </div>
-          <div>
-            <dt>Primary technologies</dt>
-            <dd>HTML5, CSS3, JS, Python, Linux, Caddy</dd>
-          </div>
-          <div>
-            <dt>System handover</dt>
-            <dd>Direct code &amp; server access</dd>
-          </div>
-          <div>
-            <dt>Inquiry response</dt>
-            <dd>Aim to reply in 1–2 business days</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="capabilities-title">
-      <div class="shell">
-        <div class="section-head">
-          <span class="section-index" aria-hidden="true">01</span>
-          <div>
-            <h2 id="capabilities-title">What Yugya builds and maintains.</h2>
-            <p>
-              We focus on practical technical execution rather than generic consulting. These are the core services we deliver directly.
-            </p>
-          </div>
-        </div>
-
-        <div class="capability-list">
-          <a class="capability-row reveal" href="services.html#web-development">
-            <span class="num">01</span>
-            <h3>Website &amp; web app development</h3>
-            <p>Responsive websites and web applications built with semantic HTML, clean styling, and minimal script weight.</p>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="capability-row reveal" href="services.html#server-infrastructure">
-            <span class="num">02</span>
-            <h3>Linux server setup &amp; deployment</h3>
-            <p>Documented server baselines, UFW firewall rules, Caddy or Nginx reverse proxies, and Git-based deployment.</p>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="capability-row reveal" href="services.html#domain-dns">
-            <span class="num">03</span>
-            <h3>Domain &amp; DNS guidance</h3>
-            <p>Nepal <code>.np</code> application paperwork assistance, commercial TLD setup, and Cloudflare DNS routing.</p>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="capability-row reveal" href="services.html#automation">
-            <span class="num">04</span>
-            <h3>Business automation &amp; tooling</h3>
-            <p>Lightweight Python or Node.js scripts that replace repetitive manual data work with documented, logged routines.</p>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="capability-row reveal" href="services.html#maintenance">
-            <span class="num">05</span>
-            <h3>Ongoing maintenance</h3>
-            <p>Scheduled OS package upgrades, TLS renewal checks, backup verification, and direct engineer contact.</p>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft" aria-labelledby="featured-title">
-      <div class="shell">
-        <div class="section-head-split">
-          <div>
-            <span class="hero-kicker">Selected work / 01</span>
-            <h2 id="featured-title">A completed build, shown plainly.</h2>
-          </div>
-          <a class="text-link" href="work.html">All projects <span class="arrow" aria-hidden="true">↗</span></a>
-        </div>
-
-        <div class="featured-project">
-          <a class="work-plate reveal" href="work.html#aama-pathshala">
-            <div class="work-plate-frame">
-              <img src="aama-pathshala.jpg" alt="Aama Pathshala preschool website interface showing facilities and contact points" width="1160" height="652">
-            </div>
-            <div class="work-plate-caption">
-              <span>Aama Pathshala / website</span>
-              <span>Completed web build</span>
-            </div>
-          </a>
-
-          <div class="project-copy reveal">
-            <p class="project-meta">Education / bilingual interface</p>
-            <h3>Aama Pathshala — a bilingual preschool website.</h3>
-            <p>
-              A responsive website built for a preschool in Nepal. The site provides school facility details, bus route information, and contact links in both English and Nepali.
-            </p>
-            <ul class="project-facts">
-              <li><span>Project type</span><span>Educational website build</span></li>
-              <li><span>Stack</span><span>HTML5, CSS3, vanilla JS</span></li>
-              <li><span>Key feature</span><span>In-page EN / NP toggle</span></li>
-              <li><span>Status</span><span>Completed build</span></li>
+            <ul class="panel-list">
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Web & App Development:</strong> Responsive websites built with semantic markup, clean styles, and minimal script weight.</span>
+              </li>
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Linux VPS & Deployment:</strong> Documented server baselines, UFW firewall rules, Caddy reverse proxy, and Git-based deployment.</span>
+              </li>
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Domain & DNS Architecture:</strong> Nepal <code>.np</code> application paperwork assistance, commercial TLD setup, and Cloudflare DNS routing.</span>
+              </li>
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Ongoing Maintenance:</strong> Scheduled OS package upgrades, TLS renewal monitoring, and backup checks.</span>
+              </li>
             </ul>
-            <a class="text-link" href="work.html#aama-pathshala">Read project notes <span class="arrow" aria-hidden="true">↗</span></a>
+            <div class="panel-footer-note">
+              Based in Nepal · Working with local and remote teams · Direct code repository and server credential handover on every project.
+            </div>
+          </aside>
+        </div>
+
+        <!-- Metadata Strip -->
+        <div class="meta-strip">
+          <div class="meta-item">
+            <span class="meta-label">Core Approach</span>
+            <span class="meta-val">Simplicity & Maintainability</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Primary Technologies</span>
+            <span class="meta-val">HTML5, CSS3, JS, Python, Linux, Nginx/Caddy</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">System Handover</span>
+            <span class="meta-val">Direct Code & Server Access</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Inquiry Response</span>
+            <span class="meta-val">Aim to Reply in 1–2 Business Days</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark manifesto" aria-labelledby="manifesto-title">
-      <div class="shell">
-        <svg class="ribbon-rule" viewBox="0 0 1200 40" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true" preserveAspectRatio="none">
-          <path d="M0 31C150 31 168 9 320 9s170 22 320 22 168-22 320-22 170 22 240 22"/>
-          <path d="M0 21C150 21 168 0 320 0s170 21 320 21 168-21 320-21 170 21 240 21" opacity=".55"/>
-        </svg>
-
-        <div class="manifesto-grid">
-          <div>
-            <h2 id="manifesto-title" class="visually-hidden">How we work</h2>
-            <blockquote>
-              Clear requirements. <em>Clean code.</em> Direct handover.
-            </blockquote>
-            <p class="manifesto-note">
-              Yugya was started in Nepal to deliver practical digital systems: websites, software tools, and server infrastructure built with care and documented for long-term use. We work directly with clients through every phase of a project.
+    <!-- Services Overview Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header section-header-split">
+          <div class="section-title">
+            <span class="kicker">Core Capabilities</span>
+            <h2>What Yugya builds and maintains.</h2>
+            <p class="section-desc">
+              We focus on practical technical execution rather than generic consulting. Here are the core services we deliver directly.
             </p>
           </div>
+          <a class="btn btn-secondary" href="services.html">
+            Detailed Service Scopes
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
 
-          <div class="principle-list">
-            <div class="principle">
-              <span class="num">01</span>
-              <div>
-                <h3>Clarity before implementation</h3>
-                <p>Goals, constraints, and handover expectations are defined before code is written.</p>
-              </div>
+        <div class="grid-4">
+          <!-- Service 1 -->
+          <article class="card fade-in">
+            <span class="card-num">01</span>
+            <h3 class="card-title">Website & Web App Development</h3>
+            <p class="card-desc">
+              Responsive websites and web applications built with semantic HTML and clean styling.
+            </p>
+            <ul class="card-list">
+              <li>Semantic HTML5, CSS3 & JavaScript</li>
+              <li>Bilingual architecture support</li>
+              <li>Responsive mobile & desktop layouts</li>
+              <li>Lightweight static asset payloads</li>
+            </ul>
+            <div class="card-footer">
+              <span class="badge badge-verified">Available</span>
+              <a href="services.html#web-development" aria-label="Learn more about Web Development">Details &rarr;</a>
             </div>
-            <div class="principle">
-              <span class="num">02</span>
-              <div>
-                <h3>Proven tools over trend chasing</h3>
-                <p>Established, documented tools are preferred over complex stacks that add upkeep.</p>
-              </div>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="card fade-in">
+            <span class="card-num">02</span>
+            <h3 class="card-title">Linux Server Setup & Deployment</h3>
+            <p class="card-desc">
+              Configured Linux VPS servers, automated deployment pipelines, and reverse proxies.
+            </p>
+            <ul class="card-list">
+              <li>Ubuntu / Debian server setup</li>
+              <li>SSH key access, UFW firewall rules</li>
+              <li>Caddy / Nginx reverse proxy with TLS</li>
+              <li>Git-triggered automated deployments</li>
+            </ul>
+            <div class="card-footer">
+              <span class="badge badge-verified">Available</span>
+              <a href="services.html#server-infrastructure" aria-label="Learn more about Server Infrastructure">Details &rarr;</a>
             </div>
-            <div class="principle">
-              <span class="num">03</span>
-              <div>
-                <h3>Transparent system handover</h3>
-                <p>Repositories, domain settings, and server credentials go directly to the client.</p>
-              </div>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="card fade-in">
+            <span class="card-num">03</span>
+            <h3 class="card-title">Domain & DNS Guidance</h3>
+            <p class="card-desc">
+              Guidance for official Nepal <code>.np</code> domain paperwork, commercial TLDs, and mail records.
+            </p>
+            <ul class="card-list">
+              <li>Official <code>.np</code> paperwork dossier prep</li>
+              <li>Cloudflare DNS configuration & DNSSEC</li>
+              <li>SPF, DKIM, DMARC email records</li>
+              <li>Subdomain mapping and documentation</li>
+            </ul>
+            <div class="card-footer">
+              <span class="badge badge-verified">Available</span>
+              <a href="services.html#domain-dns" aria-label="Learn more about Domain and DNS">Details &rarr;</a>
             </div>
-            <div class="principle">
-              <span class="num">04</span>
-              <div>
-                <h3>Truth in technical descriptions</h3>
-                <p>No invented statistics, unverified client logos, or unsupported performance claims.</p>
-              </div>
+          </article>
+
+          <!-- Service 4 -->
+          <article class="card fade-in">
+            <span class="card-num">04</span>
+            <h3 class="card-title">Maintenance & Technical Care</h3>
+            <p class="card-desc">
+              Ongoing technical upkeep to keep websites and servers updated, secure, and backed up.
+            </p>
+            <ul class="card-list">
+              <li>Security patches & package updates</li>
+              <li>Backup verification routines</li>
+              <li>Broken link & uptime monitoring</li>
+              <li>Direct engineer contact for issues</li>
+            </ul>
+            <div class="card-footer">
+              <span class="badge badge-verified">Available</span>
+              <a href="services.html#maintenance" aria-label="Learn more about Maintenance">Details &rarr;</a>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="process-title">
-      <div class="shell">
-        <div class="section-head">
-          <span class="section-index" aria-hidden="true">02</span>
-          <div>
-            <h2 id="process-title">A straightforward, four-stage delivery process.</h2>
-            <p>Every engagement follows a structured progression from initial requirements definition to verified production handover.</p>
+    <!-- Architecture & Systems Section -->
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">Systems Organization</span>
+          <h2>How we organize and deliver technical systems.</h2>
+          <p class="section-desc">
+            We favor transparent architectures with documented components. Below is how we connect source code, automated verification, production servers, and global delivery for clients.
+          </p>
+        </div>
+
+        <div class="diagram-wrap fade-in">
+          <svg viewBox="0 0 960 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture flowchart showing git repository feeding automated CI validation, which deploys to a hardened Linux server and serves users through secure DNS and caching.">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#14324f"/>
+              </marker>
+            </defs>
+
+            <!-- Background & container styling -->
+            <rect width="960" height="260" fill="#ffffff" rx="8" stroke="#cec6b6" stroke-width="1"/>
+
+            <!-- Node 1: Version Controlled Repository -->
+            <g transform="translate(40, 40)">
+              <rect width="180" height="180" rx="8" fill="#f8f6f0" stroke="#14324f" stroke-width="1.5"/>
+              <text x="20" y="35" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#a34e1f">01 / SOURCE</text>
+              <text x="20" y="65" font-family="'Newsreader', Georgia, serif" font-size="17" font-weight="600" fill="#14171d">Git Repository</text>
+              <text x="20" y="95" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">Clean, audited code</text>
+              <text x="20" y="115" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">Semantic markup</text>
+              <text x="20" y="135" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">Direct client access</text>
+              <rect x="20" y="152" width="140" height="20" rx="4" fill="#eaf5ee" stroke="#b6dec4" stroke-width="1"/>
+              <text x="28" y="166" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#1e5e3a">● Version Controlled</text>
+            </g>
+
+            <!-- Arrow 1 to 2 -->
+            <line x1="220" y1="130" x2="265" y2="130" stroke="#14324f" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <!-- Node 2: CI / Build Validation -->
+            <g transform="translate(270, 40)">
+              <rect width="180" height="180" rx="8" fill="#f8f6f0" stroke="#14324f" stroke-width="1.5"/>
+              <text x="20" y="35" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#a34e1f">02 / AUTOMATION</text>
+              <text x="20" y="65" font-family="'Newsreader', Georgia, serif" font-size="17" font-weight="600" fill="#14171d">CI / Build Checks</text>
+              <text x="20" y="95" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">GitHub Actions</text>
+              <text x="20" y="115" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">Link & HTML audits</text>
+              <text x="20" y="135" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">Asset optimization</text>
+              <rect x="20" y="152" width="140" height="20" rx="4" fill="#fbf3ed" stroke="#eccbbb" stroke-width="1"/>
+              <text x="32" y="166" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#a34e1f">Automated Pipeline</text>
+            </g>
+
+            <!-- Arrow 2 to 3 -->
+            <line x1="450" y1="130" x2="495" y2="130" stroke="#14324f" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <!-- Node 3: Hardened Linux Server -->
+            <g transform="translate(500, 40)">
+              <rect width="180" height="180" rx="8" fill="#f8f6f0" stroke="#14324f" stroke-width="1.5"/>
+              <text x="20" y="35" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#a34e1f">03 / HOSTING & OS</text>
+              <text x="20" y="65" font-family="'Newsreader', Georgia, serif" font-size="17" font-weight="600" fill="#14171d">Documented VPS</text>
+              <text x="20" y="95" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">Ubuntu LTS / UFW</text>
+              <text x="20" y="115" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">Caddy / Nginx Proxy</text>
+              <text x="20" y="135" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">Let's Encrypt TLS</text>
+              <rect x="20" y="152" width="140" height="20" rx="4" fill="#eaf5ee" stroke="#b6dec4" stroke-width="1"/>
+              <text x="30" y="166" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#1e5e3a">● Configured Baseline</text>
+            </g>
+
+            <!-- Arrow 3 to 4 -->
+            <line x1="680" y1="130" x2="725" y2="130" stroke="#14324f" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <!-- Node 4: DNS, Caching & Clients -->
+            <g transform="translate(730, 40)">
+              <rect width="190" height="180" rx="8" fill="#f8f6f0" stroke="#14324f" stroke-width="1.5"/>
+              <text x="20" y="35" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#a34e1f">04 / RESOLUTION</text>
+              <text x="20" y="65" font-family="'Newsreader', Georgia, serif" font-size="17" font-weight="600" fill="#14171d">DNS & Delivery</text>
+              <text x="20" y="95" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">.np / .com DNSSEC</text>
+              <text x="20" y="115" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">Cloudflare Caching</text>
+              <text x="20" y="135" font-family="'Inter', sans-serif" font-size="12" fill="#484f5c">Accessible on Any Device</text>
+              <rect x="20" y="152" width="150" height="20" rx="4" fill="#eaf5ee" stroke="#b6dec4" stroke-width="1"/>
+              <text x="32" y="166" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#1e5e3a">● Documented Flow</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Projects -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header section-header-split">
+          <div class="section-title">
+            <span class="kicker">Selected Work</span>
+            <h2>Demonstrated builds and technical implementations.</h2>
+            <p class="section-desc">
+              We present software and setups that have been built and verified. No unverified client metrics or fabricated case studies.
+            </p>
           </div>
+          <a class="btn btn-secondary" href="work.html">
+            View All Projects
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="grid-2">
+          <!-- Project 1 -->
+          <article class="project-card fade-in">
+            <div class="project-visual">
+              <img src="aama-pathshala.jpg" alt="Aama Pathshala preschool website screenshot" width="600" height="338">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="badge badge-verified">Completed Web Build</span>
+                <span class="badge badge-neutral">Preschool Website</span>
+                <span class="badge badge-accent">Bilingual UI</span>
+              </div>
+              <h3 class="card-title">Aama Pathshala — Bilingual Preschool Website</h3>
+              <p>
+                A responsive website built for a preschool in Nepal. The site provides school facility details, bus route information, and contact links in both English and Nepali.
+              </p>
+
+              <div class="project-grid-detail">
+                <div class="detail-block">
+                  <h4>Core Focus</h4>
+                  <p>Clear presentation of classroom amenities and direct admissions contact points.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Implementation</h4>
+                  <p>In-page English/Nepali language switcher with zero third-party framework overhead.</p>
+                </div>
+              </div>
+
+              <div class="card-footer" style="margin-top: auto;">
+                <span class="mono">HTML5 · CSS3 · Vanilla JS</span>
+                <a href="work.html#aama-pathshala" style="font-weight: 600;">Project Details &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card fade-in">
+            <div class="project-visual" style="background-color: #12161c; padding: 2rem; color: #f8f6f0; display: flex; flex-direction: column; justify-content: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #a34e1f; margin-bottom: 0.5rem;">$ ufw status verbose</div>
+              <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #28a745;">Status: active</div>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #8c97a8; margin-top: 0.5rem; line-height: 1.5;">
+                22/tcp (SSH - key only) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ALLOW IN &nbsp;&nbsp; Anywhere<br>
+                80/tcp (HTTP -&gt; HTTPS redir) &nbsp; ALLOW IN &nbsp;&nbsp; Anywhere<br>
+                443/tcp (HTTPS - TLS 1.3) &nbsp;&nbsp;&nbsp;&nbsp; ALLOW IN &nbsp;&nbsp; Anywhere
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #b8c0cc; margin-top: 1rem; border-top: 1px solid #262c36; padding-top: 0.5rem;">
+                ✓ Caddy reverse proxy with automated Let's Encrypt TLS renewal
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="badge badge-verified">Infrastructure Blueprint</span>
+                <span class="badge badge-neutral">Linux / VPS</span>
+                <span class="badge badge-accent">Deployment Pipeline</span>
+              </div>
+              <h3 class="card-title">Linux Server Baseline & Automated CI/CD</h3>
+              <p>
+                A repeatable reference configuration for deploying web applications on Ubuntu Linux virtual private servers with automated Git-based deployment.
+              </p>
+
+              <div class="project-grid-detail">
+                <div class="detail-block">
+                  <h4>Core Focus</h4>
+                  <p>Replacing default insecure server states and manual FTP transfers with documented baselines.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Implementation</h4>
+                  <p>UFW firewall, SSH key auth, Caddy proxy with auto-TLS, and GitHub Actions deploy hooks.</p>
+                </div>
+              </div>
+
+              <div class="card-footer" style="margin-top: auto;">
+                <span class="mono">Ubuntu · Caddy/Nginx · Actions</span>
+                <a href="work.html#server-infrastructure" style="font-weight: 600;">Project Details &rarr;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Delivery Process -->
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">Execution Framework</span>
+          <h2>A straightforward, four-stage delivery process.</h2>
+          <p class="section-desc">
+            Every engagement follows a structured progression from initial requirements definition to verified production handover.
+          </p>
         </div>
 
         <div class="process-grid">
-          <div class="process-step reveal">
-            <span class="num" aria-hidden="true">01</span>
-            <h3>Discovery &amp; scoping</h3>
-            <p>We clarify project goals, target audience, technical constraints, and deadlines upfront. We discuss what is achievable and what is out of scope.</p>
+          <div class="process-step fade-in">
+            <span class="process-step-num">01</span>
+            <h3>Discovery & Scoping</h3>
+            <p>
+              We clarify project goals, target audience, technical constraints, and deadlines upfront. We discuss what is achievable and what is out of scope.
+            </p>
           </div>
-          <div class="process-step reveal">
-            <span class="num" aria-hidden="true">02</span>
-            <h3>Architecture &amp; design</h3>
-            <p>We define the simplest, most durable architecture. Content hierarchy, wireframes, and data structures are agreed upon before code is written.</p>
+
+          <div class="process-step fade-in">
+            <span class="process-step-num">02</span>
+            <h3>Architecture & Design</h3>
+            <p>
+              We define the simplest, most durable architecture. Content hierarchy, wireframes, and data structures are agreed upon before code is written.
+            </p>
           </div>
-          <div class="process-step reveal">
-            <span class="num" aria-hidden="true">03</span>
-            <h3>Phased build &amp; audits</h3>
-            <p>Implementation proceeds in clear milestones. Code is checked for accessibility, responsive mobile layouts, and clean markup.</p>
+
+          <div class="process-step fade-in">
+            <span class="process-step-num">03</span>
+            <h3>Phased Build & Audits</h3>
+            <p>
+              Implementation proceeds in clear milestones. Code is checked for accessibility, responsive mobile layouts, and clean markup.
+            </p>
           </div>
-          <div class="process-step reveal">
-            <span class="num" aria-hidden="true">04</span>
-            <h3>Verification &amp; handover</h3>
-            <p>Deployment to production. You receive full repository access, server documentation, access credentials, and 30 days of post-launch bug fixing support.</p>
+
+          <div class="process-step fade-in">
+            <span class="process-step-num">04</span>
+            <h3>Verification & Handover</h3>
+            <p>
+              Deployment to production. You receive full repository access, server documentation, access credentials, and 30 days of post-launch bug fixing support.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft" aria-labelledby="studio-title">
-      <div class="shell">
-        <div class="studio-grid">
-          <figure class="logo-plate reveal">
-            <picture><source type="image/webp" srcset="assets/brand/yugya-logo.webp"><img src="assets/brand/yugya-logo.png" alt="Yugya logo with wordmark and tagline" width="670" height="535"></picture>
-            <figcaption>
-              <span>Official lockup</span>
-              <span>Static / full tagline</span>
-            </figcaption>
-          </figure>
-
-          <div class="studio-copy reveal">
-            <span class="hero-kicker">The studio</span>
-            <h2 id="studio-title">Founded in Nepal. Focused on dependable execution.</h2>
-            <p>
-              Yugya is an independent technology studio. We build websites, software tools, and server setups for organizations that need technology to run reliably.
-            </p>
-            <p>
-              Our focus is on clear requirements, clean code, direct communication, and handover of systems that clients can operate independently.
-            </p>
-            <dl class="studio-list">
-              <div>
-                <dt>Based in</dt>
-                <dd>Kapilvastu / Rupandehi, Nepal · UTC +5:45</dd>
-              </div>
-              <div>
-                <dt>Working with</dt>
-                <dd>Local organizations in Nepal and remote clients</dd>
-              </div>
-              <div>
-                <dt>Direct contact</dt>
-                <dd><a href="mailto:hello@yugya.com">hello@yugya.com</a></dd>
-              </div>
-              <div>
-                <dt>Response aim</dt>
-                <dd>1–2 business days</dd>
-              </div>
-            </dl>
-            <div class="hero-actions">
-              <a class="btn btn-secondary" href="about.html">About the studio <span class="arrow" aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cta" aria-labelledby="cta-title">
-      <div class="shell">
-        <div class="cta-grid">
+    <!-- About Yugya Preview -->
+    <section class="section">
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
           <div>
-            <h2 id="cta-title">Have a project or technical requirement in mind?</h2>
-            <p>
-              Whether you need a website built from scratch, a Linux server configured, or domain and DNS guidance, we are ready to discuss your requirements.
+            <span class="kicker">About the Company</span>
+            <h2>Founded in Nepal. Focused on dependable execution.</h2>
+            <p style="margin-top: 1rem;">
+              Yugya was started in Nepal to deliver practical digital systems: websites, software tools, and server infrastructure built with care and documented for long-term use.
             </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="contact.html">Send a project enquiry <span class="arrow" aria-hidden="true">↗</span></a>
-              <a class="btn btn-secondary" href="mailto:hello@yugya.com">Email hello@yugya.com</a>
+            <p style="margin-top: 0.75rem;">
+              We work directly with clients through every phase of a project, providing straightforward communication and complete access to all project assets.
+            </p>
+            <div style="margin-top: 1.5rem;">
+              <a class="btn btn-secondary" href="about.html">
+                Learn About Our Approach & Principles
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
             </div>
           </div>
-          <dl class="cta-aside">
-            <dt>Direct email</dt>
-            <dd><a href="mailto:hello@yugya.com">hello@yugya.com</a></dd>
-            <dt>Response aim</dt>
-            <dd>1–2 business days</dd>
-            <dt>Location</dt>
-            <dd>Nepal · UTC +5:45</dd>
-          </dl>
+
+          <div class="hero-card-panel fade-in">
+            <span class="panel-title">Our Operating Commitments</span>
+            <ul class="panel-list">
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>No Manufactured Claims:</strong> We describe our skills and past projects factually without unverified statistics.</span>
+              </li>
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Direct System Handover:</strong> You receive the code repository, domain accounts, and server credentials directly.</span>
+              </li>
+              <li class="panel-list-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Direct Engineer Access:</strong> You communicate directly with the engineer working on your project.</span>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-muted">
+      <div class="container container-narrow" style="text-align: center;">
+        <span class="kicker" style="justify-content: center;">Start an Enquiry</span>
+        <h2>Have a project or technical requirement in mind?</h2>
+        <p class="lead" style="margin-top: 1rem; margin-inline: auto;">
+          Whether you need a website built from scratch, a Linux server configured, or domain and DNS guidance, we are ready to discuss your requirements.
+        </p>
+        <div class="hero-actions" style="justify-content: center; margin-top: 2rem;">
+          <a class="btn btn-primary" href="contact.html">
+            Send a Project Enquiry
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a class="btn btn-secondary" href="mailto:hello@yugya.com">
+            Email hello@yugya.com directly
+          </a>
+        </div>
+        <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-tertiary); margin-top: 1.5rem;">
+          Aim to reply within 1 to 2 business days · No obligation review
+        </p>
       </div>
     </section>
   </main>
 
+  <!-- Site Footer -->
   <footer class="site-footer">
-    <div class="shell">
+    <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <picture><source type="image/webp" srcset="assets/brand/yugya-logo.webp"><img src="assets/brand/yugya-logo.png" alt="Yugya" width="150" height="120"></picture>
-          <p>Independent technology studio delivering websites, software tools, and server configurations that organizations can rely on.</p>
-          <p class="footer-location">Kapilvastu / Rupandehi, Nepal · UTC +5:45</p>
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.85rem;">
+            <img src="yugya.png" alt="Yugya mark" width="28" height="28" style="border-radius: 4px;">
+            <span style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: #ffffff;">Yugya</span>
+          </div>
+          <p style="color: #9aa5b5; font-size: 0.9rem; line-height: 1.6;">
+            Technology and digital services company. Delivering websites, software tools, and server configurations that organizations can rely on.
+          </p>
+          <div style="margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.8rem; color: #7d8799;">
+            Kapilvastu / Rupandehi, Nepal
+          </div>
         </div>
 
         <div class="footer-col">
-          <h3>Services</h3>
+          <h4>Services</h4>
           <ul>
-            <li><a href="services.html#web-development">Web &amp; app development</a></li>
-            <li><a href="services.html#server-infrastructure">Linux VPS &amp; deployment</a></li>
-            <li><a href="services.html#domain-dns">Domain &amp; DNS guidance</a></li>
-            <li><a href="services.html#automation">Business automation</a></li>
-            <li><a href="services.html#maintenance">Ongoing maintenance</a></li>
+            <li><a href="services.html#web-development">Web & App Development</a></li>
+            <li><a href="services.html#server-infrastructure">Linux VPS & Deployment</a></li>
+            <li><a href="services.html#domain-dns">Domain & DNS Guidance</a></li>
+            <li><a href="services.html#automation">Business Automation</a></li>
+            <li><a href="services.html#maintenance">Ongoing Maintenance</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h3>Studio</h3>
+          <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Yugya</a></li>
-            <li><a href="about.html#approach">Company purpose</a></li>
-            <li><a href="about.html#principles">Core principles</a></li>
-            <li><a href="work.html">Projects &amp; builds</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html#approach">Company Purpose</a></li>
+            <li><a href="about.html#principles">Core Principles</a></li>
+            <li><a href="work.html">Projects & Builds</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h3>Direct inquiries</h3>
+          <h4>Direct Inquiries</h4>
           <ul>
             <li><a href="mailto:hello@yugya.com">hello@yugya.com</a></li>
-            <li><a href="contact.html">Project enquiry form</a></li>
-            <li><span>Aim to reply within 1–2 business days</span></li>
+            <li><a href="contact.html">Project Enquiry Form</a></li>
+            <li><span style="color: #7d8799; font-size: 0.85rem;">Aim to reply within 1–2 business days</span></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> Yugya. All rights reserved. Built with semantic HTML, CSS &amp; JavaScript.</p>
-        <div class="footer-bottom-links">
-          <a href="services.html">Services scope</a>
-          <a href="work.html">Project case studies</a>
+        <div>
+          &copy; <span id="year">2026</span> Yugya. All rights reserved. Built with semantic HTML, CSS & JavaScript.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="services.html">Services Scope</a>
+          <a href="work.html">Project Case Studies</a>
           <a href="contact.html">Contact</a>
         </div>
       </div>
