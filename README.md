@@ -1,6 +1,6 @@
 # Yugya — Next.js rewrite
 
-The Yugya website rebuilt on the latest Next.js (App Router, TypeScript, Turbopack) with the
+ The Yugya website rebuilt on the latest Next.js (App Router, TypeScript, Turbopack) with the
 original design, content, and styling preserved. The app is a **fully static export**, so it
 deploys to the same places the hand-written HTML site did (GitHub Pages, Caddy, Nginx, any
 static host).
