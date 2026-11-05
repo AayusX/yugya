@@ -319,6 +319,10 @@ export default function ServicesPage() {
             </div>
           </div>
 
+          <p className="table-hint">
+            Swipe the table sideways to see every column <span aria-hidden="true">→</span>
+          </p>
+
           <div
             className="table-wrap reveal"
             role="region"

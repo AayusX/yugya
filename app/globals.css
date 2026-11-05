@@ -172,6 +172,18 @@ textarea {
   font: inherit;
 }
 
+/* Register taps immediately instead of waiting to see whether a double-tap
+   zoom is coming. Applies to touch pointers only; mouse behaviour is unchanged. */
+a,
+button,
+[role="button"],
+input,
+select,
+textarea,
+summary {
+  touch-action: manipulation;
+}
+
 ::selection {
   background: var(--color-sage);
   color: var(--color-text);
@@ -427,7 +439,16 @@ code {
     background-color var(--fast) ease;
 }
 
-.theme-toggle:hover {
+/* Hover only where a pointer can hover, so a tap does not leave the control
+   stuck in its hover state on touch screens. */
+@media (hover: hover) {
+  .theme-toggle:hover {
+    border-color: var(--color-primary-ink);
+    color: var(--color-primary-ink);
+  }
+}
+
+.theme-toggle:active {
   border-color: var(--color-primary-ink);
   color: var(--color-primary-ink);
 }
@@ -2551,6 +2572,150 @@ textarea {
 
   .location-panel a {
     font-size: 1.25rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile refinements
+   -------------------------------------------------------------------------- */
+
+.table-hint {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* iOS Safari zooms the page when a focused field is smaller than 16px. */
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+  }
+
+  /* Clear a notch or home indicator when the page is edge-to-edge. */
+  .site-header {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .site-footer {
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .primary-nav {
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Horizontal table scroll needs a stated affordance on touch screens,
+     where there is no scrollbar to hint at the hidden columns. */
+  .table-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+  }
+
+  .table-wrap {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border-strong) transparent;
+  }
+
+  /* Stacked footer links become full-width rows with a comfortable
+     thumb-sized target instead of 18px-tall text. */
+  .footer-col h3 {
+    margin-bottom: 0.45rem;
+  }
+
+  .footer-col ul {
+    gap: 0;
+  }
+
+  .footer-col a {
+    display: block;
+    padding: 0.7rem 0;
+  }
+
+  .footer-bottom .footer-bottom-links {
+    gap: 0 1.25rem;
+  }
+
+  .footer-bottom .footer-bottom-links a {
+    display: inline-block;
+    padding: 0.75rem 0;
+  }
+
+  .page-aside ul {
+    gap: 0;
+  }
+
+  .page-aside a {
+    display: block;
+    padding: 0.6rem 0;
+  }
+
+  .service-rail a {
+    padding: 0.62rem 0;
+  }
+
+  /* Inline links keep their exact look but gain a taller invisible hit area,
+     so the layout does not shift. */
+  .studio-list dd a,
+  .cta-aside dd a,
+  .location-panel a,
+  .text-link {
+    position: relative;
+  }
+
+  .studio-list dd a::after,
+  .cta-aside dd a::after,
+  .location-panel a::after,
+  .text-link::after {
+    content: "";
+    position: absolute;
+    inset: -0.85rem -0.35rem;
+  }
+
+  .direct-email {
+    padding-top: 0.35rem;
+  }
+
+  /* Lift micro-labels out of the 9-11px range without disturbing layout. */
+  .hero-kicker,
+  .hero-meta dt,
+  .brand-sign figcaption,
+  .work-plate-caption,
+  .logo-plate figcaption,
+  .project-copy .project-meta,
+  .studio-list dt,
+  .cta-aside dt,
+  .footer-location,
+  .footer-col h3,
+  .footer-bottom,
+  .page-aside h2,
+  .page-aside .num,
+  .rail-label,
+  .service-rail .num,
+  .service-status,
+  .service-body h3,
+  .project-entry-head .project-kind,
+  .ledger dt,
+  .ledger-note dt,
+  .terminal-label,
+  .location-panel .label,
+  .char-counter,
+  .mobile-contact .location,
+  th,
+  .status {
+    font-size: 0.72rem;
+  }
+
+  .terminal pre {
+    font-size: 0.86rem;
   }
 }
 
