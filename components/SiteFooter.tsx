@@ -1,4 +1,5 @@
 import Link from "next/link";
+import GoogleTranslate from "@/components/GoogleTranslate";
 import { SERVICE_LINKS, SITE_EMAIL, SITE_LOCATION } from "@/lib/site";
 
 export default function SiteFooter() {
@@ -35,6 +36,7 @@ export default function SiteFooter() {
             <h3>Studio</h3>
             <ul>
               <li><Link href="/about/">About Yugya</Link></li>
+              <li><Link href="/about/#founders">Founders</Link></li>
               <li><Link href="/about/#approach">Company purpose</Link></li>
               <li><Link href="/about/#principles">Core principles</Link></li>
               <li><Link href="/work/">Projects &amp; builds</Link></li>
@@ -57,10 +59,13 @@ export default function SiteFooter() {
             &copy; <span id="year">{year}</span> Yugya. All rights reserved. Built with
             semantic HTML, CSS &amp; JavaScript.
           </p>
-          <div className="footer-bottom-links">
-            <Link href="/services/">Services scope</Link>
-            <Link href="/work/">Project case studies</Link>
-            <Link href="/contact/">Contact</Link>
+          <div className="footer-bottom-right">
+            <GoogleTranslate />
+            <div className="footer-bottom-links">
+              <Link href="/services/">Services scope</Link>
+              <Link href="/work/">Project case studies</Link>
+              <Link href="/contact/">Contact</Link>
+            </div>
           </div>
         </div>
       </div>

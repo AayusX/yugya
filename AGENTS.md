@@ -151,7 +151,7 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 | --- | --- |
 | `/services/` | `web-development`, `server-infrastructure`, `domain-dns`, `automation`, `maintenance` |
 | `/work/` | `aama-pathshala`, `server-infrastructure`, `aayushai-core` |
-| `/about/` | `approach`, `principles` |
+| `/about/` | `approach`, `principles`, `founders` |
 
 **Query parameters:** `/contact/?service=` accepts `web`, `vps`, `dns`, `automation`,
 `maintenance`. `EnquiryForm` matches them by substring against the option values.
@@ -237,8 +237,8 @@ crop, or regenerate them.
 
 ## 10. Metadata, SEO, icons
 
-- `lib/site.ts` → `SITE_URL`, `SITE_EMAIL`, `SITE_LOCATION`, `NAV_ITEMS`, `SERVICE_LINKS`. Single
-  source of truth.
+- `lib/site.ts` → `SITE_URL`, `SITE_EMAIL`, `SITE_LOCATION`, `NAV_ITEMS`, `SERVICE_LINKS`,
+  `FOUNDERS`. Single source of truth.
 - `lib/metadata.ts` → `pageMetadata({ title, description, path, ogTitle?, ogDescription? })`
   produces canonical URL, Open Graph, and Twitter card. `path` must start **and** end with `/`.
 - Root `metadata` + `viewport` (`themeColor: #F7F4EF`) live in `app/layout.tsx`, together with
@@ -341,7 +341,7 @@ real `index.html`, no rewrite rules are needed.
 | `/` | hero + brand animation, hero meta, capabilities (5), featured project, manifesto + 4 principles, 4-stage process, studio, CTA |
 | `/services/` | page hero + in-page index, 5 service articles (what/who, problem, deliverables, after delivery, CTA), scopes & boundaries table, CTA |
 | `/work/` | 3 entries (Aama Pathshala, Linux server baseline, AayushAI Core) each with terminal/ledger, transparency section, CTA |
-| `/about/` | page hero + lockup, company purpose, 4 principles, location & collaboration, CTA |
+| `/about/` | page hero + lockup, company purpose, 4 principles, founders, location & collaboration, CTA |
 | `/contact/` | page hero + details, email guide + checklist, enquiry form panel, FAQ (4 items) |
 
 Every page ends with the shared footer. Every page starts with the shared header and the

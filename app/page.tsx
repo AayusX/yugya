@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
+import { FOUNDER_NAMES } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Yugya — Technology built for the work that matters",
@@ -348,6 +349,12 @@ export default function HomePage() {
                 <div>
                   <dt>Direct contact</dt>
                   <dd><a href="mailto:hello@yugya.com">hello@yugya.com</a></dd>
+                </div>
+                <div>
+                  <dt>Founders</dt>
+                  <dd>
+                    <Link href="/about/#founders">{FOUNDER_NAMES}</Link>
+                  </dd>
                 </div>
                 <div>
                   <dt>Response aim</dt>
