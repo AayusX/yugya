@@ -23,3 +23,38 @@ export const SERVICE_LINKS = [
   { href: "/services/#automation", label: "Business automation" },
   { href: "/services/#maintenance", label: "Ongoing maintenance" },
 ];
+
+export type Founder = {
+  name: string;
+  handle?: string;
+  role: string;
+  email: string;
+  portfolio: string;
+  portfolioLabel: string;
+  imageBase: string;
+  alt: string;
+};
+
+export const FOUNDERS: Founder[] = [
+  {
+    name: "Aayush Bhandari",
+    handle: "Aayusx",
+    role: "Co-founder",
+    email: "aayusx@yugya.com",
+    portfolio: "https://aayusx.dev",
+    portfolioLabel: "aayusx.dev",
+    imageBase: "/assets/founders/aayush-bhandari",
+    alt: "Portrait of Aayush Bhandari",
+  },
+  {
+    name: "Sagar Bhusal",
+    role: "Co-founder",
+    email: "sagar@yugya.com",
+    portfolio: "https://sagarb.com",
+    portfolioLabel: "sagarb.com",
+    imageBase: "/assets/founders/sagar-bhusal",
+    alt: "Portrait of Sagar Bhusal",
+  },
+];
+
+export const FOUNDER_NAMES = FOUNDERS.map((founder) => founder.name).join(" & ");

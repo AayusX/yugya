@@ -3,7 +3,7 @@ import { Figtree, JetBrains_Mono, Newsreader } from "next/font/google";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import { SITE_URL } from "@/lib/site";
+import { FOUNDERS, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -76,6 +76,12 @@ const organizationJsonLd = {
   description:
     "Independent technology studio delivering websites, software tools, Linux server configurations, and technical maintenance.",
   foundingDate: "2024",
+  founder: FOUNDERS.map((founder) => ({
+    "@type": "Person",
+    name: founder.name,
+    email: founder.email,
+    url: founder.portfolio,
+  })),
   address: {
     "@type": "PostalAddress",
     addressLocality: "Kapilvastu / Rupandehi",

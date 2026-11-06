@@ -1326,6 +1326,103 @@ code {
   color: var(--color-text);
 }
 
+.footer-bottom-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem 1.5rem;
+  margin-left: auto;
+}
+
+.footer-translate {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.6rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+}
+
+.footer-translate-label {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.footer-translate-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-translate-control::after {
+  content: "";
+  position: absolute;
+  right: 0.62rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 1px solid var(--color-muted);
+  border-bottom: 1px solid var(--color-muted);
+  transform: rotate(45deg) translateY(-1px);
+  pointer-events: none;
+}
+
+.footer-translate select {
+  appearance: none;
+  padding: 0.32rem 1.55rem 0.32rem 0.55rem;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: border-color var(--fast) ease, color var(--fast) ease;
+}
+
+.footer-translate select:hover {
+  border-color: var(--color-border-strong);
+}
+
+.footer-translate select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.footer-translate-credit {
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.footer-translate-credit:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* The Google widget is only used as the translation engine; the visible
+   control is the native select above. Keep its UI out of the layout. */
+.google-translate-host {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
 /* --------------------------------------------------------------------------
    Page heroes
    -------------------------------------------------------------------------- */
@@ -1939,6 +2036,97 @@ td:last-child {
 }
 
 /* --------------------------------------------------------------------------
+   Founders
+   -------------------------------------------------------------------------- */
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.founder-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.founder-portrait {
+  margin: 0;
+}
+
+.founder-portrait-frame {
+  padding: clamp(0.7rem, 1.4vw, 1.1rem);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+}
+
+.founder-portrait-frame img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+}
+
+.founder-portrait figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.7rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+}
+
+.founder-copy {
+  margin-top: 1.1rem;
+}
+
+.founder-copy h3 {
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  line-height: 1;
+}
+
+.founder-links {
+  margin-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.founder-links div {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.founder-links dt {
+  padding-top: 0.15rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.founder-links dd {
+  font-size: 0.94rem;
+}
+
+.founder-links dd a {
+  overflow-wrap: anywhere;
+}
+
+.founder-links dd a .arrow {
+  display: inline-block;
+  transition: transform var(--fast) var(--ease);
+}
+
+.founder-links dd a:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+/* --------------------------------------------------------------------------
    Contact
    -------------------------------------------------------------------------- */
 
@@ -2495,6 +2683,15 @@ textarea {
     gap: 1.5rem;
   }
 
+  .founder-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .founder-portrait-frame {
+    max-width: 420px;
+  }
+
   .contact-grid {
     gap: 2.5rem;
   }
@@ -2505,6 +2702,14 @@ textarea {
 
   .footer-bottom {
     flex-direction: column;
+  }
+
+  .footer-bottom-right {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-left: 0;
   }
 
   .footer-bottom .footer-bottom-links {
@@ -2588,6 +2793,10 @@ textarea {
   input,
   select,
   textarea {
+    font-size: 1rem;
+  }
+
+  .footer-translate select {
     font-size: 1rem;
   }
 
