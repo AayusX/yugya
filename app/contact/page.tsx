@@ -1,18 +1,65 @@
 import EnquiryForm from "@/components/EnquiryForm";
+import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
+import { faqPageNode, type FaqItem } from "@/lib/schema";
+
+const CONTACT_TITLE = "Contact Yugya — Website Development Enquiry";
+const CONTACT_DESCRIPTION =
+  "Contact Yugya to discuss a website, web app, Linux server, domain, or automation project in Nepal. Direct email, clear scoping, and replies within 1–2 business days.";
 
 export const metadata = pageMetadata({
-  title: "Contact & Project Enquiry — Yugya",
-  description:
-    "Contact Yugya to discuss website development, Linux server setups, domain configuration, or technical maintenance. Direct communication and practical scoping.",
+  title: CONTACT_TITLE,
+  description: CONTACT_DESCRIPTION,
   path: "/contact/",
   ogDescription:
     "Send your project requirements to Yugya. Transparent scoping and direct communication.",
 });
 
+const CONTACT_FAQS: FaqItem[] = [
+  {
+    question: "How is work billed?",
+    answer:
+      "Engagements are typically billed in milestones: an initial deposit upon project kick-off, a progress milestone after architecture and design approval, and the balance upon deployment and system handover.",
+  },
+  {
+    question: "Where are websites hosted?",
+    answer:
+      "We configure hosting under accounts owned directly by you (such as Cloudflare Pages, DigitalOcean, or Linode). You maintain direct control over your infrastructure provider and billing.",
+  },
+  {
+    question: "What post-launch support is included?",
+    answer:
+      "Projects include 30 calendar days of bug fixing support following deployment. For continuous feature additions or regular server patching, we offer scheduled monthly maintenance.",
+  },
+  {
+    question: "Do you assist with .com.np domain registration?",
+    answer:
+      "Yes. In Nepal, official .np domains are administered by Mercantile Communication. We help prepare the required cover letters and registration documentation.",
+  },
+  {
+    question: "How is a project priced?",
+    answer:
+      "Pricing is based on the scope we agree together: the number of pages or screens, the complexity of the interface, integrations, content work, and the server setup required. We do not publish fixed packages because two projects with the same page count can need very different engineering. After a short requirements review we provide an itemized scope and a written quote.",
+  },
+];
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    faqPageNode({
+      path: "/contact/",
+      name: CONTACT_TITLE,
+      description: CONTACT_DESCRIPTION,
+      items: CONTACT_FAQS,
+    }),
+  ],
+};
+
 export default function ContactPage() {
   return (
-    <main id="main">
+    <>
+      <JsonLd data={contactJsonLd} />
+      <main id="main">
       <section className="page-hero">
         <div className="shell">
           <div className="page-hero-grid">
@@ -163,10 +210,23 @@ export default function ContactPage() {
                   </p>
                 </div>
               </details>
+              <details>
+                <summary>How is a project priced?</summary>
+                <div className="faq-answer">
+                  <p>
+                    Pricing is based on the scope we agree together: the number of pages or
+                    screens, the complexity of the interface, integrations, content work, and the
+                    server setup required. We do not publish fixed packages because two projects
+                    with the same page count can need very different engineering. After a short
+                    requirements review we provide an itemized scope and a written quote.
+                  </p>
+                </div>
+              </details>
             </div>
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

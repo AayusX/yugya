@@ -1511,6 +1511,11 @@ body {
   align-items: start;
 }
 
+/* Let the article column shrink below the width of a scrollable diagram. */
+.service-layout > div {
+  min-width: 0;
+}
+
 .service-rail {
   position: sticky;
   top: 118px;
@@ -1670,6 +1675,87 @@ body {
 
 .service-note a {
   white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Service visuals
+   Genuine project screenshots and reference diagrams. Same frame treatment as
+   the work plates so the new imagery belongs to the existing design system.
+   -------------------------------------------------------------------------- */
+
+.service-visual {
+  margin: 0 0 clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.service-visual-frame {
+  padding: clamp(0.7rem, 1.4vw, 1.1rem);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+}
+
+.service-visual-frame img,
+.service-visual-frame svg {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--color-border);
+}
+
+.service-visual-frame img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.service-visual-frame svg {
+  height: auto;
+  background: var(--color-background);
+}
+
+.service-diagram text {
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
+}
+
+.service-visual figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.7rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+}
+
+.service-visual-hint {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .service-visual-frame.is-diagram {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border-strong) transparent;
+  }
+
+  .service-visual-frame.is-diagram .service-diagram {
+    min-width: 720px;
+  }
+
+  .service-visual-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.55rem;
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+  }
+
+  .service-visual figcaption {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -1916,6 +2002,204 @@ td:last-child {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Live client projects
+   Editorial entries and compact rows. Genuine desktop/mobile screenshots,
+   clearly labelled with the capture month.
+   -------------------------------------------------------------------------- */
+
+.live-project-category {
+  margin-bottom: 0.45rem;
+  color: var(--color-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--color-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.live-status > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.live-project .project-entry-head {
+  align-items: start;
+}
+
+.live-project-body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  margin-top: 1.75rem;
+}
+
+.live-project-copy .lead {
+  max-width: 34rem;
+}
+
+.live-project-facts {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.live-project-facts div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.55fr) 1fr;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.live-project-facts dt {
+  padding-top: 0.15rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.live-project-facts dd {
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.live-project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-top: 1.5rem;
+}
+
+.live-project-domain {
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.live-project-previews {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 1rem;
+  align-items: start;
+}
+
+.live-project-frame {
+  padding: 0.55rem;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+}
+
+.live-project-frame img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--color-border);
+}
+
+.live-project-desktop .live-project-frame img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.live-project-mobile .live-project-frame img {
+  aspect-ratio: 390 / 844;
+  object-fit: cover;
+}
+
+.live-project-previews figcaption {
+  padding-top: 0.5rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+}
+
+.live-project-index {
+  border-top: 1px solid var(--color-border);
+}
+
+.live-project-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 1.5rem;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: center;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--color-border);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color var(--fast) ease, padding var(--fast) ease,
+    margin var(--fast) ease;
+}
+
+.live-project-row:hover {
+  padding-inline: 0.9rem;
+  margin-inline: -0.9rem;
+  background: var(--color-hover-tint);
+}
+
+.live-project-row-thumb {
+  width: 150px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+}
+
+.live-project-row-copy {
+  min-width: 0;
+}
+
+.live-project-row-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 1rem;
+}
+
+.live-project-row h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.live-project-row-category {
+  margin-top: 0.35rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.live-project-row-detail {
+  margin-top: 0.5rem;
+  color: var(--color-text);
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
+.live-project-row .arrow {
+  justify-self: end;
+  color: var(--color-secondary);
+  font-size: 1.15rem;
+  transition: transform var(--fast) var(--ease);
+}
+
+.live-project-row:hover .arrow {
+  transform: translate(3px, -3px);
 }
 
 /* --------------------------------------------------------------------------
@@ -2419,7 +2703,7 @@ textarea {
   }
 
   .service-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .service-rail {
@@ -2557,6 +2841,24 @@ textarea {
     max-width: 42rem;
   }
 
+  .live-project-body {
+    grid-template-columns: 1fr;
+  }
+
+  .live-project-previews {
+    grid-template-columns: minmax(0, 1fr) 140px;
+  }
+
+  .live-project-row {
+    grid-template-columns: 110px minmax(0, 1fr) 1.25rem;
+    gap: 0.55rem 0.9rem;
+    padding: 1.2rem 0;
+  }
+
+  .live-project-row-thumb {
+    width: 110px;
+  }
+
   .footer-grid {
     gap: 2rem;
   }
@@ -2679,6 +2981,20 @@ textarea {
     text-align: left;
   }
 
+  .live-project .project-entry-head .live-status {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 0.35rem;
+  }
+
+  .live-project-previews {
+    grid-template-columns: 1fr;
+  }
+
+  .live-project-mobile {
+    max-width: 200px;
+  }
+
   .about-grid {
     gap: 1.5rem;
   }
@@ -2730,6 +3046,19 @@ textarea {
 @media (max-width: 480px) {
   .brand img {
     height: 44px;
+  }
+
+  .live-project-facts div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  .live-project-row {
+    grid-template-columns: 90px minmax(0, 1fr) 1.25rem;
+  }
+
+  .live-project-row-thumb {
+    width: 90px;
   }
 
   .hero-actions {

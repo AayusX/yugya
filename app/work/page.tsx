@@ -1,14 +1,34 @@
 import Link from "next/link";
+import DemoIndex from "@/components/DemoIndex";
+import JsonLd from "@/components/JsonLd";
+import { LiveProjectEntries } from "@/components/LiveProjects";
 import { pageMetadata } from "@/lib/metadata";
+import { webPageNode } from "@/lib/schema";
+import "@/components/demos/demos.css";
+
+const WORK_TITLE = "Web Development Portfolio & Projects — Yugya";
+const WORK_DESCRIPTION =
+  "See live client websites and technical implementations by Yugya, including Kohinoor Restaurant, Samajik Abhiyaan, Aama Pathshala, a Linux server baseline, and interactive demos.";
 
 export const metadata = pageMetadata({
-  title: "Projects & Technical Implementations — Yugya",
-  description:
-    "Projects and technical reference implementations by Yugya: Aama Pathshala bilingual preschool website, Linux server deployment blueprint, and a local developer tool prototype.",
+  title: WORK_TITLE,
+  description: WORK_DESCRIPTION,
   path: "/work/",
   ogDescription:
-    "Transparent view of completed builds, reference architectures, and software prototypes.",
+    "Live client websites, reference architectures, and interactive software demonstrations.",
 });
+
+const workJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    webPageNode({
+      path: "/work/",
+      name: WORK_TITLE,
+      description: WORK_DESCRIPTION,
+      type: "CollectionPage",
+    }),
+  ],
+};
 
 const caddyfile = `yugya.com, www.yugya.com {
     root * /var/www/yugya
@@ -29,112 +49,74 @@ const prototypeOutput = `$ aayushai --status
 
 export default function WorkPage() {
   return (
-    <main id="main">
+    <>
+      <JsonLd data={workJsonLd} />
+      <main id="main">
       <section className="page-hero">
         <div className="shell">
           <div className="page-hero-grid">
             <div>
-              <span className="hero-kicker">Projects &amp; reference implementations</span>
-              <h1>Demonstrated builds and technical implementations.</h1>
+              <span className="hero-kicker">Live client work, builds &amp; prototypes</span>
+              <h1>Live client work and demonstrated builds.</h1>
               <p className="lead">
-                Below is an honest view of our work. Each entry clearly identifies whether it is a
-                completed website build, an internal infrastructure blueprint, or an experimental
-                prototype.
+                Below is an honest view of our work: live client websites, an internal
+                infrastructure blueprint, a local prototype and interactive demos. Each entry
+                states what it is.
               </p>
               <p className="page-note">
-                We describe the practical requirements, technologies used, and engineering
-                decisions behind each project without exaggerating outcomes or publishing
-                unverified statistics.
+                We describe the practical requirements, visible features and engineering decisions
+                behind each project without exaggerating outcomes or publishing unverified
+                statistics.
               </p>
             </div>
 
             <div className="page-aside">
               <h2>Entries</h2>
               <ul>
-                <li><span className="num">01</span><a href="#aama-pathshala">Aama Pathshala — completed web build</a></li>
-                <li><span className="num">02</span><a href="#server-infrastructure">Linux server baseline — blueprint</a></li>
-                <li><span className="num">03</span><a href="#aayushai-core">AayushAI Core — prototype</a></li>
+                <li><span className="num">01</span><a href="#kohinoor-restaurant">Kohinoor Restaurant — live client website</a></li>
+                <li><span className="num">02</span><a href="#samajik-abhiyaan">Samajik Abhiyaan — live client website</a></li>
+                <li><span className="num">03</span><a href="#aama-pathshala">Aama Pathshala — live client website</a></li>
+                <li><span className="num">04</span><a href="#server-infrastructure">Linux server baseline — blueprint</a></li>
+                <li><span className="num">05</span><a href="#aayushai-core">AayushAI Core — prototype</a></li>
+                <li><span className="num">06</span><a href="#demos">Interactive demos — operate them yourself</a></li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="live-projects" aria-labelledby="live-projects-title">
         <div className="shell">
-          <article className="project-entry reveal" id="aama-pathshala">
-            <div className="project-entry-head">
-              <span className="num" aria-hidden="true">01</span>
-              <h2>Aama Pathshala — bilingual preschool website</h2>
-              <span className="project-kind">
-                Completed web build<br />Education / EN + NP
-              </span>
+          <div className="section-head-split">
+            <div>
+              <span className="hero-kicker">Live client work</span>
+              <h2 id="live-projects-title">Websites in production.</h2>
             </div>
-
-            <div className="project-hero-image">
-              <img
-                src="/aama-pathshala.jpg"
-                alt="Aama Pathshala preschool website interface showing facilities and contact points"
-                width={1160}
-                height={652}
-              />
-            </div>
-
-            <p className="lead">
-              A responsive website built for Aama Pathshala, a preschool in Nepal, providing
-              parents with clear information on facilities, classroom amenities, and admissions
-              contact.
+            <p style={{ maxWidth: "30rem" }}>
+              Three real client websites, live on their own domains. Each project is shown at the
+              same scale, with its own desktop and mobile view.
             </p>
+          </div>
+          <LiveProjectEntries />
+        </div>
+      </section>
 
-            <div className="project-detail-grid" style={{ marginTop: "1.75rem" }}>
-              <div>
-                <h3>Project requirements</h3>
-                <p>
-                  Parents looking for early childhood schooling need direct, practical information:
-                  classroom environment details, air conditioning, CCTV safety, transportation bus
-                  routes, and straightforward contact numbers. The site needed to serve families
-                  comfortably in both Nepali and English, with layouts tailored for mobile
-                  smartphone screens.
-                </p>
-                <h3 style={{ marginTop: "1.25rem" }}>What was built</h3>
-                <p>
-                  A lightweight static website featuring a prominent amenities grid, an admission
-                  enquiry section, direct telephone and WhatsApp links, and an in-page toggle
-                  allowing users to switch between English and Nepali text without page reloads.
-                </p>
-              </div>
-              <div>
-                <h3>Technical implementation decisions</h3>
-                <ul>
-                  <li>
-                    <strong>Static implementation:</strong> Built with semantic HTML5, modern CSS,
-                    and plain JavaScript. Avoiding heavy JavaScript application frameworks kept
-                    total page weight small for mobile visitors.
-                  </li>
-                  <li>
-                    <strong>Client-side language toggle:</strong> Implemented a clean DOM
-                    data-attribute switcher that toggles text between English and Nepali and saves
-                    the preference in browser storage.
-                  </li>
-                  <li>
-                    <strong>Touch-friendly actions:</strong> Configured telephone, WhatsApp, and
-                    location map links as clear touch targets for mobile visitors.
-                  </li>
-                </ul>
-              </div>
+      <section className="section" aria-labelledby="build-notes-title">
+        <div className="shell">
+          <div className="section-head-split">
+            <div>
+              <span className="hero-kicker">Build notes &amp; prototypes</span>
+              <h2 id="build-notes-title">Blueprints and experiments.</h2>
             </div>
-
-            <dl className="ledger">
-              <div><dt>Project type</dt><dd>Educational website build</dd></div>
-              <div><dt>Stack</dt><dd>HTML5, CSS3, vanilla JavaScript</dd></div>
-              <div><dt>Key features</dt><dd>Bilingual toggle, mobile layout</dd></div>
-              <div><dt>Status</dt><dd>Completed build</dd></div>
-            </dl>
-          </article>
+            <p style={{ maxWidth: "30rem" }}>
+              These entries are not live client sites: a reference server baseline and a local
+              prototype.
+            </p>
+          </div>
 
           <article className="project-entry reveal" id="server-infrastructure">
             <div className="project-entry-head">
-              <span className="num" aria-hidden="true">02</span>
+              <span className="num" aria-hidden="true">04</span>
               <h2>Linux server baseline &amp; automated deployment pipeline</h2>
               <span className="project-kind">
                 Infrastructure blueprint<br />Linux / Ubuntu
@@ -223,7 +205,7 @@ export default function WorkPage() {
 
           <article className="project-entry reveal" id="aayushai-core">
             <div className="project-entry-head">
-              <span className="num" aria-hidden="true">03</span>
+              <span className="num" aria-hidden="true">05</span>
               <h2>AayushAI Core — terminal assistant with SQLite memory</h2>
               <span className="project-kind">
                 Personal prototype<br />Python / SQLite
@@ -295,6 +277,27 @@ export default function WorkPage() {
         </div>
       </section>
 
+      <section className="section" id="demos" aria-labelledby="demos-title">
+        <div className="shell">
+          <div className="section-head-split">
+            <div>
+              <span className="hero-kicker">Interactive demonstrations</span>
+              <h2 id="demos-title">Five demos you can operate yourself.</h2>
+            </div>
+            <Link className="text-link" href="/contact/">
+              Discuss a build <span className="arrow" aria-hidden="true">↗</span>
+            </Link>
+          </div>
+          <p style={{ maxWidth: "46rem", marginBottom: "2rem" }}>
+            Each demonstration below runs in your browser with fictional sample data — no
+            signup, nothing installed, and a reset button that restores the original records.
+            Every module is labelled for what it honestly is: real in-browser logic, a simulated
+            workflow, or sample data.
+          </p>
+          <DemoIndex />
+        </div>
+      </section>
+
       <section className="section section-soft" aria-labelledby="transparency-title">
         <div className="shell">
           <div className="about-grid">
@@ -360,6 +363,7 @@ export default function WorkPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

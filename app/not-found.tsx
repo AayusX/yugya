@@ -21,8 +21,8 @@ export default function NotFound() {
                 moved.
               </p>
               <p className="page-note">
-                Everything on this site lives on five pages. You can start from the home page, or
-                go directly to the services, work, about, or contact pages.
+                The main sections are listed below. You can start from the home page, or go
+                directly to services, work, about, or contact.
               </p>
 
               <div className="hero-actions">

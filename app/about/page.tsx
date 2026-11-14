@@ -1,19 +1,39 @@
 import Link from "next/link";
+import FounderCards from "@/components/FounderCards";
+import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
-import { FOUNDER_NAMES, FOUNDERS } from "@/lib/site";
+import { webPageNode } from "@/lib/schema";
+import { FOUNDER_NAMES } from "@/lib/site";
+
+const ABOUT_TITLE = "About Yugya — Web Development Studio in Nepal";
+const ABOUT_DESCRIPTION =
+  "Learn how Yugya works: an independent web development studio in Kapilvastu / Rupandehi, Nepal, focused on clear scoping, clean code, and documented handover.";
 
 export const metadata = pageMetadata({
-  title: "About Yugya — Purpose, Focus & Principles",
-  description:
-    "Why Yugya exists: practical technology delivery from Nepal. Learn about our technical focus, engineering approach, and operating principles.",
+  title: ABOUT_TITLE,
+  description: ABOUT_DESCRIPTION,
   path: "/about/",
   ogDescription:
-    "Founded in Nepal to deliver dependable software, server infrastructure, and digital services.",
+    "Founded in Nepal to deliver dependable websites, software, and server infrastructure.",
 });
+
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    webPageNode({
+      path: "/about/",
+      name: ABOUT_TITLE,
+      description: ABOUT_DESCRIPTION,
+      type: "AboutPage",
+    }),
+  ],
+};
 
 export default function AboutPage() {
   return (
-    <main id="main">
+    <>
+      <JsonLd data={aboutJsonLd} />
+      <main id="main">
       <section className="page-hero">
         <div className="shell">
           <div className="page-hero-grid">
@@ -159,53 +179,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="founder-grid">
-            {FOUNDERS.map((founder, index) => (
-              <article className="founder-card reveal" key={founder.email}>
-                <figure className="founder-portrait">
-                  <div className="founder-portrait-frame">
-                    <img
-                      src={`${founder.imageBase}-1200.jpg`}
-                      srcSet={`${founder.imageBase}-640.jpg 640w, ${founder.imageBase}-960.jpg 960w, ${founder.imageBase}-1200.jpg 1200w`}
-                      sizes="(max-width: 900px) calc(100vw - 4rem), 560px"
-                      alt={founder.alt}
-                      width={1200}
-                      height={1200}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <figcaption>
-                    <span>
-                      {String(index + 1).padStart(2, "0")} — {founder.role}
-                    </span>{" "}
-                    <span>{founder.handle ?? founder.name}</span>
-                  </figcaption>
-                </figure>
-
-                <div className="founder-copy">
-                  <h3>{founder.name}</h3>
-                  <dl className="founder-links">
-                    <div>
-                      <dt>Email</dt>
-                      <dd>
-                        <a href={`mailto:${founder.email}`}>{founder.email}</a>
-                      </dd>
-                    </div>
-                    <div>
-                      <dt>Portfolio</dt>
-                      <dd>
-                        <a href={founder.portfolio} target="_blank" rel="noreferrer noopener">
-                          {founder.portfolioLabel}{" "}
-                          <span className="arrow" aria-hidden="true">↗</span>
-                        </a>
-                      </dd>
-                    </div>
-                  </dl>
-                </div>
-              </article>
-            ))}
-          </div>
+          <FounderCards />
         </div>
       </section>
 
@@ -287,6 +261,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

@@ -1,0 +1,1297 @@
+/* ==========================================================================
+   ServerScope — operations console (ss- prefix)
+   Graphite surfaces, monospace data, segmented readings, no rounded cards.
+   The console is dark in both themes on purpose: it is a terminal, not a
+   marketing surface. Every colour is declared here, none come from gradients.
+   ========================================================================== */
+
+.demo-stage[data-app="serverscope"] {
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+  padding: 0;
+}
+
+.ss-shell {
+  --ss-bg: #0f1518;
+  --ss-panel: #151d21;
+  --ss-raise: #1a2429;
+  --ss-rule: #27343a;
+  --ss-rule-soft: #1e292e;
+  --ss-ink: #dbe5e7;
+  --ss-dim: #8d9ea5;
+  --ss-faint: #82949b;
+  --ss-ok: #7ec9a6;
+  --ss-warn: #d8a45e;
+  --ss-bad: #e0877a;
+  --ss-onseg: #0d1316;
+  --ss-select: #1b2c32;
+  --ss-term: #0a0f12;
+  --ss-termink: #c3d3d2;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  color: var(--ss-ink);
+  background: var(--ss-bg);
+  font-family: var(--font-sans);
+}
+
+[data-theme="dark"] .ss-shell {
+  --ss-bg: #0b1013;
+  --ss-panel: #11181c;
+  --ss-raise: #162025;
+  --ss-rule: #223036;
+  --ss-rule-soft: #1a262b;
+  --ss-ink: #e4ecee;
+  --ss-dim: #93a5ab;
+  --ss-faint: #7d9198;
+  --ss-ok: #8ad9b4;
+  --ss-warn: #e6b573;
+  --ss-bad: #eda093;
+  --ss-select: #17292f;
+}
+
+.ss-shell h1,
+.ss-shell h2,
+.ss-shell h3,
+.ss-shell p,
+.ss-shell ol,
+.ss-shell ul,
+.ss-shell dl,
+.ss-shell dd,
+.ss-shell pre {
+  margin: 0;
+}
+
+.ss-shell ol,
+.ss-shell ul {
+  padding: 0;
+  list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   Console bar
+   -------------------------------------------------------------------------- */
+
+.ss-top {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  border-bottom: 1px solid var(--ss-rule);
+  background: var(--ss-panel);
+}
+
+.ss-toprow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem 1.4rem;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding: 0.7rem clamp(0.9rem, 2.6vw, 1.6rem) 0.55rem;
+}
+
+.ss-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.ss-promptmark {
+  color: var(--ss-ok);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.ss-brandname {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.65rem;
+  min-width: 0;
+}
+
+.ss-brandname strong {
+  color: var(--ss-ink);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.ss-brandname small {
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+.ss-topstat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.9rem;
+  color: var(--ss-dim);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+}
+
+.ss-topstat-warn {
+  color: var(--ss-warn);
+}
+
+.ss-cmdnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 1.35rem;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding: 0 clamp(0.9rem, 2.6vw, 1.6rem);
+  border-top: 1px solid var(--ss-rule-soft);
+}
+
+.ss-cmd {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.32rem;
+  margin-bottom: -1px;
+  padding: 0.5rem 0 0.45rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--ss-dim);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: color var(--fast) ease, border-color var(--fast) ease;
+}
+
+.ss-cmd:hover {
+  color: var(--ss-ink);
+}
+
+.ss-cmd[aria-current="page"] {
+  border-bottom-color: var(--ss-ok);
+  color: var(--ss-ink);
+}
+
+.ss-cmd-mark {
+  color: var(--ss-ok);
+  font-size: 0.62rem;
+}
+
+.ss-cmd-count {
+  color: var(--ss-faint);
+  font-size: 0.56rem;
+  letter-spacing: 0.02em;
+}
+
+.ss-cmd[aria-current="page"] .ss-cmd-count {
+  color: var(--ss-ok);
+}
+
+/* --------------------------------------------------------------------------
+   Console body
+   -------------------------------------------------------------------------- */
+
+.ss-console {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 2.6vw, 1.6rem) clamp(0.9rem, 2.6vw, 1.6rem) 0.9rem;
+}
+
+.ss-view {
+  display: grid;
+  gap: clamp(0.9rem, 2vw, 1.3rem);
+}
+
+.ss-viewhead {
+  max-width: 52rem;
+}
+
+.ss-eyebrow {
+  color: var(--ss-ok);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.09em;
+}
+
+.ss-viewhead h1 {
+  margin-top: 0.3rem;
+  color: var(--ss-ink);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.ss-lede {
+  margin-top: 0.45rem;
+  color: var(--ss-dim);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   Panels
+   -------------------------------------------------------------------------- */
+
+.ss-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--ss-rule);
+  background: var(--ss-panel);
+}
+
+.ss-panelhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.2rem 1rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--ss-rule);
+  background: var(--ss-raise);
+}
+
+.ss-panelhead h2 {
+  color: var(--ss-ink);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+}
+
+.ss-panelhead p {
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.03em;
+}
+
+.ss-panelfoot {
+  margin-top: auto;
+  padding: 0.55rem 0.75rem;
+  border-top: 1px solid var(--ss-rule-soft);
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.ss-tablewrap {
+  overflow-x: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Readings: segmented bars
+   -------------------------------------------------------------------------- */
+
+.ss-seg {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 2px;
+  width: 5rem;
+  height: 0.55rem;
+  vertical-align: middle;
+}
+
+.ss-seg i {
+  background: var(--ss-rule);
+}
+
+.ss-seg-ok i.is-on {
+  background: var(--ss-ok);
+}
+
+.ss-seg-warn i.is-on {
+  background: var(--ss-warn);
+}
+
+.ss-seg-bad i.is-on {
+  background: var(--ss-bad);
+}
+
+/* --------------------------------------------------------------------------
+   Fleet
+   -------------------------------------------------------------------------- */
+
+.ss-fleetgrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(0.8rem, 1.8vw, 1.2rem);
+  align-items: start;
+}
+
+.ss-fleettable {
+  width: 100%;
+  min-width: 0;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+.ss-fleettable thead th {
+  padding: 0.4rem 0.7rem;
+  border-bottom: 1px solid var(--ss-rule);
+  background: transparent;
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.ss-fleettable tbody th,
+.ss-fleettable tbody td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--ss-rule-soft);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.ss-fleettable tbody tr:last-child th,
+.ss-fleettable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.ss-fleettable tbody tr[data-selected] {
+  background: var(--ss-select);
+  box-shadow: inset 2px 0 0 var(--ss-ok);
+}
+
+.ss-hostbtn {
+  display: grid;
+  gap: 0.05rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ss-ink);
+  font-family: var(--font-mono);
+  text-align: left;
+  cursor: pointer;
+}
+
+.ss-hostname {
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+}
+
+.ss-hostbtn:hover .ss-hostname {
+  color: var(--ss-ok);
+}
+
+.ss-hostbtn[aria-pressed="true"] .ss-hostname {
+  color: var(--ss-ok);
+}
+
+.ss-hostbtn small {
+  color: var(--ss-faint);
+  font-size: 0.54rem;
+  letter-spacing: 0.03em;
+}
+
+.ss-hostrole {
+  color: var(--ss-dim);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.ss-hostload {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.ss-hostload > span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.ss-hostload b {
+  color: var(--ss-dim);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ss-loadkey {
+  width: 1.6rem;
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.04em;
+}
+
+.ss-hostload .ss-seg {
+  width: 3.4rem;
+}
+
+.ss-hostdisk {
+  white-space: nowrap;
+}
+
+.ss-hostdisk .ss-seg {
+  width: 3.4rem;
+  margin-right: 0.4rem;
+}
+
+.ss-hostdisk b {
+  color: var(--ss-dim);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.ss-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  color: var(--ss-dim);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.ss-state::before {
+  content: "";
+  width: 0.34rem;
+  height: 0.34rem;
+  background: currentColor;
+}
+
+.ss-state-operational {
+  color: var(--ss-ok);
+}
+
+.ss-state-degraded {
+  color: var(--ss-warn);
+}
+
+.ss-state-offline {
+  color: var(--ss-bad);
+}
+
+/* Inspector */
+
+.ss-inspector {
+  padding-bottom: 0.1rem;
+}
+
+.ss-inspectmeta {
+  display: grid;
+  gap: 0.02rem;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--ss-rule-soft);
+}
+
+.ss-inspectmeta div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.16rem 0;
+}
+
+.ss-inspectmeta dt {
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.05em;
+}
+
+.ss-inspectmeta dd {
+  color: var(--ss-ink);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.ss-inspectblock {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--ss-rule-soft);
+}
+
+.ss-inspectblock h3 {
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: lowercase;
+}
+
+.ss-services {
+  display: grid;
+  gap: 0.2rem;
+  margin-top: 0.3rem;
+}
+
+.ss-services li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+}
+
+.ss-servicemark {
+  width: 0.34rem;
+  height: 0.34rem;
+  background: var(--ss-faint);
+}
+
+.ss-servicemark-running {
+  background: var(--ss-ok);
+}
+
+.ss-servicemark-failed {
+  background: var(--ss-bad);
+}
+
+.ss-servicemark-stopped {
+  background: var(--ss-warn);
+}
+
+.ss-servicename {
+  color: var(--ss-ink);
+}
+
+.ss-servicestate {
+  margin-left: auto;
+  color: var(--ss-faint);
+  font-size: 0.54rem;
+  letter-spacing: 0.03em;
+}
+
+.ss-volumes {
+  display: grid;
+  gap: 0.28rem;
+  margin-top: 0.35rem;
+}
+
+.ss-volumes li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.15rem 0.5rem;
+}
+
+.ss-volumemount {
+  color: var(--ss-ink);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  overflow-wrap: anywhere;
+}
+
+.ss-volumes .ss-seg {
+  width: 4.2rem;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.ss-volumepct {
+  grid-column: 1 / -1;
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.02em;
+}
+
+.ss-inspectnote {
+  padding: 0.6rem 0.75rem 0.7rem;
+  color: var(--ss-dim);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Runbook
+   -------------------------------------------------------------------------- */
+
+.ss-runbook {
+  border: 1px solid var(--ss-rule);
+  background: var(--ss-panel);
+}
+
+.ss-runbookhead {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.7rem 0.9rem 0.75rem;
+  border-bottom: 1px solid var(--ss-rule);
+  background: var(--ss-raise);
+}
+
+.ss-score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.ss-score strong {
+  color: var(--ss-ink);
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.ss-score span {
+  color: var(--ss-dim);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.03em;
+}
+
+.ss-scorebar .ss-seg {
+  width: 100%;
+  height: 0.7rem;
+}
+
+.ss-scoremood {
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.02em;
+}
+
+.ss-checks {
+  display: grid;
+}
+
+.ss-checks li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  gap: 0.2rem 0.75rem;
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--ss-rule-soft);
+}
+
+.ss-checks li:last-child {
+  border-bottom: 0;
+}
+
+.ss-checkmark {
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+.ss-checks li[data-applied] .ss-checkmark {
+  color: var(--ss-ok);
+}
+
+.ss-checkbody {
+  display: grid;
+  gap: 0.16rem;
+  min-width: 0;
+}
+
+.ss-checktitle {
+  color: var(--ss-ink);
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.ss-ref {
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.ss-checks li[data-applied] .ss-ref {
+  color: var(--ss-ok);
+}
+
+.ss-checkdetail {
+  color: var(--ss-dim);
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
+
+.ss-verify {
+  justify-self: start;
+  margin-top: 0.16rem;
+  padding: 0.1rem 0.35rem;
+  border: 1px solid var(--ss-rule-soft);
+  background: var(--ss-bg);
+  color: var(--ss-ok);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.ss-toggle {
+  align-self: start;
+  justify-self: end;
+  padding: 0.26rem 0.5rem;
+  border: 1px solid var(--ss-rule);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ss-dim);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--fast) ease, border-color var(--fast) ease,
+    background-color var(--fast) ease;
+}
+
+.ss-toggle:hover {
+  border-color: var(--ss-ok);
+  color: var(--ss-ok);
+}
+
+.ss-toggle[aria-pressed="true"] {
+  border-color: var(--ss-ok);
+  background: var(--ss-ok);
+  color: var(--ss-onseg);
+}
+
+/* --------------------------------------------------------------------------
+   Deploy
+   -------------------------------------------------------------------------- */
+
+.ss-deploygrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(0.8rem, 1.8vw, 1.2rem);
+  align-items: start;
+}
+
+.ss-builderbody {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.75rem;
+}
+
+.ss-flag {
+  display: grid;
+  gap: 0.22rem;
+}
+
+.ss-flagname {
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+}
+
+.ss-flag select {
+  width: 100%;
+  padding: 0.38rem 0.45rem;
+  border: 1px solid var(--ss-rule);
+  border-radius: 0;
+  background: var(--ss-bg);
+  color: var(--ss-ink);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.ss-command {
+  padding: 0.45rem 0.55rem;
+  border-left: 2px solid var(--ss-ok);
+  background: var(--ss-bg);
+  color: var(--ss-termink);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.ss-command span {
+  margin-right: 0.3rem;
+  color: var(--ss-ok);
+}
+
+.ss-builderfoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.8rem;
+  margin-top: 0.15rem;
+}
+
+.ss-run {
+  padding: 0.42rem 0.7rem;
+  border: 1px solid var(--ss-ok);
+  border-radius: 0;
+  background: var(--ss-ok);
+  color: var(--ss-onseg);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: filter var(--fast) ease;
+}
+
+.ss-run:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.ss-run:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.ss-sim {
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.02em;
+}
+
+.ss-buildernote {
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.ss-transcriptscroll {
+  flex: 1;
+  min-height: 15rem;
+  max-height: 24rem;
+  overflow: auto;
+  background: var(--ss-term);
+}
+
+.ss-transcriptscroll pre {
+  padding: 0.7rem 0.8rem;
+  color: var(--ss-termink);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* --------------------------------------------------------------------------
+   Incidents
+   -------------------------------------------------------------------------- */
+
+.ss-inctable {
+  width: 100%;
+  min-width: 0;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+.ss-inctable thead th {
+  padding: 0.42rem 0.7rem;
+  border-bottom: 1px solid var(--ss-rule);
+  background: transparent;
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.ss-inctable tbody th,
+.ss-inctable tbody td {
+  padding: 0.6rem 0.7rem;
+  border-bottom: 1px solid var(--ss-rule-soft);
+  text-align: left;
+  vertical-align: top;
+}
+
+.ss-inctable tbody tr:last-child th,
+.ss-inctable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.ss-inctable tbody tr[data-status="resolved"] {
+  opacity: 0.62;
+}
+
+.ss-level {
+  display: inline-block;
+  padding: 0.1rem 0.3rem;
+  border: 1px solid currentColor;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ss-level-critical {
+  color: var(--ss-bad);
+}
+
+.ss-level-warning {
+  color: var(--ss-warn);
+}
+
+.ss-level-info {
+  color: var(--ss-dim);
+}
+
+.ss-incidentcell {
+  display: grid;
+  gap: 0.12rem;
+  min-width: 14rem;
+}
+
+.ss-inctitle {
+  color: var(--ss-ink);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.ss-incidentcell small {
+  color: var(--ss-dim);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.ss-inchost,
+.ss-incraised {
+  color: var(--ss-dim);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  white-space: nowrap;
+}
+
+.ss-status {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.ss-status-open {
+  color: var(--ss-bad);
+}
+
+.ss-status-acknowledged {
+  color: var(--ss-warn);
+}
+
+.ss-status-resolved {
+  color: var(--ss-ok);
+}
+
+.ss-incaction {
+  text-align: right;
+}
+
+.ss-act {
+  padding: 0.24rem 0.45rem;
+  border: 1px solid var(--ss-rule);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ss-dim);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--fast) ease, border-color var(--fast) ease;
+}
+
+.ss-act:hover {
+  border-color: var(--ss-warn);
+  color: var(--ss-warn);
+}
+
+.ss-muted {
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+}
+
+/* --------------------------------------------------------------------------
+   Session bar + shell footer
+   -------------------------------------------------------------------------- */
+
+.ss-statusbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.3rem 1.2rem;
+  margin-top: auto;
+  padding: 0.6rem 0 0;
+  border-top: 1px solid var(--ss-rule);
+  color: var(--ss-dim);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  line-height: 1.6;
+}
+
+.ss-history {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.ss-history time {
+  margin-right: 0.35rem;
+  color: var(--ss-ok);
+}
+
+.ss-session {
+  color: var(--ss-faint);
+  white-space: nowrap;
+}
+
+.ss-foot {
+  padding: 0.55rem 0 0;
+  color: var(--ss-faint);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  line-height: 1.6;
+}
+
+.ss-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Focus
+   -------------------------------------------------------------------------- */
+
+.ss-cmd:focus-visible,
+.ss-hostbtn:focus-visible,
+.ss-toggle:focus-visible,
+.ss-run:focus-visible,
+.ss-act:focus-visible,
+.ss-flag select:focus-visible,
+.ss-transcriptscroll:focus-visible {
+  outline: 2px solid var(--ss-ok);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1040px) {
+  .ss-fleetgrid,
+  .ss-deploygrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ss-transcriptscroll {
+    max-height: 20rem;
+  }
+}
+
+@media (max-width: 760px) {
+  /* The fleet becomes a record per host: name and state, role, then readings. */
+  .ss-fleettable thead {
+    display: none;
+  }
+
+  .ss-fleettable,
+  .ss-fleettable tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .ss-fleettable tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.2rem 0.7rem;
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--ss-rule-soft);
+  }
+
+  .ss-fleettable tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .ss-fleettable tbody th,
+  .ss-fleettable tbody td {
+    padding: 0;
+    border: 0;
+  }
+
+  .ss-fleettable tbody th {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ss-fleettable tbody td:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .ss-fleettable tbody td:nth-child(5) {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .ss-fleettable tbody td.ss-hostload {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 0.25rem;
+  }
+
+  .ss-fleettable tbody td.ss-hostdisk {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
+    margin-top: 0.25rem;
+  }
+
+  .ss-fleettable tbody tr[data-selected] {
+    box-shadow: inset 2px 0 0 var(--ss-ok);
+  }
+
+  /* Incidents become a record: level and time, then the incident, host/status. */
+  .ss-inctable thead {
+    display: none;
+  }
+
+  .ss-inctable,
+  .ss-inctable tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .ss-inctable tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.25rem 0.8rem;
+    padding: 0.7rem 0.75rem;
+    border-bottom: 1px solid var(--ss-rule-soft);
+  }
+
+  .ss-inctable tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .ss-inctable tbody th,
+  .ss-inctable tbody td {
+    padding: 0;
+    border: 0;
+  }
+
+  .ss-incidents-sev {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ss-incraised {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .ss-incidentcell {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    min-width: 0;
+  }
+
+  .ss-inchost {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: center;
+  }
+
+  .ss-inctable tbody td:nth-child(5) {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .ss-incaction {
+    grid-column: 2;
+    grid-row: 4;
+    padding-top: 0.15rem;
+  }
+
+  .ss-checks li {
+    grid-template-columns: 1.6rem minmax(0, 1fr);
+  }
+
+  .ss-toggle {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 0.2rem;
+  }
+
+  .ss-statusbar {
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .ss-cmdnav {
+    gap: 0.1rem 0.9rem;
+  }
+
+  .ss-cmd {
+    font-size: 0.64rem;
+  }
+
+  .ss-hostload .ss-seg,
+  .ss-hostdisk .ss-seg {
+    width: 2.6rem;
+  }
+
+  .ss-seg {
+    gap: 1px;
+  }
+
+  .ss-transcriptscroll pre {
+    font-size: 0.58rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ss-cmd,
+  .ss-toggle,
+  .ss-run,
+  .ss-act {
+    transition: none;
+  }
+}

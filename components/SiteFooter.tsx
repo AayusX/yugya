@@ -12,7 +12,14 @@ export default function SiteFooter() {
           <div className="footer-brand">
             <picture>
               <source type="image/webp" srcSet="/assets/brand/yugya-logo.webp" />
-              <img src="/assets/brand/yugya-logo.png" alt="Yugya" width={150} height={120} />
+              <img
+                src="/assets/brand/yugya-logo.png"
+                alt="Yugya"
+                width={150}
+                height={120}
+                loading="lazy"
+                decoding="async"
+              />
             </picture>
             <p>
               Independent technology studio delivering websites, software tools, and server

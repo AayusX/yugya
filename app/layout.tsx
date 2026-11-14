@@ -1,10 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, JetBrains_Mono, Newsreader } from "next/font/google";
+import IntroSequence from "@/components/IntroSequence";
+import JsonLd from "@/components/JsonLd";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import { FOUNDERS, SITE_URL } from "@/lib/site";
+import { organizationNode, websiteNode } from "@/lib/schema";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
+import "@/components/intro.css";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -26,10 +30,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteDescription =
-  "Yugya is an independent technology studio in Nepal building websites, software tools, Linux server configurations, and dependable digital systems.";
+  "Yugya is an independent web development company in Nepal building fast, accessible websites, custom web applications, and Linux server infrastructure.";
 
 // Runs before first paint: resolves the saved/system theme onto <html> so the
 // page never flashes the wrong palette, then marks JS as available for reveals.
+// It also decides whether the brand entry sequence plays at all.
 const themeScript = `
 (function () {
   try {
@@ -45,13 +50,71 @@ const themeScript = `
       meta.setAttribute("content", theme === "dark" ? "#0F1512" : "#F7F4EF");
     }
   } catch (error) {}
-  document.documentElement.classList.add("js");
+  var root = document.documentElement;
+  root.classList.add("js");
+
+  // Entry sequence: full page loads only, never on back/forward, deep links or
+  // reduced motion. Rendering it is CSS-only; this just turns it on in time.
+  try {
+    var nav = performance.getEntriesByType
+      ? performance.getEntriesByType("navigation")[0]
+      : null;
+    var returning = nav && nav.type === "back_forward";
+    var deepLink = location.hash !== "" || location.search !== "";
+    var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (returning || deepLink || calm) return;
+
+    root.dataset.intro = "on";
+
+    // Hold the wordmark until Newsreader is ready (or 400ms) so the masked
+    // rise never plays in the fallback face and swaps mid-animation. The arm
+    // time is recorded on <html> so the component can time the exit from the
+    // moment the rise actually starts.
+    var arm = function () {
+      var intro = document.getElementById("intro");
+      if (!intro || intro.classList.contains("is-fonted")) return;
+      intro.classList.add("is-fonted");
+      root.dataset.introArm = String(Math.round(performance.now()));
+      try {
+        window.dispatchEvent(new CustomEvent("yugya:intro-armed"));
+      } catch (error) {}
+    };
+    var armWhenReady = function () {
+      try {
+        if (document.fonts && document.fonts.load) {
+          document.fonts.load('400 1em "Newsreader"').then(arm, arm);
+        } else {
+          arm();
+        }
+      } catch (error) {
+        arm();
+      }
+      window.setTimeout(arm, 400);
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", armWhenReady);
+    } else {
+      armWhenReady();
+    }
+
+    // Last-resort release: if the app never hydrates, never trap the page.
+    window.setTimeout(function () {
+      var intro = document.getElementById("intro");
+      if (!intro || root.dataset.intro !== "on") return;
+      intro.classList.add("is-out", "is-fast");
+      window.setTimeout(function () {
+        root.removeAttribute("data-intro");
+        root.classList.remove("intro-exit", "intro-fast");
+        delete root.dataset.introArm;
+      }, 500);
+    }, 7000);
+  } catch (error) {}
 })();
 `.trim();
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Yugya — Technology built for the work that matters",
+  title: "Yugya — Web Development Company in Nepal",
   description: siteDescription,
   applicationName: "Yugya",
   authors: [{ name: "Yugya", url: SITE_URL }],
@@ -66,27 +129,9 @@ export const viewport: Viewport = {
   themeColor: "#F7F4EF",
 };
 
-const organizationJsonLd = {
+const globalJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Yugya",
-  url: SITE_URL,
-  logo: `${SITE_URL}/assets/brand/yugya-logo.png`,
-  email: "hello@yugya.com",
-  description:
-    "Independent technology studio delivering websites, software tools, Linux server configurations, and technical maintenance.",
-  foundingDate: "2024",
-  founder: FOUNDERS.map((founder) => ({
-    "@type": "Person",
-    name: founder.name,
-    email: founder.email,
-    url: founder.portfolio,
-  })),
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Kapilvastu / Rupandehi",
-    addressCountry: "NP",
-  },
+  "@graph": [organizationNode(), websiteNode()],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -94,6 +139,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${newsreader.variable} ${figtree.variable} ${jetbrainsMono.variable}`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
@@ -102,6 +148,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
+        <IntroSequence />
+
         <a className="skip-link" href="#main">
           Skip to main content
         </a>
@@ -113,12 +161,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteFooter />
         <RevealOnScroll />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
-          }}
-        />
+        <JsonLd data={globalJsonLd} />
       </body>
     </html>
   );

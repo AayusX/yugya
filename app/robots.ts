@@ -11,6 +11,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    // Yandex's non-standard Host directive expects a hostname, not a URL.
+    host: new URL(SITE_URL).host,
   };
 }

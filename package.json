@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "node scripts/serve.mjs",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "seo:check": "node scripts/seo-check.mjs"
   },
   "dependencies": {
     "next": "16.4.5",

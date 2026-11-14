@@ -1,19 +1,42 @@
 import Link from "next/link";
+import DemoIndex from "@/components/DemoIndex";
+import FounderCards from "@/components/FounderCards";
+import JsonLd from "@/components/JsonLd";
+import { LiveProjectIndex } from "@/components/LiveProjects";
 import { pageMetadata } from "@/lib/metadata";
-import { FOUNDER_NAMES } from "@/lib/site";
+import { webPageNode } from "@/lib/schema";
+import { FOUNDER_NAMES, YUGS_URL } from "@/lib/site";
+import "@/components/demos/demos.css";
+import "@/components/yugs.css";
+
+const HOME_TITLE = "Yugya — Web Development Company in Nepal";
+const HOME_DESCRIPTION =
+  "Yugya is a web development company in Nepal building fast, accessible websites, custom web applications, and Linux server infrastructure for organizations that need dependable systems.";
 
 export const metadata = pageMetadata({
-  title: "Yugya — Technology built for the work that matters",
-  description:
-    "Yugya is an independent technology studio in Nepal building websites, software tools, Linux server configurations, and dependable digital systems.",
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
   path: "/",
   ogDescription:
-    "Websites, software tools, Linux server configuration, and technical maintenance from an independent studio in Nepal.",
+    "Websites, web applications, Linux server setup, and technical maintenance from an independent technology studio in Nepal.",
 });
+
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    webPageNode({
+      path: "/",
+      name: HOME_TITLE,
+      description: HOME_DESCRIPTION,
+    }),
+  ],
+};
 
 export default function HomePage() {
   return (
-    <main id="main">
+    <>
+      <JsonLd data={homeJsonLd} />
+      <main id="main">
       <section className="home-hero">
         <div className="shell">
           <div className="hero-grid">
@@ -82,6 +105,89 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section section-dark yugs-launch" id="yugs" aria-labelledby="yugs-title">
+        <div className="shell">
+          <div className="yugs-meta">
+            <span className="yugs-flag">
+              <span className="yugs-flag-dot" aria-hidden="true" />
+              New product
+            </span>
+            <span>Yugs Bot — AI assistant</span>
+            <span className="yugs-meta-by">Yugya Technologies</span>
+          </div>
+
+          <div className="yugs-stage">
+            <figure className="yugs-mark reveal">
+              <div className="yugs-mark-frame">
+                <img
+                  src="/assets/brand/yugs-neon-robot.png"
+                  alt="Yugs neon robot product mark"
+                  width={1254}
+                  height={1254}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption>
+                <span>Product mark</span>
+                <span>Yugs Bot</span>
+              </figcaption>
+            </figure>
+
+            <div className="yugs-copy reveal">
+              <span className="hero-kicker">Introducing</span>
+              <h2 className="yugs-name" id="yugs-title">
+                Yugs<span className="yugs-name-dot" aria-hidden="true">.</span>
+              </h2>
+              <p className="yugs-tagline">
+                Chat, create artifacts, and get things done faster.
+              </p>
+              <p className="yugs-body">
+                Yugs is the AI assistant built by Yugya Technologies — our own product, built and
+                maintained in-house, and open to anyone with a free account.
+              </p>
+              <div className="hero-actions">
+                <a
+                  className="btn btn-primary"
+                  href={YUGS_URL}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Open Yugs <span className="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a
+                  className="btn btn-secondary"
+                  href={`${YUGS_URL}register`}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Create an account
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <dl className="yugs-facts">
+            <div>
+              <dt>Product</dt>
+              <dd>Yugs Bot</dd>
+            </div>
+            <div>
+              <dt>Type</dt>
+              <dd>AI assistant / web app</dd>
+            </div>
+            <div>
+              <dt>Built by</dt>
+              <dd>Yugya Technologies</dd>
+            </div>
+            <div>
+              <dt>Access</dt>
+              <dd>Free sign-up</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
       <section className="section" aria-labelledby="capabilities-title">
         <div className="shell">
           <div className="section-head">
@@ -145,53 +251,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section-soft" aria-labelledby="featured-title">
+      <section className="section section-soft" aria-labelledby="live-work-title">
         <div className="shell">
           <div className="section-head-split">
             <div>
-              <span className="hero-kicker">Selected work / 01</span>
-              <h2 id="featured-title">A completed build, shown plainly.</h2>
+              <span className="hero-kicker">Live client work</span>
+              <h2 id="live-work-title">Websites in production.</h2>
             </div>
-            <Link className="text-link" href="/work/">
-              All projects <span className="arrow" aria-hidden="true">↗</span>
+            <Link className="text-link" href="/work/#live-projects">
+              View live projects <span className="arrow" aria-hidden="true">↗</span>
             </Link>
           </div>
+          <p style={{ maxWidth: "46rem", marginBottom: "2rem" }}>
+            Real client websites, live on their own domains. Each project is shown at the same
+            scale, with no featured slot.
+          </p>
+          <LiveProjectIndex />
+        </div>
+      </section>
 
-          <div className="featured-project">
-            <Link className="work-plate reveal" href="/work/#aama-pathshala">
-              <div className="work-plate-frame">
-                <img
-                  src="/aama-pathshala.jpg"
-                  alt="Aama Pathshala preschool website interface showing facilities and contact points"
-                  width={1160}
-                  height={652}
-                />
-              </div>
-              <div className="work-plate-caption">
-                <span>Aama Pathshala / website</span>
-                <span>Completed web build</span>
-              </div>
-            </Link>
-
-            <div className="project-copy reveal">
-              <p className="project-meta">Education / bilingual interface</p>
-              <h3>Aama Pathshala — a bilingual preschool website.</h3>
-              <p>
-                A responsive website built for a preschool in Nepal. The site provides school
-                facility details, bus route information, and contact links in both English and
-                Nepali.
-              </p>
-              <ul className="project-facts">
-                <li><span>Project type</span><span>Educational website build</span></li>
-                <li><span>Stack</span><span>HTML5, CSS3, vanilla JS</span></li>
-                <li><span>Key feature</span><span>In-page EN / NP toggle</span></li>
-                <li><span>Status</span><span>Completed build</span></li>
-              </ul>
-              <Link className="text-link" href="/work/#aama-pathshala">
-                Read project notes <span className="arrow" aria-hidden="true">↗</span>
-              </Link>
+      <section className="section" aria-labelledby="demo-index-title">
+        <div className="shell">
+          <div className="section-head-split">
+            <div>
+              <span className="hero-kicker">Interactive demonstrations</span>
+              <h2 id="demo-index-title">Operate our work in your browser.</h2>
             </div>
+            <Link className="text-link" href="/work/#demos">
+              All demos <span className="arrow" aria-hidden="true">↗</span>
+            </Link>
           </div>
+          <p style={{ maxWidth: "46rem", marginBottom: "2rem" }}>
+            Five demonstration builds run directly in this page: a restaurant website, a
+            school tool, an inventory tracker, a team board, and a server console. Each uses
+            fictional sample data, includes a skippable guided tour, and labels every workflow
+            honestly as real in-browser logic, a simulated workflow, or sample data.
+          </p>
+          <DemoIndex />
         </div>
       </section>
 
@@ -318,6 +414,8 @@ export default function HomePage() {
                   alt="Yugya logo with wordmark and tagline"
                   width={670}
                   height={535}
+                  loading="lazy"
+                  decoding="async"
                 />
               </picture>
               <figcaption>
@@ -371,6 +469,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section" id="founders" aria-labelledby="home-founders-title">
+        <div className="shell">
+          <div className="section-head">
+            <span className="section-index" aria-hidden="true">03</span>
+            <div>
+              <h2 id="home-founders-title">The two people behind the studio.</h2>
+              <p>
+                Yugya was founded by {FOUNDER_NAMES}. Project enquiries can go to either
+                co-founder directly.
+              </p>
+            </div>
+          </div>
+          <FounderCards />
+        </div>
+      </section>
+
       <section className="section cta" aria-labelledby="cta-title">
         <div className="shell">
           <div className="cta-grid">
@@ -400,6 +514,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

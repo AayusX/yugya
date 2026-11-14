@@ -33,13 +33,26 @@ export function pageMetadata({
       url,
       siteName: "Yugya",
       type: "website",
-      images: [{ url: image, width: 1200, height: 630, alt: "Yugya — technology studio in Nepal" }],
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          type: "image/png",
+          alt: "Yugya — web development company in Nepal",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: ogTitle,
       description: ogDescription,
-      images: [image],
+      images: [
+        {
+          url: image,
+          alt: "Yugya — web development company in Nepal",
+        },
+      ],
     },
   };
 }

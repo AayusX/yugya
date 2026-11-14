@@ -33,6 +33,7 @@ npm run dev        # dev server at http://localhost:3000
 npm run typecheck  # tsc --noEmit
 npm run lint       # eslint
 npm run build      # static export into ./out
+npm run seo:check  # validate canonicals, metadata, JSON-LD, sitemap, robots, links
 npm start          # preview the built ./out folder (PORT=3000)
 ```
 
@@ -59,12 +60,22 @@ build needs no extra packages. Set `PORT` or `HOST` to change the bind address.
 │  ├─ SiteHeader.tsx        sticky header, mobile drawer, active link
 │  ├─ SiteFooter.tsx        footer, build-time year refreshed by an inline script
 │  ├─ RevealOnScroll.tsx    IntersectionObserver reveal animation
-│  └─ EnquiryForm.tsx       contact form (mailto + clipboard, no server)
+│  ├─ EnquiryForm.tsx       contact form (mailto + clipboard, no server)
+│  ├─ JsonLd.tsx            safe JSON-LD emitter
+│  ├─ LiveProjects.tsx      live client entries and compact home rows
+│  └─ ServiceVisual.tsx     inline reference diagrams for the service scopes
 ├─ lib/
 │  ├─ site.ts               site URL, email, nav, service links
-│  └─ metadata.ts           per-page metadata helper
-├─ public/                  brand art and project screenshots
+│  ├─ metadata.ts           per-page metadata helper
+│  ├─ schema.ts             Organization, WebSite, page, Service and FAQ schema
+│  └─ projects.ts           verified live client data and screenshot paths
+├─ public/                  brand art, live-client/demo screenshots, founder portraits
+├─ docs/
+│  ├─ visual-credibility.md page-by-page imagery audit, research and asset rules
+│  ├─ live-projects.md      live URL verification, screenshot provenance and attribution
+│  └─ seo/                  research, audit, keyword map, technical/GEO/content docs
 ├─ scripts/serve.mjs        static preview server for `npm start`
+├─ scripts/seo-check.mjs    zero-dependency export SEO checks
 └─ next.config.ts           static export configuration
 ```
 
@@ -121,12 +132,17 @@ means every route is a real `index.html`, so no rewrite rules are required.
 
 ## Metadata and SEO
 
-- Canonical URLs, Open Graph, and Twitter cards come from `lib/metadata.ts`, keyed off
-  `SITE_URL` in `lib/site.ts`.
-- Organization JSON-LD is emitted once from the root layout.
-- `app/sitemap.ts` lists all five routes; `app/robots.ts` allows all crawlers and points at the
-  sitemap.
+- `SITE_URL` in `lib/site.ts` is `https://www.yugya.com` — the live host. The apex domain
+  permanently redirects to it, so canonicals and sitemaps must name `www`.
+- Canonical URLs, Open Graph, and Twitter cards come from `lib/metadata.ts`.
+- `lib/schema.ts` builds the Organization, WebSite, page, Service and FAQPage JSON-LD;
+  `components/JsonLd.tsx` emits it safely. The root layout emits the global Organization +
+  WebSite graph; each page adds its own page node.
+- `app/sitemap.ts` lists all ten indexable routes; `app/robots.ts` allows all crawlers and
+  points at the sitemap.
 - `app/icon.png` and `app/apple-icon.png` are picked up automatically by the App Router.
+- Run `npm run seo:check` after `npm run build` to validate canonicals, metadata, JSON-LD,
+  sitemap, robots and internal links. Full SEO documentation is in `docs/seo/`.
 
 ## Quality checks
 
@@ -135,6 +151,7 @@ npm run typecheck
 npm run lint
 npm audit          # expected: found 0 vulnerabilities
 npm run build
+npm run seo:check  # runs against ./out
 ```
 
 `package.json` pins a `minimatch` override (`^11.0.4`) and ESLint `^10.14.0` so the dependency

@@ -1,0 +1,374 @@
+/* ==========================================================================
+   Brand entry sequence
+   A one-off title card for full page loads: forest field, the studio name
+   rising through a mask, a hairline, the promise line. Then a cream flash
+   and a split curtain that hands the page over.
+
+   Rules this file follows:
+   - Motion is transform/opacity only (the scene push is one slow scale).
+   - It never covers a page that is still loading: the page is already
+     server-rendered behind it, so the sequence is brand, not a spinner.
+   - Skippable from the first interaction; no-JS and reduced-motion never
+     see it (the pre-paint script simply never sets the attribute).
+   - Colours are the inverse tokens, so it is identical in both themes.
+   ========================================================================== */
+
+#intro {
+  display: none;
+}
+
+html[data-intro="on"] {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+  overscroll-behavior: none;
+  background: var(--color-primary);
+}
+
+html[data-intro="on"] #intro {
+  display: block;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: var(--color-primary);
+  color: var(--color-inverse-text);
+  user-select: none;
+}
+
+.intro.is-out {
+  pointer-events: none;
+  /* Keep the forest field until the flash reaches full cream, then clear it so
+     the split panels reveal the page behind them rather than the field again. */
+  animation: intro-clear 1ms linear var(--intro-flash, 130ms) forwards;
+}
+
+/* --- Stage ---------------------------------------------------------------- */
+
+.intro-scene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 1.5rem;
+  padding: clamp(1.4rem, 4vw, 2.8rem);
+  animation: intro-push 3400ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  transition: opacity 200ms ease;
+}
+
+.intro.is-out .intro-scene {
+  opacity: 0;
+}
+
+.intro-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 1.5rem;
+  margin: 0;
+  color: var(--color-inverse-muted);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: intro-row 700ms cubic-bezier(0.16, 1, 0.3, 1) 140ms both;
+}
+
+.intro-row-bottom {
+  animation-delay: 520ms;
+}
+
+.intro-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-inverse-text);
+}
+
+.intro-brand::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--color-sage);
+}
+
+.intro-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.9rem, 2.2vw, 1.4rem);
+  text-align: center;
+}
+
+/* The mask carries the word's font-size so its padding is measured in the
+   word's em: the top/bottom space is what lets Newsreader's ascenders and the
+   "g"/"y" descenders sit inside the clip box instead of being sliced. The
+   negative margin keeps the flex layout measuring only the line box. */
+.intro-word-mask {
+  display: block;
+  max-width: 100%;
+  padding: 0.14em 0.08em 0.2em;
+  margin: -0.14em -0.08em -0.2em;
+  font-size: clamp(4.5rem, 15vw, 13rem);
+  overflow: hidden;
+}
+
+.intro-word {
+  --intro-word-shift: 135%;
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  color: var(--color-inverse-text);
+  transform: translateY(var(--intro-word-shift));
+}
+
+/* The wordmark waits for Newsreader (or 400ms, whichever comes first) so the
+   reveal never plays in a fallback face and swaps mid-rise. */
+#intro.is-fonted .intro-word {
+  animation: intro-word 1000ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both;
+}
+
+.intro-rule {
+  display: block;
+  width: clamp(180px, 30vw, 360px);
+  height: 1px;
+  background: var(--color-inverse-border);
+  transform: scaleX(0);
+}
+
+#intro.is-fonted .intro-rule {
+  animation: intro-rule 800ms cubic-bezier(0.16, 1, 0.3, 1) 550ms both;
+}
+
+.intro-sub {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--color-inverse-muted);
+  font-family: var(--font-mono);
+  font-size: clamp(0.6rem, 0.9vw, 0.7rem);
+  letter-spacing: 0.14em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+#intro.is-fonted .intro-sub {
+  animation: intro-fade 700ms cubic-bezier(0.16, 1, 0.3, 1) 750ms both;
+}
+
+.intro-skip {
+  padding: 0.45rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-inverse-border);
+  border-radius: 0;
+  background: none;
+  color: var(--color-inverse-muted);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--fast) ease, border-color var(--fast) ease;
+}
+
+.intro-skip:hover {
+  color: var(--color-inverse-text);
+  border-bottom-color: var(--color-inverse-text);
+}
+
+.intro-skip:focus-visible {
+  outline: 2px solid var(--color-inverse-text);
+  outline-offset: 4px;
+}
+
+/* --- Flash and split curtain ---------------------------------------------- */
+
+.intro-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  height: 50.2%;
+  background: var(--color-inverse-text);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-panel-top {
+  top: 0;
+}
+
+.intro-panel-bottom {
+  bottom: 0;
+}
+
+.intro.is-out .intro-panel-top {
+  animation: intro-flash var(--intro-flash, 130ms) ease-out forwards,
+    intro-lift-top var(--intro-lift, 700ms) cubic-bezier(0.76, 0, 0.24, 1)
+      var(--intro-lift-delay, 160ms) forwards;
+}
+
+.intro.is-out .intro-panel-bottom {
+  animation: intro-flash var(--intro-flash, 130ms) ease-out forwards,
+    intro-lift-bottom var(--intro-lift, 700ms) cubic-bezier(0.76, 0, 0.24, 1)
+      var(--intro-lift-delay, 160ms) forwards;
+}
+
+.intro.is-fast {
+  --intro-flash: 70ms;
+  --intro-lift: 320ms;
+  --intro-lift-delay: 60ms;
+}
+
+/* The page settles under the rising curtain instead of appearing frozen. */
+html.intro-exit main {
+  animation: intro-site 900ms cubic-bezier(0.16, 1, 0.3, 1) 260ms both;
+}
+
+html.intro-exit.intro-fast main {
+  animation-duration: 420ms;
+  animation-delay: 40ms;
+}
+
+/* --- Keyframes ------------------------------------------------------------ */
+
+@keyframes intro-row {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes intro-word {
+  from {
+    transform: translateY(var(--intro-word-shift));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-rule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes intro-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes intro-push {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.035);
+  }
+}
+
+@keyframes intro-flash {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes intro-clear {
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes intro-lift-top {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes intro-lift-bottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes intro-site {
+  from {
+    opacity: 0.6;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Small screens -------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .intro-row {
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  .intro-row-top .intro-aside {
+    display: none;
+  }
+
+  .intro-row-bottom {
+    justify-content: center;
+  }
+
+  .intro-row-bottom .intro-place {
+    display: none;
+  }
+}
+
+/* --- Reduced motion ------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-intro="on"] {
+    overflow: auto;
+    scrollbar-gutter: auto;
+  }
+
+  html[data-intro="on"] #intro {
+    display: none;
+  }
+
+  #intro *,
+  html.intro-exit main {
+    animation: none !important;
+  }
+}
